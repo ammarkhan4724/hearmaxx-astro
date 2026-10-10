@@ -1,0 +1,218 @@
+/* ==========================================================
+   Hear Maxx – UI polish & enhancements (layered on top of the
+   migrated Elementor styles; safe to remove as a single file)
+   ========================================================== */
+
+:root {
+  --hm-accent: #0693e3;
+  --hm-accent-dark: #0575b8;
+  --hm-ink: #14233a;
+  --hm-radius: 14px;
+  --hm-shadow-sm: 0 2px 10px rgba(20, 35, 58, .06);
+  --hm-shadow-md: 0 12px 30px rgba(20, 35, 58, .12);
+  --hm-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Elementor motion effects can push inner columns past the viewport; clip them (keeps sticky header working) */
+html, body { overflow-x: clip; }
+body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+img, video { max-width: 100%; height: auto; }
+
+/* ---------- Accessibility: visible keyboard focus ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+.elementor-swiper-button:focus-visible {
+  outline: 3px solid var(--hm-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Buttons: smoother, lift on hover ---------- */
+.elementor-button {
+  transition: transform .25s var(--hm-ease), box-shadow .25s var(--hm-ease), background-color .25s var(--hm-ease), color .25s var(--hm-ease) !important;
+  letter-spacing: .01em;
+}
+.elementor-button:hover,
+.elementor-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--hm-shadow-md);
+}
+.elementor-button:active { transform: translateY(0); box-shadow: var(--hm-shadow-sm); }
+
+/* ---------- Cards / boxes: subtle depth on hover ---------- */
+.elementor-widget-image img,
+.elementor-widget-image-box img,
+.elementor-widget-image .elementor-image img {
+  transition: transform .6s var(--hm-ease);
+}
+.elementor-widget-image a:hover img { transform: scale(1.02); }
+
+.elementor-element .elementor-widget-container img {
+  border-radius: 0;
+}
+
+/* ---------- Links: consistent underline behaviour ---------- */
+.elementor-widget-text-editor a:not(.elementor-button),
+.elementor-widget-heading a {
+  text-underline-offset: .18em;
+  text-decoration-thickness: 1px;
+  transition: color .2s ease;
+}
+
+/* ---------- Header: subtle elevation once the page scrolls ---------- */
+.mega-menu-wrap {
+  transition: box-shadow .3s ease, background-color .3s ease;
+}
+body.hm-scrolled .mega-menu-wrap {
+  box-shadow: 0 8px 24px rgba(20, 35, 58, .10);
+}
+
+/* ---------- Slider controls: bigger tap targets ---------- */
+.elementor-swiper-button {
+  width: 44px !important;
+  height: 44px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  backdrop-filter: blur(4px);
+  transition: background-color .25s ease, transform .25s ease;
+}
+.elementor-swiper-button:hover { background: rgba(255, 255, 255, .34); transform: scale(1.06); }
+.elementor-swiper-button svg,
+.elementor-swiper-button i { width: 18px; height: 18px; font-size: 18px; }
+.swiper-pagination-bullet { transition: transform .2s ease, background-color .2s ease; }
+.swiper-pagination-bullet:hover { transform: scale(1.25); }
+
+/* ---------- Back-to-top button (added by enhance.js) ---------- */
+.hm-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--hm-accent);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(6, 147, 227, .35);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s var(--hm-ease), background-color .2s ease;
+}
+.hm-to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.hm-to-top:hover { background: var(--hm-accent-dark); }
+.hm-to-top svg { width: 20px; height: 20px; }
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 767px) {
+  /* Tighter vertical rhythm between stacked sections */
+  .elementor-section.elementor-section-boxed > .elementor-container { padding-left: 18px; padding-right: 18px; }
+  .elementor-widget:not(:last-child) { margin-bottom: 18px; }
+
+  /* Headings wrap more gracefully on small screens */
+  .elementor-widget-heading .elementor-heading-title { line-height: 1.2; }
+
+  /* Keep the back-to-top button clear of the bottom edge */
+  .hm-to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; }
+
+  /* Hero slider: move arrows to the bottom corners so they never cover the headline */
+  .elementor-swiper-button {
+    top: auto !important;
+    bottom: 8px !important;
+    width: 36px !important;
+    height: 36px !important;
+    transform: none !important;
+  }
+  .elementor-swiper-button:hover { transform: none !important; }
+  .elementor-swiper-button-prev { left: 8px !important; right: auto !important; }
+  .elementor-swiper-button-next { right: 8px !important; left: auto !important; }
+}
+
+/* ---------- Reduced motion: respect user preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ---------- Modern & Premium Enhancements (Glassmorphism & Typography) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+body, h1, h2, h3, h4, h5, h6, .elementor-widget-heading .elementor-heading-title, .elementor-widget-text-editor {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+}
+
+/* Glassmorphism Styles */
+.hm-glass {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: var(--hm-shadow-md) !important;
+  border-radius: var(--hm-radius) !important;
+}
+
+.hm-glass-strong {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: var(--hm-radius) !important;
+}
+
+.hm-glass-dark {
+  background: rgba(20, 35, 58, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+/* Reveal Animation */
+.hm-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hm-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Enhancements */
+.elementor-button {
+  border-radius: 50px !important;
+  background: linear-gradient(135deg, var(--hm-accent) 0%, var(--hm-accent-dark) 100%) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+.elementor-button:hover {
+  box-shadow: 0 10px 20px rgba(6, 147, 227, 0.4) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+}
+
+/* Cards Hover Expansion */
+.hm-glass, .hm-glass-strong {
+  transition: transform 0.4s var(--hm-ease), box-shadow 0.4s var(--hm-ease) !important;
+}
+.hm-glass:hover, .hm-glass-strong:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(20, 35, 58, 0.08) !important;
+}

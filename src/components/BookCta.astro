@@ -1,0 +1,80 @@
+<section class="cta" id="book">
+  <div class="container cta__inner">
+    <div>
+      <span class="eyebrow eyebrow--light">No obligation</span>
+      <h2>Ready for a free ear check-up?</h2>
+      <p>Book in a few minutes. Our team will confirm your appointment and answer any questions before you arrive.</p>
+      <div class="cta__actions">
+        <a class="btn btn--light" href="mailto:hello@example.com?subject=Appointment%20request">Request an appointment</a>
+        <a class="btn btn--ghost btn--ghost-light" href="tel:+15550000000">Call +1 (555) 000-0000</a>
+      </div>
+    </div>
+
+    <form class="form" action="#" method="post" onsubmit="event.preventDefault(); this.querySelector('.form__note').textContent = 'Thanks! This is a demo form, so nothing was sent.';">
+      <label>
+        Full name
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+      <label>
+        Preferred clinic
+        <select name="clinic">
+          <option>Main clinic</option>
+          <option>Downtown clinic</option>
+          <option>Suburban clinic</option>
+        </select>
+      </label>
+      <button class="btn btn--primary" type="submit">Book my free consultation</button>
+      <p class="form__note" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #d6e0ee;
+    padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+  }
+  .cta__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .cta h2 { color: #fff; }
+  .cta p { color: #c2cee0; }
+  .eyebrow--light { color: #7fd3ff; }
+  .cta__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.5rem; }
+  .btn--ghost-light { color: #fff; border-color: #fff; }
+  .btn--ghost-light:hover { background: #fff; color: var(--navy); }
+
+  .form {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    display: grid;
+    gap: 1.1rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    color: var(--ink);
+  }
+  .form label { display: grid; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .form input,
+  .form select {
+    font: inherit;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fbfcfe;
+    color: var(--ink);
+  }
+  .form input:focus,
+  .form select:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .form .btn { width: 100%; }
+  .form__note { margin: 0; font-size: 0.9rem; color: var(--teal); min-height: 1.2em; }
+
+  @media (max-width: 860px) { .cta__inner { grid-template-columns: 1fr; } }
+</style>

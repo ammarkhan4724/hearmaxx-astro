@@ -1,0 +1,35 @@
+---
+interface Props { title: string; lang: string; bodyClass: string; head: string; body: string; }
+const { title, lang, bodyClass, head, body } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <script is:inline>
+      (function () {
+        window.wp = window.wp || {};
+        window.wp.i18n = window.wp.i18n || {
+          __: function (s) { return s; },
+          _x: function (s) { return s; },
+          _n: function (s, p, n) { return n === 1 ? s : p; },
+          _nx: function (s, p, n) { return n === 1 ? s : p; },
+          setLocaleData: function () {},
+          getLocaleData: function () { return {}; },
+          sprintf: function (f) {
+            var a = [].slice.call(arguments, 1), i = 0;
+            return String(f).replace(/%(s|d)/g, function () { return a[i++]; });
+          }
+        };
+      })();
+    </script>
+    <title>{title}</title>
+    <Fragment set:html={head} />
+    <link rel="stylesheet" href="/enhance/enhance.css" />
+    <link rel="stylesheet" href="/enhance/theme.css" />
+  </head>
+  <body class={bodyClass}>
+    <Fragment set:html={body} />
+    <script src="/enhance/enhance.js" defer></script>
+    <script src="/enhance/glass.js" defer></script>
+  </body>
+</html>

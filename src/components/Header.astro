@@ -1,0 +1,143 @@
+---
+const navItems = [
+  { label: 'Hearing Health', href: '#hearing-health' },
+  { label: 'Solutions', href: '#solutions' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span>Free hearing screenings available this month</span>
+    <a href="tel:+15550000000">+1 (555) 000-0000</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="Sound & Clarity home">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#0693e3" />
+        <path d="M12 22c0-6 3.5-10 8-10s8 4 8 9-3 6-5 9-4 2-5 2" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" />
+        <path d="M18 20c0-2.5 1.2-4 3-4s3 1.5 3 3.5-1.5 3-2.5 4.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" />
+      </svg>
+      <span>Sound<em>&</em>Clarity</span>
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Primary">
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+      <a class="btn btn--primary nav__cta" href="#book">Book Appointment</a>
+    </nav>
+
+    <button class="burger" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('.burger');
+  const menu = document.getElementById('menu');
+  burger?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('is-open') ?? false;
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      burger?.setAttribute('aria-expanded', 'false');
+    }),
+  );
+</script>
+
+<style>
+  .topbar {
+    background: var(--navy);
+    color: #cfd9e6;
+    font-size: 0.85rem;
+  }
+  .topbar__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    flex-wrap: wrap;
+  }
+  .topbar a { color: #fff; font-weight: 700; text-decoration: none; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    gap: 1rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+  .brand em { color: var(--blue); font-style: normal; margin: 0 0.1em; }
+
+  .menu { display: flex; align-items: center; gap: 1.5rem; }
+  .menu ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+  .menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.95rem;
+  }
+  .menu a:hover { color: var(--blue); }
+  .nav__cta { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
+
+  .burger {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .burger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+  @media (max-width: 960px) {
+    .burger { display: flex; }
+    .menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1.25rem 1.25rem 1.5rem;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: none;
+    }
+    .menu.is-open { display: flex; }
+    .menu ul { flex-direction: column; gap: 0.9rem; }
+    .nav__cta { text-align: center; }
+  }
+</style>

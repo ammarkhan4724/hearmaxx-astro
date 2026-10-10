@@ -1,0 +1,71 @@
+<section class="section" id="steps">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Your Path Forward</span>
+      <h2>Four simple steps to better hearing</h2>
+      <p>From finding a clinic to choosing the right device, we guide you at every stage.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step__num">01</span>
+        <h3>Find a clinic</h3>
+        <p>Locate a trusted hearing clinic near you and take the first step.</p>
+        <a href="#contact">Find a clinic →</a>
+      </li>
+      <li class="step">
+        <span class="step__num">02</span>
+        <h3>Book a free consultation</h3>
+        <p>Schedule a no-cost appointment with one of our hearing specialists.</p>
+        <a href="#book">Book now →</a>
+      </li>
+      <li class="step">
+        <span class="step__num">03</span>
+        <h3>Get expert advice</h3>
+        <p>Receive recommendations tailored to your lifestyle and listening needs.</p>
+        <a href="#solutions">Get advice →</a>
+      </li>
+      <li class="step">
+        <span class="step__num">04</span>
+        <h3>Choose your solution</h3>
+        <p>Compare hearing aids and services, then pick what suits you best.</p>
+        <a href="#solutions">Explore options →</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    counter-reset: step;
+  }
+  .step {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem 1.75rem;
+    box-shadow: var(--shadow);
+  }
+  .step__num {
+    display: inline-grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 1.1rem;
+  }
+  .step a { font-weight: 700; color: var(--blue-dark); text-decoration: none; }
+  .step a:hover { text-decoration: underline; }
+  @media (max-width: 960px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .steps { grid-template-columns: 1fr; } }
+</style>

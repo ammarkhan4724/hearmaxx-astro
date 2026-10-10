@@ -1,0 +1,116 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><strong>4.9</strong> average from 100+ patient reviews</span>
+      </div>
+      <h1>Clearer conversations, <span>starting today.</span></h1>
+      <p class="lead">
+        For over 25 years our certified hearing specialists have helped families, professionals and
+        retirees hear better. Every visit begins with a thorough, no-pressure assessment.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#book">Book an Appointment</a>
+        <a class="btn btn--ghost" href="#steps">See How It Works</a>
+      </div>
+      <ul class="hero__proof">
+        <li>Free hearing tests</li>
+        <li>Free lifetime adjustments</li>
+        <li>Flexible payment plans</li>
+      </ul>
+    </div>
+
+    <div class="hero__visual">
+      <img src="/images/hero-art.svg" alt="" width="560" height="480" />
+      <div class="float float--top">
+        <span class="float__dot"></span>
+        <div><strong>Free screening</strong><small>Takes about 30 minutes</small></div>
+      </div>
+      <div class="float float--bottom">
+        <strong>95%</strong>
+        <small>patients report clearer speech</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(circle at 85% 10%, #eaf5fd 0%, transparent 45%),
+      linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+    padding: clamp(3rem, 7vw, 6rem) 0;
+    overflow: hidden;
+  }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4rem 1rem 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  .rating strong { color: var(--navy); }
+  .stars { color: #f5b301; letter-spacing: 2px; }
+  h1 span { color: var(--blue); }
+  .lead { font-size: 1.1rem; max-width: 560px; margin-bottom: 2rem; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  .hero__proof {
+    list-style: none;
+    padding: 0;
+    margin: 2.25rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--navy);
+  }
+  .hero__proof li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 800;
+    margin-right: 0.4rem;
+  }
+  .hero__visual { position: relative; }
+  .hero__visual img { width: 100%; height: auto; }
+  .float {
+    position: absolute;
+    background: #fff;
+    border-radius: 14px;
+    padding: 0.9rem 1.1rem;
+    box-shadow: 0 16px 40px rgba(20, 35, 58, 0.18);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .float strong { color: var(--navy); }
+  .float small { color: var(--muted); font-size: 0.8rem; }
+  .float--top { top: 8%; left: -4%; flex-direction: row; align-items: center; gap: 0.7rem; }
+  .float--bottom { bottom: 8%; right: -3%; font-size: 1.1rem; }
+  .float--bottom strong { font-size: 1.8rem; color: var(--blue-dark); }
+  .float__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 6px rgba(0, 168, 143, 0.18);
+  }
+  @media (max-width: 860px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .float--top { left: 0; }
+    .float--bottom { right: 0; }
+  }
+</style>
