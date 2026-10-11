@@ -176,16 +176,19 @@ body::after {
 .mega-menu-wrap .mega-menu-item:hover > .mega-menu-link::after,
 .mega-menu-wrap .mega-menu-link:focus-visible::after { transform: scaleX(1); }
 
-/* Header: one consistent dark frosted bar on every page, so the white logo and
-   white links stay legible over photos, pastel backdrops, and light sections */
+/* Mega menu wrap itself is completely transparent (header sections handle their own surfaces) */
 .mega-menu-wrap {
-  background-color: rgba(12, 22, 40, .58) !important;
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  backdrop-filter: blur(18px) saturate(160%);
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 body.hm-scrolled .mega-menu-wrap {
-  background-color: rgba(12, 22, 40, .72) !important;
-  box-shadow: 0 14px 40px rgba(6, 12, 24, .28);
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .mega-menu-wrap .mega-menu-link { color: #ffffff !important; }
 .mega-menu-wrap .mega-menu-link:hover { color: #bfe3ff !important; }

@@ -14,8 +14,10 @@
     var all = document.querySelectorAll('body *');
     for (var i = 0; i < all.length; i++) {
       var el = all[i];
-      if (el.closest('.hm-to-top, .mega-menu-toggle') || el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')) continue;
-      if (el.querySelector('img[src*="hear_maxx_logo"], img[src*="Footer-Logo"]')) continue; // keep logo areas as designed
+      if (el.closest('.hm-to-top, .mega-menu-toggle, .elementor-element-3a844cf, .mega-menu-wrap, .elementor-element-b3b6838, .elementor-element-a82d207, .elementor-element-905bc04, .elementor-element-39ce786') || el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')) continue;
+      if (el.querySelector('img[src*="hear_maxx_logo"], img[src*="Footer-Logo"], .hm-hearing-loss-hero-img')) continue; // keep logo & featured photo areas as designed
+      var bgImg = getComputedStyle(el).backgroundImage;
+      if (bgImg && bgImg !== 'none' && !bgImg.includes('gradient') && !bgImg.includes('data:image/svg')) continue;
       var c = parse(getComputedStyle(el).backgroundColor);
       if (!c || c.a < 0.5) continue;
       var r = el.getBoundingClientRect();
@@ -37,7 +39,7 @@
         else el.classList.add('hm-clear');
         continue;
       }
-      if (el.classList.contains('mega-sub-menu') || el.closest('.mega-menu-wrap')) {
+      if (el.classList.contains('mega-sub-menu')) {
         el.classList.add('hm-glass-strong');
         continue;
       }
