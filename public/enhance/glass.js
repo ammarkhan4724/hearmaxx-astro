@@ -39,10 +39,7 @@
         else el.classList.add('hm-clear');
         continue;
       }
-      if (el.classList.contains('mega-sub-menu')) {
-        el.classList.add('hm-glass-strong');
-        continue;
-      }
+      if (el.closest('.mega-menu-wrap, .mega-menu, .mega-sub-menu')) continue;
       el.classList.add('hm-glass');
     }
   }
