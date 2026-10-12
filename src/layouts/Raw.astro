@@ -32,10 +32,10 @@ function optimizeHead(rawHead: string) {
   // Remove dashicons (34.8 KiB unused WP admin icons)
   h = h.replace(/<link[^>]*id=['"]dashicons-css['"][^>]*\/?>\s*/gi, '');
 
-  // Defer scripts in head
-  h = h.replace(/<script([^>]*src=['"][^'"]*jquery[^'"]*['"][^>]*)>/gi, (match, attrs) => {
-    return attrs.includes('defer') ? match : `<script${attrs} defer>`;
-  });
+  // Remove any duplicate or relative canonical tags from rawHead to ensure single absolute canonical
+  h = h.replace(/<link[^>]*rel=['"]canonical['"][^>]*\/?>\s*/gi, '');
+
+  // Only defer non-critical shim scripts in head; keep jQuery available for inline body scripts
   h = h.replace(/<script([^>]*src=['"][^'"]*v4-shims[^'"]*['"][^>]*)>/gi, (match, attrs) => {
     return attrs.includes('defer') ? match : `<script${attrs} defer>`;
   });
@@ -123,6 +123,12 @@ function optimizeBody(rawBody: string) {
     return `<img${a}>`;
   });
 
+  // Fix heading hierarchy: change eyebrow h5 to paragraph to avoid skipping heading levels
+  b = b.replace(
+    /<h5(\s+class=['"][^'"]*elementor-heading-title[^'"]*['"][^>]*)>([\s\S]*?just make an appointment[\s\S]*?)<\/h5>/gi,
+    '<p$1 style="font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--hm-accent-deep,#0f5fa8);margin-bottom:8px;">$2</p>'
+  );
+
   return b;
 }
 
@@ -165,6 +171,45 @@ const optimizedBody = optimizeBody(body);
       <link rel="preload" as="image" href={preloadImage} fetchpriority="high" type="image/webp" />
     )}
 
+    <!-- Critical Hero CSS to eliminate LCP Element Render Delay -->
+    <style is:inline>
+      .elementor-element-d66fe82,
+      .elementor-element-d66fe82 .elementor-slides-wrapper,
+      .elementor-element-d66fe82 .elementor-slides {
+        min-height: 480px;
+        position: relative;
+      }
+      .elementor-repeater-item-1668df9 {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+        min-height: 480px;
+        width: 100% !important;
+      }
+      .elementor-repeater-item-1668df9 .swiper-slide-bg {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background-image: url('/wp-content/uploads/2025/04/9.webp') !important;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      @media (max-width: 767px) {
+        .elementor-element-d66fe82,
+        .elementor-element-d66fe82 .elementor-slides-wrapper,
+        .elementor-element-d66fe82 .elementor-slides,
+        .elementor-repeater-item-1668df9 {
+          min-height: 380px;
+        }
+      }
+    </style>
+
     <!-- Font-display: swap overrides for all icon fonts -->
     <style is:inline>
       @font-face { font-family: 'eicons'; font-display: swap; }
@@ -176,11 +221,22 @@ const optimizedBody = optimizeBody(body);
     <script is:inline>
       (function () {
         window.wp = window.wp || {};
+        window.wp.hooks = window.wp.hooks || {
+          addAction: function () {},
+          removeAction: function () {},
+          hasAction: function () { return false; },
+          doAction: function () {},
+          addFilter: function () {},
+          removeFilter: function () {},
+          hasFilter: function () { return false; },
+          applyFilters: function (k, v) { return v; }
+        };
         window.wp.i18n = window.wp.i18n || {
           __: function (s) { return s; },
           _x: function (s) { return s; },
           _n: function (s, p, n) { return n === 1 ? s : p; },
           _nx: function (s, p, n) { return n === 1 ? s : p; },
+          isRtl: function () { return false; },
           setLocaleData: function () {},
           getLocaleData: function () { return {}; },
           sprintf: function (f) {
@@ -196,7 +252,9 @@ const optimizedBody = optimizeBody(body);
     <link rel="stylesheet" href="/enhance/enhance.css" />
   </head>
   <body class={bodyClass}>
-    <Fragment set:html={optimizedBody} />
+    <main id="main">
+      <Fragment set:html={optimizedBody} />
+    </main>
     <script src="/enhance/enhance.js" defer></script>
     <script src="/enhance/glass.js" defer></script>
   </body>

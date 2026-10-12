@@ -1,4 +1,4 @@
 node_modules/
-dist/
+/dist/
 .astro/
 scratch_*.cjs

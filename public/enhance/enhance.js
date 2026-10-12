@@ -18,29 +18,42 @@
 (function () {
   'use strict';
 
-  // 1) Header elevation after scrolling
-  var onScroll = function () {
-    document.body.classList.toggle('hm-scrolled', window.scrollY > 40);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  // 1) Header elevation & Back-to-top button (deferred to avoid forced reflow during page load)
+  function initScrollEnhancements() {
+    var ticking = false;
+    var btn = document.createElement('button');
+    btn.className = 'hm-to-top';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+    document.body.appendChild(btn);
 
-  // 2) Back-to-top button
-  var btn = document.createElement('button');
-  btn.className = 'hm-to-top';
-  btn.type = 'button';
-  btn.setAttribute('aria-label', 'Back to top');
-  btn.innerHTML =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-  });
-  document.body.appendChild(btn);
-  var toggleBtn = function () { btn.classList.toggle('is-visible', window.scrollY > 600); };
-  toggleBtn();
-  window.addEventListener('scroll', toggleBtn, { passive: true });
+    var updateScrollState = function () {
+      var y = window.scrollY || window.pageYOffset || 0;
+      document.body.classList.toggle('hm-scrolled', y > 40);
+      btn.classList.toggle('is-visible', y > 600);
+      ticking = false;
+    };
 
-  // 3) Lazy-load images that are below the fold (Elementor already lazy-loads some)
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initScrollEnhancements, { timeout: 1500 });
+  } else {
+    setTimeout(initScrollEnhancements, 300);
+  }
+
+  // 2) Lazy-load images that are below the fold (Elementor already lazy-loads some)
   function initLazyImages() {
     var imgs = document.querySelectorAll('img:not([loading])');
     var wh = window.innerHeight || 800;
@@ -56,15 +69,16 @@
     setTimeout(initLazyImages, 100);
   }
 
-  // 4) External links open safely in a new tab
+  // 3) External links open safely in a new tab
   document.querySelectorAll('a[href^="http"]').forEach(function (a) {
     if (a.host !== window.location.host) {
       a.setAttribute('rel', (a.getAttribute('rel') || '') + ' noopener noreferrer');
     }
   });
 
-  // 5) Mobile Navigation Drawer & White Logo Sync (Screens <= 1203px)
+  // 4) Mobile Navigation Drawer & White Logo Sync (Screens <= 1203px)
   function syncMobileLogo() {
+    if (document.body.classList.contains('home')) return;
     var isMobile = window.innerWidth <= 1203;
     document.querySelectorAll('body:not(.home) .elementor-section:has(#mega-menu-wrap-max_mega_menu_1) img').forEach(function (img) {
       if (isMobile) {
@@ -85,8 +99,9 @@
     });
   }
 
-  // Run immediately to eliminate any flash of desktop logo on mobile
-  syncMobileLogo();
+  if (!document.body.classList.contains('home')) {
+    syncMobileLogo();
+  }
 
   function initMobileDrawer() {
     function handleResize() {
