@@ -14,7 +14,7 @@
     var all = document.querySelectorAll('body *');
     for (var i = 0; i < all.length; i++) {
       var el = all[i];
-      if (el.closest('.hm-to-top, .mega-menu-toggle, .elementor-element-3a844cf, .mega-menu-wrap, .elementor-element-b3b6838, .elementor-element-a82d207, .elementor-element-905bc04, .elementor-element-39ce786') || el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')) continue;
+      if (el.closest('.hm-to-top, .mega-menu-toggle, .elementor-element-3a844cf, .mega-menu-wrap, #mega-menu-wrap-max_mega_menu_1, .elementor-section:has(#mega-menu-wrap-max_mega_menu_1), .elementor-element-b3b6838, .elementor-element-a82d207, .elementor-element-905bc04, .elementor-element-39ce786') || el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')) continue;
       if (el.querySelector('img[src*="hear_maxx_logo"], img[src*="Footer-Logo"], .hm-hearing-loss-hero-img')) continue; // keep logo & featured photo areas as designed
       var bgImg = getComputedStyle(el).backgroundImage;
       if (bgImg && bgImg !== 'none' && !bgImg.includes('gradient') && !bgImg.includes('data:image/svg')) continue;
@@ -39,10 +39,7 @@
         else el.classList.add('hm-clear');
         continue;
       }
-      if (el.classList.contains('mega-sub-menu')) {
-        el.classList.add('hm-glass-strong');
-        continue;
-      }
+      if (el.closest('.mega-menu-wrap, .mega-menu, .mega-sub-menu')) continue;
       el.classList.add('hm-glass');
     }
   }
