@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://pink-kingfisher-948450.hostingersite.com',
   devToolbar: { enabled: false },
   vite: {
     server: {

@@ -41,12 +41,20 @@
   window.addEventListener('scroll', toggleBtn, { passive: true });
 
   // 3) Lazy-load images that are below the fold (Elementor already lazy-loads some)
-  var imgs = document.querySelectorAll('img:not([loading])');
-  imgs.forEach(function (img, i) {
-    var r = img.getBoundingClientRect();
-    if (r.top > window.innerHeight * 1.2) img.setAttribute('loading', 'lazy');
-    img.setAttribute('decoding', 'async');
-  });
+  function initLazyImages() {
+    var imgs = document.querySelectorAll('img:not([loading])');
+    var wh = window.innerHeight || 800;
+    imgs.forEach(function (img) {
+      var r = img.getBoundingClientRect();
+      if (r.top > wh * 1.2) img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+    });
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initLazyImages, { timeout: 2000 });
+  } else {
+    setTimeout(initLazyImages, 100);
+  }
 
   // 4) External links open safely in a new tab
   document.querySelectorAll('a[href^="http"]').forEach(function (a) {

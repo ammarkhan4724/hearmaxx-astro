@@ -1,10 +1,178 @@
 ---
-interface Props { title: string; lang: string; bodyClass: string; head: string; body: string; }
-const { title, lang, bodyClass, head, body } = Astro.props;
+interface Props {
+  title: string;
+  lang: string;
+  bodyClass: string;
+  head: string;
+  body: string;
+  description?: string;
+  canonicalPath?: string;
+  preloadImage?: string;
+}
+
+const {
+  title,
+  lang = 'en-US',
+  bodyClass,
+  head,
+  body,
+  description = 'Hear Maxx offers certified audiologist consultations, comprehensive hearing evaluations, advanced digital hearing aids, and complete ear care solutions.',
+  canonicalPath = '/',
+  preloadImage = '/wp-content/uploads/2025/04/9.webp',
+} = Astro.props;
+
+// Domain configuration
+const siteUrl = 'https://pink-kingfisher-948450.hostingersite.com';
+const canonicalUrl = `${siteUrl}${canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath}`;
+
+// 1. Optimize <head>
+function optimizeHead(rawHead: string) {
+  let h = rawHead;
+
+  // Remove dashicons (34.8 KiB unused WP admin icons)
+  h = h.replace(/<link[^>]*id=['"]dashicons-css['"][^>]*\/?>\s*/gi, '');
+
+  // Defer scripts in head
+  h = h.replace(/<script([^>]*src=['"][^'"]*jquery[^'"]*['"][^>]*)>/gi, (match, attrs) => {
+    return attrs.includes('defer') ? match : `<script${attrs} defer>`;
+  });
+  h = h.replace(/<script([^>]*src=['"][^'"]*v4-shims[^'"]*['"][^>]*)>/gi, (match, attrs) => {
+    return attrs.includes('defer') ? match : `<script${attrs} defer>`;
+  });
+
+  // Make non-critical local Google Fonts and widget/animation CSS load asynchronously
+  const nonCriticalPatterns = [
+    /elementor-gf-local/i,
+    /font-awesome-5-all/i,
+    /font-awesome-4-shim/i,
+    /elementor-icons/i,
+    /e-animation-/i,
+    /styles\/fadeIn/i,
+    /widget-flip-box/i,
+    /widget-social-icons/i,
+    /custom-widget-icon-list/i,
+    /widget-rating/i,
+    /widget-divider/i,
+    /widget-slides/i,
+    /custom-pro-widget-call-to-action/i,
+    /e-swiper/i,
+    /e-popup/i,
+    /e-ribbon/i,
+    /e-transitions/i,
+    /custom-apple-webkit/i,
+    /swiper\.min\.css/i,
+  ];
+
+  h = h.replace(/<link([^>]*rel=['"]stylesheet['"][^>]*)>/gi, (fullMatch, attrs) => {
+    if (attrs.includes('media="print"') || attrs.includes("media='print'")) return fullMatch;
+
+    const isNonCritical = nonCriticalPatterns.some((rx) => rx.test(attrs));
+    if (isNonCritical) {
+      const hrefMatch = attrs.match(/href=['"]([^'"]+)['"]/i);
+      const idMatch = attrs.match(/id=['"]([^'"]+)['"]/i);
+      if (hrefMatch) {
+        const href = hrefMatch[1];
+        const idAttr = idMatch ? ` id="${idMatch[1]}"` : '';
+        return `<link rel="stylesheet"${idAttr} href="${href}" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet"${idAttr} href="${href}" /></noscript>`;
+      }
+    }
+    return fullMatch;
+  });
+
+  return h;
+}
+
+// 2. Optimize <body>
+function optimizeBody(rawBody: string) {
+  let b = rawBody;
+
+  // Header logo: explicit dimensions, alt text, fetchpriority="high", remove loading="lazy" above fold
+  b = b.replace(
+    /(<div class="elementor-element elementor-element-6def697 logo[^>]*>[\s\S]*?<a href="\/">[\s\S]*?)<img([^>]*src="[^"]*Footer-Logo-HearMaXXsMALL\.png"[^>]*)>/gi,
+    (m, prefix, imgAttrs) => {
+      let cleanAttrs = imgAttrs
+        .replace(/\bloading=['"]lazy['"]/gi, '')
+        .replace(/\balt=['"][^'"]*['"]/gi, '')
+        .replace(/\bwidth=['"][^'"]*['"]/gi, '')
+        .replace(/\bheight=['"][^'"]*['"]/gi, '')
+        .trim();
+      return `${prefix}<img width="190" height="39" alt="Hear Maxx – Ultimate Hearing Solutions" fetchpriority="high" ${cleanAttrs}>`;
+    }
+  );
+
+  // Footer logo: ensure alt text and dimensions
+  b = b.replace(
+    /<img([^>]*src="[^"]*Footer-Logo-HearMaXXsMALL\.png"[^>]*)>/gi,
+    (m, imgAttrs) => {
+      let attrs = imgAttrs;
+      if (!/\balt=/i.test(attrs) || /\balt=['"]\s*['"]/i.test(attrs)) {
+        attrs = attrs.replace(/\balt=['"][^'"]*['"]/gi, '');
+        attrs += ' alt="Hear Maxx Logo"';
+      }
+      return `<img${attrs}>`;
+    }
+  );
+
+  // Remove misconfigured below-fold fetchpriority="high" from Untitled-design-1
+  b = b.replace(/<img\b([^>]*src="[^"]*Untitled-design-1[^"]*"[^>]*)>/gi, (match, attrs) => {
+    let a = attrs.replace(/\bfetchpriority=['"]high['"]/gi, '');
+    if (!/\bloading=/i.test(a)) a += ' loading="lazy"';
+    if (!/\balt=['"][^'"]+['"]/i.test(a)) {
+      a = a.replace(/\balt=['"][^'"]*['"]/gi, '') + ' alt="Hear Maxx Ongoing Support and Adjustments"';
+    }
+    return `<img${a}>`;
+  });
+
+  return b;
+}
+
+const optimizedHead = optimizeHead(head);
+const optimizedBody = optimizeBody(body);
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Hear Maxx" />
+    <meta property="og:image" content={`${siteUrl}/wp-content/uploads/2024/11/Untitled-design2.png`} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/wp-content/uploads/2024/11/Untitled-design2.png`} />
+
+    <!-- Preload Primary WebFont -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Preload Hero / LCP Image -->
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" type="image/webp" />
+    )}
+
+    <!-- Font-display: swap overrides for all icon fonts -->
+    <style is:inline>
+      @font-face { font-family: 'eicons'; font-display: swap; }
+      @font-face { font-family: 'Font Awesome 5 Free'; font-display: swap; }
+      @font-face { font-family: 'Font Awesome 5 Brands'; font-display: swap; }
+      @font-face { font-family: 'FontAwesome'; font-display: swap; }
+    </style>
+
     <script is:inline>
       (function () {
         window.wp = window.wp || {};
@@ -22,13 +190,13 @@ const { title, lang, bodyClass, head, body } = Astro.props;
         };
       })();
     </script>
-    <title>{title}</title>
-    <Fragment set:html={head} />
-    <link rel="stylesheet" href="/enhance/enhance.css" />
+
+    <Fragment set:html={optimizedHead} />
     <link rel="stylesheet" href="/enhance/theme.css" />
+    <link rel="stylesheet" href="/enhance/enhance.css" />
   </head>
   <body class={bodyClass}>
-    <Fragment set:html={body} />
+    <Fragment set:html={optimizedBody} />
     <script src="/enhance/enhance.js" defer></script>
     <script src="/enhance/glass.js" defer></script>
   </body>

@@ -11,11 +11,23 @@
   }
 
   function classify() {
-    var all = document.querySelectorAll('body *');
+    // Narrow down from 'body *' (839 elements) to target sections and cards (~35 elements)
+    var all = document.querySelectorAll(
+      '.elementor-section, .elementor-column > .elementor-widget-wrap, .elementor-flip-box__layer, footer, .elementor-location-footer'
+    );
     for (var i = 0; i < all.length; i++) {
       var el = all[i];
-      if (el.closest('.hm-to-top, .mega-menu-toggle, .elementor-element-3a844cf, .mega-menu-wrap, #mega-menu-wrap-max_mega_menu_1, .elementor-section:has(#mega-menu-wrap-max_mega_menu_1), .elementor-element-b3b6838, .elementor-element-a82d207, .elementor-element-905bc04, .elementor-element-39ce786') || el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')) continue;
-      if (el.querySelector('img[src*="hear_maxx_logo"], img[src*="Footer-Logo"], .hm-hearing-loss-hero-img')) continue; // keep logo & featured photo areas as designed
+      if (
+        el.closest(
+          '.hm-to-top, .mega-menu-toggle, .elementor-element-3a844cf, .mega-menu-wrap, #mega-menu-wrap-max_mega_menu_1, .elementor-section:has(#mega-menu-wrap-max_mega_menu_1), .elementor-element-b3b6838, .elementor-element-a82d207, .elementor-element-905bc04, .elementor-element-39ce786'
+        ) ||
+        el.closest('.hm-glass, .hm-glass-strong, .hm-glass-dark')
+      )
+        continue;
+      if (el.querySelector('img[src*="hear_maxx_logo"], img[src*="Footer-Logo"], .hm-hearing-loss-hero-img')) continue;
+      // Never apply glass to swiper slides/slide backgrounds to keep hardware compositing pure
+      if (el.classList.contains('swiper-slide-bg') || el.classList.contains('swiper-slide') || el.closest('.swiper-slide')) continue;
+
       var bgImg = getComputedStyle(el).backgroundImage;
       if (bgImg && bgImg !== 'none' && !bgImg.includes('gradient') && !bgImg.includes('data:image/svg')) continue;
       var c = parse(getComputedStyle(el).backgroundColor);
@@ -31,7 +43,7 @@
         el.classList.add('hm-glass-dark');
         continue;
       }
-      if (lum < 200) continue; // leave other dark design blocks alone (photos, dark sections)
+      if (lum < 200) continue; // leave other dark design blocks alone
 
       // Light surfaces
       if (el.tagName === 'SECTION' && r.width >= 1000) {
@@ -43,8 +55,6 @@
       el.classList.add('hm-glass');
     }
   }
-
-
 
   // Text sitting on photos/images must stay light; detect image-backed ancestors
   function markMediaText() {
@@ -58,10 +68,8 @@
       if (onMedia) w.classList.add('hm-on-media');
     });
   }
-  markMediaText();
 
-  // Reveal-on-scroll for glass cards. Skipped inside sliders/flip boxes, whose
-  // hidden slides never intersect and would otherwise stay invisible.
+  // Reveal-on-scroll for glass cards. Skipped inside sliders/flip boxes
   function reveal() {
     if (!('IntersectionObserver' in window)) return;
     var targets = document.querySelectorAll('.hm-glass.elementor-widget-wrap, .hm-glass.elementor-flip-box__layer');
@@ -77,10 +85,31 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', classify);
-  } else {
-    classify();
+  function runIdle(fn) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout: 1500 });
+    } else {
+      setTimeout(fn, 60);
+    }
   }
-  window.addEventListener('load', function () { classify(); reveal(); });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      runIdle(function () {
+        markMediaText();
+        classify();
+      });
+    });
+  } else {
+    runIdle(function () {
+      markMediaText();
+      classify();
+    });
+  }
+  window.addEventListener('load', function () {
+    runIdle(function () {
+      classify();
+      reveal();
+    });
+  });
 })();

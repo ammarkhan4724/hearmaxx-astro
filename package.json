@@ -9,6 +9,11 @@
     "preview": "astro preview --host 0.0.0.0 --port 4321"
   },
   "dependencies": {
-    "astro": "^5.7.0"
+    "astro": "^7.3.8"
+  },
+  "overrides": {
+    "sharp": "^0.35.5",
+    "source-map-js": "^1.2.2",
+    "smol-toml": "^1.9.0"
   }
 }
