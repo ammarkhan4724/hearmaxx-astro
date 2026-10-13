@@ -35,9 +35,9 @@ const { currentPath = '' } = Astro.props;
         <Image
           src={logoImg}
           alt="HearMaxx Logo"
-          width={130}
-          height={32}
-          class="h-8 w-auto object-contain"
+          width={logoImg.width}
+          height={logoImg.height}
+          class="h-8 w-auto max-w-[170px] object-contain"
           loading="eager"
         />
       </a>
