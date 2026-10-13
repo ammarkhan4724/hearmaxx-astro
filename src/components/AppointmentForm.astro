@@ -59,12 +59,13 @@ import { siteConfig } from '../data/site';
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label for="appt-email" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
-          Email Address <span class="text-text-muted font-normal">(Optional)</span>
+          Email Address <span class="text-red-500">*</span>
         </label>
         <input
           type="email"
           id="appt-email"
           name="email"
+          required
           autocomplete="email"
           placeholder="e.g. sarah@example.com"
           class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs placeholder:text-text-muted/60"
@@ -173,7 +174,8 @@ import { siteConfig } from '../data/site';
     const statusBox = document.getElementById('appt-status');
     const submitBtn = document.getElementById('appt-submit') as HTMLButtonElement | null;
 
-    if (!form || !statusBox || !submitBtn) return;
+    if (!form || !statusBox || !submitBtn || form.hasAttribute('data-form-bound')) return;
+    form.setAttribute('data-form-bound', 'true');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -189,14 +191,14 @@ import { siteConfig } from '../data/site';
           headers: {
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: formData,
+          body: new URLSearchParams(formData as any),
         });
 
         const data = await res.json();
 
         if (res.ok && data.status === 'success') {
           statusBox.className = 'p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 block';
-          statusBox.textContent = data.message || 'Thank you! Your consultation request has been received. We will contact you to confirm the time slot.';
+          statusBox.textContent = data.message || 'Thank you! Your appointment request has been received. A confirmation email has been sent to your inbox.';
           form.reset();
         } else {
           statusBox.className = 'p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200 block';

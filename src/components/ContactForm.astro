@@ -126,7 +126,8 @@ import { siteConfig } from '../data/site';
     const statusBox = document.getElementById('contact-status');
     const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
 
-    if (!form || !statusBox || !submitBtn) return;
+    if (!form || !statusBox || !submitBtn || form.hasAttribute('data-form-bound')) return;
+    form.setAttribute('data-form-bound', 'true');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -143,7 +144,7 @@ import { siteConfig } from '../data/site';
           headers: {
             'X-Requested-With': 'XMLHttpRequest',
           },
-          body: formData,
+          body: new URLSearchParams(formData as any),
         });
 
         const data = await res.json();
