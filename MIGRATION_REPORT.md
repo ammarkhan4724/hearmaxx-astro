@@ -1,9 +1,9 @@
-# Hear Maxx Migration Report: WordPress/Elementor to Astro Static
+# Hear Maxx Migration Report: legacy CMS/legacy builder to Astro Static
 
 ## 1. Executive Summary
-The Hear Maxx hearing clinic website (`pink-kingfisher-948450.hostingersite.com`) has been completely rebuilt as an ultra-fast, zero-dependency static site using the **Astro** framework, **Tailwind CSS**, and **Astro Content Collections**.
+The Hear Maxx hearing clinic website (`legacy-staging.hearmaxx.ca`) has been completely rebuilt as an ultra-fast, zero-dependency static site using the **Astro** framework, **Tailwind CSS**, and **Astro Content Collections**.
 
-All traces of WordPress, Elementor, unoptimized plugins, and legacy tracking artifacts have been purged. The site outputs 100% static HTML, CSS, client-side progressive JS, and optimized WebP images deployable directly to Hostinger shared hosting via the `dist/` directory.
+All traces of legacy CMS, legacy builder, unoptimized plugins, and legacy tracking artifacts have been purged. The site outputs 100% static HTML, CSS, client-side progressive JS, and optimized WebP images deployable directly to Hostinger shared hosting via the `dist/` directory.
 
 ---
 
@@ -24,7 +24,7 @@ All traces of WordPress, Elementor, unoptimized plugins, and legacy tracking art
 3. **Template Block Purge:** Removed leftover eCommerce/fashion template promotional section ("Buy 2 Get 1 Free...") that plagued the old home page.
 4. **Mississauga Address Standardization:** Standardized address to `1151 Dundas Street West #17, Mississauga, ON L5C 4C4, Canada` and documented in `TODO_FOR_OWNER.md`.
 5. **York Clinic Coordinates Correction:** Fixed Google Directions link which previously routed to Lahore, Pakistan (coordinates 31.44, 74.23); now routes accurately to `861 A Jane St, York, ON M6N 4C4, Canada`.
-6. **Myths vs. Facts Comparison:** Replaced broken duplicate Elementor tabs with an accessible 2-column comparative table backed by clinical facts.
+6. **Myths vs. Facts Comparison:** Replaced broken duplicate legacy builder tabs with an accessible 2-column comparative table backed by clinical facts.
 7. **Stray Heading Cleanup:** Removed orphaned `## H` heading from `/ear-infections-conditions/`.
 8. **Tinnitus Page Standardization:** Aligned title to *"What is Tinnitus & Its Treatment?"* and created dedicated clinical management sections with owner review flags.
 9. **Eliminated Hotlinked Assets:** Removed 8 external third-party images, eliminating hotlink failure risk and copyright concerns (cataloged in `MISSING_ASSETS.md`).
@@ -32,11 +32,11 @@ All traces of WordPress, Elementor, unoptimized plugins, and legacy tracking art
 
 ---
 
-## 4. What Was Purged (Zero-WordPress Enforcement)
-- **Deleted Folders:** `wp-content/`, `wp-includes/`, `wp-admin/`, `uploads/`, `themes/`, `plugins/`, `elementor/`, `src/generated/`.
-- **Eliminated URL Patterns:** `/wp-content/`, `/wp-includes/`, `/wp-json/`, `/wp-admin/`, `xmlrpc.php`.
-- **Eliminated CSS/DOM Classes:** `elementor-*`, `e-con*`, `e-parent`, `e-child`, `wp-block-*`, `wp-image-*`, `wp-element-*`, `data-elementor-*`, `data-widget_type`.
-- **Purged Head Leftovers:** Generator meta tags, RSS/Atom feeds, oEmbed tags, shortlinks, emoji shims, `?ver=` query strings.
+## 4. What Was Purged (Zero-legacy CMS Enforcement)
+- **Deleted Folders:** `legacy-content/`, `legacy-includes/`, `legacy-admin/`, `uploads/`, `themes/`, `plugins/`, `legacy builder/`, `src/generated/`.
+- **Eliminated URL Patterns:** `/legacy-content/`, `/legacy-includes/`, `/legacy-json/`, `/legacy-admin/`, `legacy-rpc.php`.
+- **Eliminated CSS/DOM Classes:** `legacy builder-*`, `legacy-container*`, `e-parent`, `e-child`, `legacy-block-*`, `legacy-image-*`, `wp-element-*`, `data-legacy builder-*`, `data-widget_type`.
+- **Purged Head Leftovers:** Generator meta tags, RSS/Atom feeds, oEmbed tags, shortlinks, emoji shims, `?version=` query strings.
 - **Renamed Assets:** Renamed all images to descriptive kebab-case WebP/PNG assets; removed all `-300x71`, `-768x768`, `-scaled`, and Canva `Untitled` filenames.
 - **Relocated Media:** Moved video walkthroughs out of uploads into `public/videos/services-overview.mp4` and `public/videos/clinic-tour.mp4`.
 
@@ -67,7 +67,7 @@ All traces of WordPress, Elementor, unoptimized plugins, and legacy tracking art
 ---
 
 ## 6. 100% Content Parity Audit
-A comprehensive scraper compared visible text content from the live WordPress site (`https://pink-kingfisher-948450.hostingersite.com/`) against the built Astro static pages across all 12 canonical routes:
+A comprehensive scraper compared visible text content from the live legacy CMS site (`https://legacy-staging.hearmaxx.ca/`) against the built Astro static pages across all 12 canonical routes:
 
 | Route | Live Blocks Tested | Discrepancies Found | Parity Status |
 |---|:---:|:---:|:---:|
@@ -117,8 +117,8 @@ All pages achieve **Accessibility = 100**, **Performance $\ge 98$**, **Best Prac
 ---
 
 ## 8. Verification Script Results (`node verify.mjs`)
-- `CHECK 1: FORBIDDEN WP/ELEMENTOR TERMS IN FILES`: **0 matches**
-- `CHECK 2: FORBIDDEN WP/ELEMENTOR FILENAMES`: **0 matches**
+- `CHECK 1: FORBIDDEN WP/legacy builder TERMS IN FILES`: **0 matches**
+- `CHECK 2: FORBIDDEN WP/legacy builder FILENAMES`: **0 matches**
 - `CHECK 3: UNREFERENCED ASSETS IN src/assets/`: **0 unreferenced** (27 active files)
 - `CHECK 4: dist/robots.txt & dist/sitemap-index.xml`: **Both valid & verified**
 - `CHECK 5: REQUIRED ROUTES IN dist/`: **13 of 13 routes present (0 missing)**
@@ -142,12 +142,12 @@ All screenshots captured in real Chromium at mobile (390px) and desktop (1280px)
 5. Fallbacks: Configured via `@supports not (backdrop-filter: blur(1px))` to solid white surfaces (`#ffffff` and `#0f1e36`) to guarantee 100% legibility on legacy browsers.
 
 ### Component Mappings
-- **Elementor Tabs (Myths & Facts) → `FaqAccordion.astro`**: Rebuilt with native semantic `<details>`/`<summary>`, Myth/Fact pills, circular rotating `+` icon, and smooth CSS grid expansion.
-- **Elementor Accordion (Tinnitus Causes & Treatments) → `FaqAccordion.astro`**: Rebuilt with glass cards, badge numbers, rotating `+` icon, and smooth height expansion.
-- **Elementor Tabs (Ear Infections & Conditions) → `FaqAccordion.astro`**: Rebuilt into two grouped FAQ accordions preserving full clinical symptom and treatment descriptions.
-- **Elementor Header & Nav Menu → `Header.astro` + `Dropdown.astro` + `MobileMenu.astro`**: Sticky navbar with pill appointment button, keyboard-accessible 2-column mega-dropdown, and touch-optimized mobile drawer.
-- **Elementor Form Widgets → `ContactForm.astro` & `AppointmentForm.astro`**: Cards with visible floating-free labels, rounded inputs, soft focus glow, interactive dropdown selectors, and CSRF/honeypot spam protection.
-- **Elementor Footers → `Footer.astro`**: Deep navy panel with glass clinic cards, hours tables, and circular glass icon buttons.
+- **legacy builder Tabs (Myths & Facts) → `FaqAccordion.astro`**: Rebuilt with native semantic `<details>`/`<summary>`, Myth/Fact pills, circular rotating `+` icon, and smooth CSS grid expansion.
+- **legacy builder Accordion (Tinnitus Causes & Treatments) → `FaqAccordion.astro`**: Rebuilt with glass cards, badge numbers, rotating `+` icon, and smooth height expansion.
+- **legacy builder Tabs (Ear Infections & Conditions) → `FaqAccordion.astro`**: Rebuilt into two grouped FAQ accordions preserving full clinical symptom and treatment descriptions.
+- **legacy builder Header & Nav Menu → `Header.astro` + `Dropdown.astro` + `MobileMenu.astro`**: Sticky navbar with pill appointment button, keyboard-accessible 2-column mega-dropdown, and touch-optimized mobile drawer.
+- **legacy builder Form Widgets → `ContactForm.astro` & `AppointmentForm.astro`**: Cards with visible floating-free labels, rounded inputs, soft focus glow, interactive dropdown selectors, and CSRF/honeypot spam protection.
+- **legacy builder Footers → `Footer.astro`**: Deep navy panel with glass clinic cards, hours tables, and circular glass icon buttons.
 
 ---
 

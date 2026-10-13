@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import featuredImg from '../../assets/images/hearing-loss-evaluation.webp';
+import {
+  signsHeroImg,
+  signsConversationImg,
+  signsListeningImg,
+  signsEvaluationIllustration
+} from '../../assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { getEntry, render } from 'astro:content';
@@ -66,18 +71,53 @@ const { Content } = await render(entry);
 
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
-    <!-- Featured Image in Glass Frame (Uncropped) -->
-    <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
-      <Image
-        src={featuredImg}
-        alt="Audiological evaluation examining hearing loss symptoms and patterns"
-        width={754}
-        height={774}
-        class="w-full h-auto max-h-[420px] aspect-[754/774] object-contain rounded-2xl mx-auto"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+    <!-- Visual Showcase Gallery (Authentic Master Images) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
+        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
+          <Image
+            src={signsConversationImg}
+            alt="Family conversation and social interaction signs of hearing loss"
+            width={640}
+            height={427}
+            class="w-full h-auto max-h-48 object-contain rounded-xl"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <span class="text-xs font-bold text-primary block">Family & Social Situations</span>
+        <span class="text-[11px] text-text-muted mt-1 leading-snug">Difficulty following dinner conversations and group discussions</span>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
+        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
+          <Image
+            src={signsListeningImg}
+            alt="Listening effort and concentration challenges in everyday environments"
+            width={640}
+            height={537}
+            class="w-full h-auto max-h-48 object-contain rounded-xl"
+            loading="lazy"
+          />
+        </div>
+        <span class="text-xs font-bold text-primary block">Active Listening Challenges</span>
+        <span class="text-[11px] text-text-muted mt-1 leading-snug">Frequent fatigue from mental effort to fill in missed sounds</span>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
+        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
+          <Image
+            src={signsEvaluationIllustration}
+            alt="Diagnostic audiometry evaluation and clinical frequency analysis chart"
+            width={640}
+            height={537}
+            class="w-full h-auto max-h-48 object-contain rounded-xl"
+            loading="lazy"
+          />
+        </div>
+        <span class="text-xs font-bold text-primary block">Diagnostic Audiometry</span>
+        <span class="text-[11px] text-text-muted mt-1 leading-snug">Pinpointing exact frequency thresholds and hearing clarity</span>
+      </div>
     </div>
 
     <!-- Article Content in 68ch Reading Column -->

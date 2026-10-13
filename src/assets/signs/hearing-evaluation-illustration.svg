@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bg3)"/>
+  <!-- Audiogram grid card -->
+  <g transform="translate(150, 80)">
+    <rect width="500" height="260" rx="16" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1.5"/>
+    <!-- Grid Lines -->
+    <line x1="80" y1="50" x2="450" y2="50" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="80" y1="100" x2="450" y2="100" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="80" y1="150" x2="450" y2="150" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="80" y1="200" x2="450" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <!-- Frequency columns -->
+    <line x1="120" y1="30" x2="120" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="200" y1="30" x2="200" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="280" y1="30" x2="280" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="360" y1="30" x2="360" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="440" y1="30" x2="440" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <!-- Frequency labels (Hz) -->
+    <text x="120" y="240" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">250Hz</text>
+    <text x="200" y="240" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">500Hz</text>
+    <text x="280" y="240" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">1kHz</text>
+    <text x="360" y="240" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">2kHz</text>
+    <text x="440" y="240" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">4kHz</text>
+    <!-- Hearing threshold curves -->
+    <!-- Right Ear (O marks, red/amber) -->
+    <polyline points="120,60 200,75 280,95 360,130 440,150" stroke="#f43f5e" stroke-width="2.5" fill="none"/>
+    <circle cx="120" cy="60" r="5" fill="#f43f5e"/>
+    <circle cx="200" cy="75" r="5" fill="#f43f5e"/>
+    <circle cx="280" cy="95" r="5" fill="#f43f5e"/>
+    <circle cx="360" cy="130" r="5" fill="#f43f5e"/>
+    <circle cx="440" cy="150" r="5" fill="#f43f5e"/>
+    <!-- Left Ear (X marks, cyan/blue) -->
+    <polyline points="120,65 200,80 280,105 360,135 440,160" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-dasharray="6 4"/>
+    <rect x="116" y="61" width="8" height="8" fill="#38bdf8"/>
+    <rect x="196" y="76" width="8" height="8" fill="#38bdf8"/>
+    <rect x="276" y="101" width="8" height="8" fill="#38bdf8"/>
+    <rect x="356" y="131" width="8" height="8" fill="#38bdf8"/>
+    <rect x="436" y="156" width="8" height="8" fill="#38bdf8"/>
+  </g>
+  <!-- Labels -->
+  <text x="400" y="380" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="0.5">Comprehensive Audiometric Diagnostic</text>
+  <text x="400" y="412" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Accurate frequency analysis reveals your exact hearing landscape</text>
+</svg>

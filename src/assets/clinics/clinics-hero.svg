@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" fill="none">
+  <defs>
+    <linearGradient id="clinicBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#172a45"/>
+    </linearGradient>
+    <linearGradient id="clinicCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="clinicTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <filter id="clinicGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="450" rx="24" fill="url(#clinicBg)"/>
+
+  <!-- Subtle Grid Lines -->
+  <g stroke="#334155" stroke-width="1" stroke-dasharray="4 8" opacity="0.3">
+    <line x1="100" y1="50" x2="100" y2="400"/>
+    <line x1="300" y1="50" x2="300" y2="400"/>
+    <line x1="500" y1="50" x2="500" y2="400"/>
+    <line x1="700" y1="50" x2="700" y2="400"/>
+    <line x1="900" y1="50" x2="900" y2="400"/>
+    <line x1="1100" y1="50" x2="1100" y2="400"/>
+    <line x1="50" y1="120" x2="1150" y2="120"/>
+    <line x1="50" y1="225" x2="1150" y2="225"/>
+    <line x1="50" y1="330" x2="1150" y2="330"/>
+  </g>
+
+  <!-- Network Connection Waves -->
+  <path d="M 420 220 C 520 180, 680 180, 780 220" stroke="url(#clinicCyan)" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 6" opacity="0.8"/>
+  <path d="M 420 220 C 550 280, 650 280, 780 220" stroke="url(#clinicTeal)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Location Pin 1: Mississauga -->
+  <g transform="translate(420, 220)">
+    <circle cx="0" cy="0" r="36" fill="#0284c7" opacity="0.2" filter="url(#clinicGlow)"/>
+    <circle cx="0" cy="0" r="22" fill="#0284c7" opacity="0.4"/>
+    <circle cx="0" cy="0" r="12" fill="#38bdf8"/>
+    <circle cx="0" cy="0" r="5" fill="#ffffff"/>
+    <g transform="translate(-100, -85)">
+      <rect width="200" height="52" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" opacity="0.95"/>
+      <text x="100" y="24" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Mississauga Clinic</text>
+      <text x="100" y="42" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Erindale Dental Centre</text>
+    </g>
+  </g>
+
+  <!-- Location Pin 2: York -->
+  <g transform="translate(780, 220)">
+    <circle cx="0" cy="0" r="36" fill="#0d9488" opacity="0.2" filter="url(#clinicGlow)"/>
+    <circle cx="0" cy="0" r="22" fill="#0d9488" opacity="0.4"/>
+    <circle cx="0" cy="0" r="12" fill="#2dd4bf"/>
+    <circle cx="0" cy="0" r="5" fill="#ffffff"/>
+    <g transform="translate(-100, -85)">
+      <rect width="200" height="52" rx="12" fill="#0f172a" stroke="#2dd4bf" stroke-width="1.5" opacity="0.95"/>
+      <text x="100" y="24" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">York Clinic</text>
+      <text x="100" y="42" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Jane Park Plaza</text>
+    </g>
+  </g>
+
+  <!-- Title / Badge -->
+  <g transform="translate(600, 375)">
+    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="#1e293b" stroke="#475569" stroke-width="1" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">HearMaxx Ontario Hearing Clinic Network</text>
+  </g>
+</svg>

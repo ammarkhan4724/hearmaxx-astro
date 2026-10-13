@@ -109,12 +109,12 @@ export const siteConfig = {
   },
 
   brandPartners: [
-    { name: 'Bernafon', slug: 'bernafon', website: 'https://www.bernafon.com', logo: '/src/assets/brands/bernafon.png' },
-    { name: 'Signia', slug: 'signia', website: 'https://www.signia.net', logo: '/src/assets/brands/signia.png' },
-    { name: 'Oticon', slug: 'oticon', website: 'https://www.oticon.ca', logo: '/src/assets/brands/oticon.png' },
-    { name: 'Widex', slug: 'widex', website: 'https://www.widex.com', logo: '/src/assets/brands/widex.png' },
-    { name: 'Starkey', slug: 'starkey', website: 'https://www.starkey.com', logo: '/src/assets/brands/starkey.png' },
-    { name: 'Phonak', slug: 'phonak', website: 'https://www.phonak.com', logo: '/src/assets/brands/phonak.png' },
+    { name: 'Bernafon', slug: 'bernafon', website: 'https://www.bernafon.com', logo: '/src/assets/brand/brand-bernafon.png' },
+    { name: 'Signia', slug: 'signia', website: 'https://www.signia.net', logo: '/src/assets/brand/brand-signia.png' },
+    { name: 'Oticon', slug: 'oticon', website: 'https://www.oticon.ca', logo: '/src/assets/brand/brand-oticon.png' },
+    { name: 'Widex', slug: 'widex', website: 'https://www.widex.com', logo: '/src/assets/brand/brand-widex.png' },
+    { name: 'Starkey', slug: 'starkey', website: 'https://www.starkey.com', logo: '/src/assets/brand/brand-starkey.png' },
+    { name: 'Phonak', slug: 'phonak', website: 'https://www.phonak.com', logo: '/src/assets/brand/brand-phonak.png' },
   ] as BrandPartner[],
 
   navigation: [

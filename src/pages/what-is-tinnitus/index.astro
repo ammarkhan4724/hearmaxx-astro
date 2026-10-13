@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import featuredImg from '../../assets/images/tinnitus-diagram.webp';
+import {
+  tinnitusHeroImg,
+  tinnitusLoudSoundsImg,
+  tinnitusReliefImg
+} from '../../assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Icon from '../../components/Icon.astro';
@@ -136,11 +140,11 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     <!-- Featured Image in Glass Frame (Uncropped) -->
     <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
       <Image
-        src={featuredImg}
-        alt="Diagram and illustration of auditory neural pathways affected by tinnitus"
-        width={512}
-        height={512}
-        class="w-full h-auto max-h-[420px] aspect-square object-contain rounded-2xl mx-auto"
+        src={tinnitusHeroImg}
+        alt="Clinical soundwave analysis representing tinnitus frequency and masking therapy"
+        width={781}
+        height={1024}
+        class="w-full h-auto max-h-[420px] object-contain rounded-2xl mx-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -215,6 +219,22 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
         </p>
         <p class="text-secondary text-base leading-relaxed">
           When exposed to loud noises, especially over extended periods, these delicate hair cells can become overstimulated and damaged. Unfortunately, once damaged, these cells do not regenerate, leading to permanent hearing loss and conditions like tinnitus.
+        </p>
+      </div>
+
+      <!-- Loud Sounds Impact Clinical Diagram (Authentic Master Image) -->
+      <div class="my-6 rounded-2xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-sm max-w-2xl mx-auto flex flex-col items-center">
+        <h3 class="text-sm font-bold text-primary mb-2.5 text-center">See How Loud Sounds Impact Your Hearing!</h3>
+        <Image
+          src={tinnitusLoudSoundsImg}
+          alt="See how loud sounds impact your hearing and inner ear hair cells"
+          width={1280}
+          height={720}
+          class="w-full h-auto max-h-80 object-contain rounded-xl"
+          loading="lazy"
+        />
+        <p class="text-xs text-text-muted text-center mt-2.5 font-medium">
+          Prolonged acoustic overexposure causes progressive stereocilia hair cell degeneration.
         </p>
       </div>
 
@@ -333,7 +353,17 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     </section>
 
     <!-- Section 7: Treatment Options (Premium FAQ) -->
-    <section class="space-y-4" aria-labelledby="treatment-options-heading">
+    <section class="space-y-6" aria-labelledby="treatment-options-heading">
+      <div class="rounded-2xl overflow-hidden glass-strong p-3 border border-white/90 shadow-xs max-w-xl mx-auto flex items-center justify-center">
+        <Image
+          src={tinnitusReliefImg}
+          alt="Tinnitus management therapy and personalized sound-masking options"
+          width={800}
+          height={500}
+          class="w-full h-auto max-h-56 object-contain rounded-xl"
+          loading="lazy"
+        />
+      </div>
       <FaqAccordion
         title="Treatment Options"
         subtitle="Clinical sound therapy, habituation protocols, and customized medical strategies."

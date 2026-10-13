@@ -1,6 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import featuredImg from '../../assets/images/hearing-in-noise.webp';
+import {
+  impactHeroImg,
+  impactEmotionalImg,
+  impactCognitiveImg,
+  impactSocialConnectionsImg,
+  impactMythsFactsImg
+} from '../../assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Icon from '../../components/Icon.astro';
@@ -95,13 +101,13 @@ const mythsFaqs = [
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16">
     <!-- Featured Image in Glass Frame (Uncropped) -->
-    <div class="mb-12 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
+    <div class="mb-12 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-xl mx-auto flex items-center justify-center bg-slate-50/50">
       <Image
-        src={featuredImg}
-        alt="Person navigating speech and conversation in a noisy environment"
-        width={754}
-        height={774}
-        class="w-full h-auto max-h-[420px] aspect-[754/774] object-contain rounded-2xl mx-auto"
+        src={impactHeroImg}
+        alt="Senior man reflecting on the emotional and social impact of untreated hearing loss"
+        width={1024}
+        height={683}
+        class="w-full h-auto max-h-[420px] object-contain rounded-2xl mx-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -113,10 +119,74 @@ const mythsFaqs = [
       <div class="reading-column prose-clinical">
         <Content />
       </div>
+
+      <!-- Visual Showcases in Glass Frames -->
+      <div class="mt-10 pt-8 border-t border-border-subtle/80 space-y-8 max-w-2xl mx-auto">
+        <!-- Emotional & Mental Well-Being -->
+        <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center">
+          <Image
+            src={impactEmotionalImg}
+            alt="Emotional and mental well-being in personal relationships and hearing health"
+            width={800}
+            height={800}
+            class="w-full h-auto max-h-72 object-contain rounded-xl"
+            loading="lazy"
+          />
+          <p class="text-xs text-text-muted text-center mt-2.5 font-medium">
+            Restoring emotional well-being and reducing isolation through proactive hearing care
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Cognitive Health Illustration -->
+          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
+            <div class="w-full flex items-center justify-center py-2">
+              <Image
+                src={impactCognitiveImg}
+                alt="Auditory pathway and brain cognitive health connection illustration"
+                width={400}
+                height={280}
+                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-xs text-text-muted text-center mt-2 font-medium">
+              Cognitive health & auditory processing pathway
+            </p>
+          </div>
+
+          <!-- Social Connections Illustration -->
+          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
+            <div class="w-full flex items-center justify-center py-2">
+              <Image
+                src={impactSocialConnectionsImg}
+                alt="Social communication and dinner conversations in noisy settings"
+                width={400}
+                height={280}
+                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-xs text-text-muted text-center mt-2 font-medium">
+              Preserving social connections and communication confidence
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Myths vs Facts Premium FAQ Component -->
     <section class="mt-12" aria-labelledby="myths-table-heading">
+      <div class="mb-6 rounded-2xl overflow-hidden glass-strong p-3 border border-white/90 shadow-xs max-w-xl mx-auto flex items-center justify-center">
+        <Image
+          src={impactMythsFactsImg}
+          alt="Separating hearing loss myths from evidence-based clinical facts"
+          width={600}
+          height={340}
+          class="w-full h-auto max-h-52 object-contain rounded-xl"
+          loading="lazy"
+        />
+      </div>
       <FaqAccordion
         title="Common Myths About Hearing Loss"
         subtitle="Separating widespread hearing misconceptions from evidence-based clinical facts."

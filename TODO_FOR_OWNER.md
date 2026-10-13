@@ -1,45 +1,31 @@
-# Action Items & Content Confirmatory Checklist for Clinic Owner
+# Action Items for Website Owner / Stakeholder
 
-The following items represent legacy inconsistencies or gaps extracted from the legacy website. To ensure medical, legal, and operational accuracy, please review and update the items below:
+This document tracks legal, licensing, and asset supply tasks required by the clinic owner for production readiness.
 
----
+## 1. Manufacturer Product Images & Brand Logo Licensing
+The following product packshots and manufacturer brand logos were retrieved from the client's own original media library uploads and have been preserved in the Astro build to ensure 100% content completeness. Because these depict copyrighted medical devices and registered trademarks of global hearing aid manufacturers, the owner must confirm authorized dealer / clinic distributor status with each manufacturer.
 
-### 1. Mississauga Clinic Postal Code
-- **Current Status**: The old website had no valid Canadian postal code for the Mississauga location (only listed `1151 Dundas Street West #17, Mississauga, ON` with an invalid `4C4` snippet elsewhere).
-- **Action Required**: Provide the correct 6-character Canadian Postal Code (e.g. `L5C ...`) for `1151 Dundas Street West #17`. Once provided, update the `postalCode` field in `src/data/site.ts`.
-
----
-
-### 2. Specialist Credentials & Title (Sheeraz Rahim)
-- **Current Status**: The legacy site inconsistently referred to founder Sheeraz Rahim as "Dr. Sheeraz Rahim" in some headings and "Hearing Care Specialist" or "Certified Audiologist" in body text.
-- **Action Required**: Confirm the exact professional regulatory designation under Ontario provincial licensing (e.g., Registered Hearing Instrument Practitioner / Hearing Instrument Specialist / Doctor of Audiology). In `src/data/site.ts`, his title is currently standardized to `Hearing Care Specialist`.
-
----
-
-### 3. Tinnitus Treatment & Management Section
-- **Current Status**: The page `/what-is-tinnitus/` ended abruptly after the "Causes of Tinnitus" section. No copy existed for treatment or management, despite the navigation title promising *"What is Tinnitus & Its Treatment?"*.
-- **Action Required**: Supply approved clinical copy regarding tinnitus management therapies (e.g., sound masking, acoustic therapy, hearing aid tinnitus-support algorithms, counseling). An empty placeholder block is currently marked in `src/content/hearing-health/what-is-tinnitus.md`.
+| Asset Type | Manufacturer / Brand | Local Asset Name | Context of Use | Owner Action |
+| :--- | :--- | :--- | :--- | :--- |
+| **Brand Logo** | Bernafon | `brand-bernafon.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Brand Logo** | Signia | `brand-signia.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Brand Logo** | Oticon | `brand-oticon.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Brand Logo** | Widex | `brand-widex.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Brand Logo** | Starkey | `brand-starkey.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Brand Logo** | Phonak | `brand-phonak.png` | Global brand partners strip | Confirm authorized dispenser agreement |
+| **Device Packshot** | Phonak Naída™ BTE | `bte-naida.webp` | Behind-the-Ear (BTE) model showcase | Confirm permission to display Phonak Naída product packshot |
+| **Device Packshot** | Phonak Slim™ RIC | `ric-slim-pair.webp` | Receiver-in-Canal (RIC) showcase | Confirm permission to display Phonak Slim product packshot |
+| **Solution Diagram** | Widex CROS™ | `cros-solution.webp` | Single-Sided Deafness CROS solution | Confirm permission to display Widex CROS graphic |
+| **Hearing Protection** | Phonak Serenity Choice™ | `musician-earplugs-banner.webp` | Custom musician ear protection banner | Confirm permission to display Phonak Serenity Choice banner |
 
 ---
 
-### 4. Myths vs. Facts Counter-Statements
-- **Current Status**: On `/the-impact-of-untreated-hearing-loss/`, the legacy table duplicated the myths in the "Facts" column instead of presenting actual scientific counter-statements.
-- **Action Required**: Review the two-column Myths vs. Facts comparison table in `src/content/hearing-health/the-impact-of-untreated-hearing-loss.md`. Any counter-statement not explicitly verified from clinical literature has been flagged for owner confirmation.
+## 2. High-Resolution Replacements for Supply
+The following assets can be upgraded by the owner whenever higher-resolution photography or vector artwork is available:
 
----
-
-### 5. Form Submission Endpoint & Email Destination
-- **Current Status**: Contact and Appointment booking forms submit progressively to `public/form-handler.php` using standard PHP `mail()` configured to notify `Info@hearmaxx.ca`.
-- **Action Required**: 
-  1. Confirm whether `Info@hearmaxx.ca` is monitored and receives messages from Hostinger's PHP mail server.
-  2. If using an external CRM or webhook service (e.g., Formspree, Webhook, HubSpot), set the environment variable `PUBLIC_FORM_ENDPOINT="https://your-crm-endpoint.com/api"` in `.env`.
-
----
-
-### 6. Legacy Word-Level Text Typos (Preserved per Zero-Content-Loss Policy)
-- **Untreated Hearing Loss (`/the-impact-of-untreated-hearing-loss/`)**:
-  1. *"...In that study, people with untreated loss had 2–5 times the risk of dementia as those with normal."* — Likely missing the noun "hearing" at the end of the sentence. Currently preserved exactly as found on the live site.
-  2. *"...nearly half the rate of cognitive decline over three years compared to those who didn’t use hearing."* — Likely missing the noun "aids" at the end of the phrase. Currently preserved exactly as found on the live site.
-- **Action Required**: Confirm whether to update these sentences to:
-  - `"...people with untreated loss had 2–5 times the risk of dementia as those with normal hearing."`
-  - `"...compared to those who didn’t use hearing aids."`
+1. **Service Card Icons (8 assets)**:
+   - Provide 256×256 px transparent PNGs or SVGs for Tympanometry, Hearing Evaluations, Consultation, Custom Fitting, Maintenance, Earwax Management, Ear Protection, and Tinnitus Management.
+2. **Clinic Storefront & Reception Photos**:
+   - Provide 1920×1080 px high-resolution photos of the Mississauga clinic (Erindale Dental Centre) and York clinic (Jane Park Plaza).
+3. **Doctor / Audiologist Master Photo**:
+   - The current photo of Dr. Sheeraz Rahim (`audiologist-specialist.png`) is 450×450 px. A 1200×1200 px headshot is recommended for 4K displays.

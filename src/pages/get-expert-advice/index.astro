@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { siteConfig } from '../../data/site';
+import { adviceSignsImg, advicePreventionImg } from '../../assets';
 
 const basicFaqs = [
   {
@@ -165,14 +167,24 @@ const allFaqs = [...basicFaqs, ...causesFaqs, ...clinicalFaqs, ...treatmentFaqs]
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Card 1 -->
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
-          <div class="space-y-3">
+        <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover space-y-4">
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden glass-strong p-2 border border-white/90 shadow-2xs flex items-center justify-center bg-slate-50/50">
+              <Image
+                src={adviceSignsImg}
+                alt="Recognize the early signs of hearing loss clinical overview"
+                width={800}
+                height={450}
+                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                loading="lazy"
+              />
+            </div>
             <h3 class="text-xl font-bold text-primary">Recognize the Signs</h3>
             <p class="text-sm text-secondary leading-relaxed">
               Have you ever struggled to follow a conversation in a crowded room or found yourself turning up the TV louder than everyone else? In this section, we help you spot the early clues of hearing loss so you know when it might be time for a check-up. We're here to guide you through the simple signs to look out for—because taking care of your hearing matters.
             </p>
           </div>
-          <div class="pt-6">
+          <div class="pt-4">
             <a
               href="/signs-you-may-have-hearing-loss/"
               class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
@@ -183,14 +195,24 @@ const allFaqs = [...basicFaqs, ...causesFaqs, ...clinicalFaqs, ...treatmentFaqs]
         </div>
 
         <!-- Card 2 -->
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
-          <div class="space-y-3">
+        <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover space-y-4">
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden glass-strong p-2 border border-white/90 shadow-2xs flex items-center justify-center bg-slate-50/50">
+              <Image
+                src={advicePreventionImg}
+                alt="Expert insights and everyday hearing protection advice"
+                width={800}
+                height={460}
+                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                loading="lazy"
+              />
+            </div>
             <h3 class="text-xl font-bold text-primary">Expert Insights & Prevention Tips</h3>
             <p class="text-sm text-secondary leading-relaxed">
               Your hearing is too important to take for granted. Here, our specialists share straightforward advice on keeping your ears safe from everyday hazards. From tips on lowering volume levels to easy strategies for protecting your hearing in noisy places, we’re offering you expert insights you can start using today.
             </p>
           </div>
-          <div class="pt-6">
+          <div class="pt-4">
             <a
               href="/what-is-tinnitus/"
               class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"

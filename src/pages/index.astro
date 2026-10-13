@@ -4,8 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BrandStrip from '../components/BrandStrip.astro';
 import Icon from '../components/Icon.astro';
 import { siteConfig } from '../data/site';
-import heroImg from '../assets/images/hero-consultation.webp';
-import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
+import {
+  homeHeroSlide1,
+  homeMissingSounds,
+  homeHealthSteps,
+  homeSupportImg,
+  homeAudiologistSpecialist,
+  homeGoogleReviewsBanner,
+} from '../assets';
 ---
 
 <BaseLayout
@@ -91,13 +97,13 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
         <!-- Hero Image in Glass Frame (Uncropped) -->
         <div class="lg:col-span-5 relative">
           <div class="rounded-3xl glass-strong p-3 sm:p-4 border border-white/90 shadow-2xl flex flex-col gap-3">
-            <div class="rounded-2xl overflow-hidden bg-slate-50/50 border border-slate-200/60 flex items-center justify-center">
+            <div class="rounded-2xl overflow-hidden bg-slate-50/50 border border-slate-200/60 flex items-center justify-center p-2">
               <Image
-                src={heroImg}
-                alt="Hearing care specialist conducting patient consultation at HearMaxx"
-                width={1320}
-                height={680}
-                class="w-full h-auto object-contain aspect-[1320/680]"
+                src={homeHeroSlide1}
+                alt="Patient receiving professional hearing evaluation at HearMaxx clinic"
+                width={1080}
+                height={853}
+                class="w-full h-auto object-contain rounded-xl"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
@@ -135,67 +141,87 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
-              01
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- 3 Cards on Left (7 cols) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
+                01
+              </div>
+              <h3 class="text-lg font-bold text-primary">
+                Why is Hearing Vital for Work & Learning?
+              </h3>
+              <p class="text-xs text-secondary leading-relaxed">
+                Hearing loss often develops gradually, making it difficult to notice until it significantly impacts daily life. Regular screenings can identify subtle changes early.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">
-              Why is Hearing Vital for Work & Learning?
-            </h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Hearing loss often develops gradually, making it difficult to notice until it significantly impacts daily life. Regular screenings can identify subtle changes early, allowing for timely intervention and better management.
-            </p>
+            <div class="pt-4">
+              <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-dark">
+                <span>Get Started</span>
+                <Icon name="chevron-right" class="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
-          <div class="pt-6">
-            <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:text-brand-dark">
-              <span>Get Started</span>
-              <Icon name="chevron-right" class="w-4 h-4" />
-            </a>
+
+          <!-- Card 2 -->
+          <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
+                02
+              </div>
+              <h3 class="text-lg font-bold text-primary">
+                Why Does Clear Hearing Reduce Stress & Fatigue?
+              </h3>
+              <p class="text-xs text-secondary leading-relaxed">
+                Struggling to hear requires extra mental effort. Improved hearing makes conversations effortless and reduces stress and anxiety throughout the day.
+              </p>
+            </div>
+            <div class="pt-4">
+              <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-dark">
+                <span>Get Started</span>
+                <Icon name="chevron-right" class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
+                03
+              </div>
+              <h3 class="text-lg font-bold text-primary">
+                Why is Clear Hearing Essential for Relationships?
+              </h3>
+              <p class="text-xs text-secondary leading-relaxed">
+                It helps you engage in conversations effortlessly, strengthening connections with loved ones while preventing misunderstandings and social isolation.
+              </p>
+            </div>
+            <div class="pt-4">
+              <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-dark">
+                <span>Get Started</span>
+                <Icon name="chevron-right" class="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
-              02
+        <!-- Side Image in Rounded Glass Frame (5 cols) -->
+        <div class="lg:col-span-5 flex items-center justify-center">
+          <div class="rounded-3xl glass-strong p-3 sm:p-4 border border-white/90 shadow-xl w-full max-w-md">
+            <div class="rounded-2xl overflow-hidden bg-slate-50/50 flex items-center justify-center p-2">
+              <Image
+                src={homeMissingSounds}
+                alt="Family enjoying clear, effortless conversations with HearMaxx hearing care"
+                width={1024}
+                height={1024}
+                class="w-full h-auto object-contain rounded-xl"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <h3 class="text-xl font-bold text-primary">
-              Why Does Clear Hearing Reduce Stress & Fatigue?
-            </h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Struggling to hear requires extra mental effort, which can be exhausting. Improved hearing makes conversations effortless and reduces stress, mental fatigue, and anxiety throughout the day.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:text-brand-dark">
-              <span>Get Started</span>
-              <Icon name="chevron-right" class="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center font-extrabold text-base shadow-2xs">
-              03
-            </div>
-            <h3 class="text-xl font-bold text-primary">
-              Why is Clear Hearing Essential for Relationships?
-            </h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              It helps you engage in conversations effortlessly, strengthening your connections with family, friends, and colleagues while preventing misunderstandings and feelings of social isolation.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="/appointment-form/" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:text-brand-dark">
-              <span>Get Started</span>
-              <Icon name="chevron-right" class="w-4 h-4" />
-            </a>
           </div>
         </div>
       </div>
@@ -290,6 +316,21 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
           </div>
         </div>
       </div>
+
+      <!-- 4 Steps Visual Process Diagram in Glass Frame -->
+      <div class="mt-10 rounded-3xl glass-light p-4 sm:p-6 border border-white/80 shadow-md flex items-center justify-center">
+        <div class="max-w-2xl w-full rounded-2xl overflow-hidden glass-strong p-2 border border-white/90">
+          <Image
+            src={homeHealthSteps}
+            alt="Overview of personal hearing health steps and milestone progression"
+            width={1080}
+            height={853}
+            class="w-full h-auto object-contain rounded-xl"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -308,82 +349,109 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Benefit 1 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
+        <!-- Visual Feature Card with homeSupportImg -->
+        <div class="lg:col-span-5">
+          <div class="glass-strong rounded-3xl p-5 border border-white/90 shadow-xl space-y-4">
+            <div class="rounded-2xl overflow-hidden bg-slate-50 border border-slate-200/60 aspect-square flex items-center justify-center p-2">
+              <Image
+                src={homeSupportImg}
+                alt="Hear Maxx Ongoing Clinical Support and Adjustments"
+                width={700}
+                height={700}
+                class="w-full h-auto object-contain rounded-xl"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <h3 class="text-xl font-bold text-primary">Hearing Care Professional</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Our certified hearing specialists over 20 years of experience provide personalized hearing care.
-            </p>
+            <div class="p-2 space-y-1 text-center">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand block">Continuous Clinical Care</span>
+              <h3 class="text-lg font-bold text-primary">Ongoing Support & Free Lifetime Adjustments</h3>
+              <p class="text-xs text-secondary leading-relaxed">
+                We ensure your hearing aids continue to provide peak acoustic performance with regular cleanings, recalibrations, and personalized tuning.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Benefit 2 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+        <!-- 6 Benefits in 2-column grid -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <!-- Benefit 1 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">Hearing Care Professional</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                Our certified hearing specialists over 20 years of experience provide personalized hearing care.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">State-of-the-Art Technology</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              We offer the latest digital hearing aids with advanced sound clarity for accurate hearing evaluations.
-            </p>
           </div>
-        </div>
 
-        <!-- Benefit 3 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+          <!-- Benefit 2 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">State-of-the-Art Technology</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                We offer the latest digital hearing aids with advanced sound clarity for accurate hearing evaluations.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">Free Hearing Tests & Consultation</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Get a professional hearing checkup at no cost.
-            </p>
           </div>
-        </div>
 
-        <!-- Benefit 4 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+          <!-- Benefit 3 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">Free Hearing Tests & Consultation</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                Get a professional hearing checkup at no cost.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">Ongoing Support & Adjustments</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Enjoy free tuning and adjustments for a comfortable experience
-            </p>
           </div>
-        </div>
 
-        <!-- Benefit 5 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+          <!-- Benefit 4 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">Ongoing Support & Adjustments</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                Enjoy free tuning and adjustments for a comfortable experience.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">Improved Quality of Life</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              Hear your loved ones clearly and enjoy conversations again.
-            </p>
           </div>
-        </div>
 
-        <!-- Benefit 6 -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
-              <Icon name="check" class="w-6 h-6" />
+          <!-- Benefit 5 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">Improved Quality of Life</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                Hear your loved ones clearly and enjoy conversations again.
+              </p>
             </div>
-            <h3 class="text-xl font-bold text-primary">Affordable & Flexible Payment Plans</h3>
-            <p class="text-sm text-secondary leading-relaxed">
-              We offer cost-effective solutions to fit every budget.
-            </p>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div class="glass-strong rounded-3xl p-6 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+            <div class="space-y-3">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                <Icon name="check" class="w-5 h-5" />
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-primary">Affordable & Flexible Payment Plans</h3>
+              <p class="text-xs sm:text-sm text-secondary leading-relaxed">
+                We offer cost-effective solutions to fit every budget.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -398,12 +466,13 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
           <div class="lg:col-span-5">
             <div class="rounded-3xl overflow-hidden glass-strong p-6 border border-white/90 shadow-xl max-w-md mx-auto flex items-center justify-center">
               <Image
-                src={specialistImg}
-                alt="Hearing aid technology fitted by Sheeraz Rahim at HearMaxx"
+                src={homeAudiologistSpecialist}
+                alt="Sheeraz Rahim, certified hearing specialist and founder of HearMaxx"
                 width={450}
                 height={450}
                 class="w-full h-auto max-h-[360px] object-contain rounded-2xl"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -442,6 +511,23 @@ import specialistImg from '../assets/images/sheeraz-rahim-specialist.webp';
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Banner Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-label="Patient Reviews & Ratings">
+    <div class="glass-light rounded-3xl p-6 sm:p-8 border border-white/80 shadow-md flex items-center justify-center">
+      <div class="max-w-4xl w-full rounded-2xl overflow-hidden glass-strong p-2 sm:p-3 border border-white/90 shadow-xs">
+        <Image
+          src={homeGoogleReviewsBanner}
+          alt="Rated 4.93 based on 105+ reviews on Google for HearMaxx Hearing Clinic"
+          width={1440}
+          height={306}
+          class="w-full h-auto object-contain rounded-xl"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </section>

@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import { siteConfig } from '../data/site';
-import logoImg from '../assets/images/hear-maxx-logo.png';
+import { hearMaxxLogoLight } from '../assets';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -18,12 +18,13 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-4">
         <a href="/" class="inline-block" aria-label="Hear Maxx Home">
           <Image
-            src={logoImg}
+            src={hearMaxxLogoLight}
             alt="Hear Maxx Logo"
-            width={logoImg.width}
-            height={logoImg.height}
-            class="h-9 sm:h-10 w-auto max-w-[200px] brightness-0 invert object-contain"
+            width={hearMaxxLogoLight.width}
+            height={hearMaxxLogoLight.height}
+            class="h-9 sm:h-10 w-auto max-w-[200px] object-contain"
             loading="lazy"
+            decoding="async"
           />
         </a>
         <p class="text-sm text-slate-200 leading-relaxed">

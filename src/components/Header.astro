@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import Dropdown from './Dropdown.astro';
 import MobileMenu from './MobileMenu.astro';
 import { siteConfig } from '../data/site';
-import logoImg from '../assets/images/hear-maxx-logo.png';
+import { hearMaxxLogo } from '../assets';
 
 const currentPath = Astro.url.pathname;
 const hearingHealthItem = siteConfig.navigation.find((item) => item.label === 'Hearing Health');
@@ -56,11 +56,11 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
       <!-- Logo Left (Uncropped with intrinsic aspect ratio) -->
       <a href="/" class="shrink-0 flex items-center" aria-label="HearMaxx Home">
         <Image
-          src={logoImg}
+          src={hearMaxxLogo}
           alt="HearMaxx – Ultimate Hearing Solutions"
-          width={logoImg.width}
-          height={logoImg.height}
-          class="h-10 sm:h-11 w-auto max-w-[210px] object-contain"
+          width={hearMaxxLogo.width}
+          height={hearMaxxLogo.height}
+          class="h-10 sm:h-12 w-auto max-w-[220px] object-contain"
           loading="eager"
           decoding="async"
         />

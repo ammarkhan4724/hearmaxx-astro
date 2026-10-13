@@ -3,8 +3,11 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { siteConfig } from '../../data/site';
-import clinicFrontImg from '../../assets/images/clinic-front.webp';
-import clinicReceptionImg from '../../assets/images/clinic-reception.webp';
+import {
+  clinicsHeroImg,
+  clinicMississaugaImg,
+  clinicYorkImg
+} from '../../assets';
 ---
 
 <BaseLayout
@@ -53,11 +56,11 @@ import clinicReceptionImg from '../../assets/images/clinic-reception.webp';
             </h2>
             <div class="rounded-2xl overflow-hidden shadow-xs border border-white/90 glass-strong p-2 flex items-center justify-center bg-slate-50/50">
               <Image
-                src={clinicFrontImg}
+                src={clinicMississaugaImg}
                 alt="HearMaxx Mississauga Clinic storefront and entrance in Erindale Dental Centre"
-                width={1280}
-                height={720}
-                class="w-full h-auto aspect-[16/9] object-contain rounded-xl"
+                width={800}
+                height={550}
+                class="w-full h-auto max-h-72 object-contain rounded-xl"
                 loading="lazy"
               />
             </div>
@@ -174,11 +177,11 @@ import clinicReceptionImg from '../../assets/images/clinic-reception.webp';
             </h2>
             <div class="rounded-2xl overflow-hidden shadow-xs border border-white/90 glass-strong p-2 flex items-center justify-center bg-slate-50/50">
               <Image
-                src={clinicReceptionImg}
-                alt="HearMaxx York Clinic reception desk and patient lounge in Jane Park Plaza"
-                width={1080}
-                height={1893}
-                class="max-h-72 w-auto aspect-[1080/1893] object-contain rounded-xl mx-auto"
+                src={clinicYorkImg}
+                alt="HearMaxx York Clinic storefront and entrance in Jane Park Plaza"
+                width={800}
+                height={600}
+                class="w-full h-auto max-h-72 object-contain rounded-xl"
                 loading="lazy"
               />
             </div>

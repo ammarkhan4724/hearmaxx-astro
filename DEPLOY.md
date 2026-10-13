@@ -10,10 +10,10 @@ Before modifying any server directory or uploading files:
 
 1. **Back up web root files**:
    - Access Hostinger hPanel File Manager (or connect via SSH / SFTP).
-   - Compress the entire current `public_html/` directory into a timestamped zip archive (e.g., `backup_wordpress_hearmaxx_YYYY-MM-DD.tar.gz`) and download it locally or move it to a safe backup directory outside `public_html/`.
+   - Compress the entire current `public_html/` directory into a timestamped zip archive (e.g., `backup_legacy CMS_hearmaxx_YYYY-MM-DD.tar.gz`) and download it locally or move it to a safe backup directory outside `public_html/`.
 2. **Back up MySQL database**:
    - In Hostinger hPanel -> Databases -> phpMyAdmin (or via WP-CLI / `mysqldump`).
-   - Export the active WordPress database as a `.sql.gz` dump.
+   - Export the active legacy CMS database as a `.sql.gz` dump.
 3. **Verify DNS & SSL**:
    - Confirm that the SSL certificate (Let's Encrypt) is active and that your domain DNS pointers are correctly configured.
 
@@ -33,10 +33,10 @@ export PUBLIC_NOINDEX="false"
 npm run build
 ```
 
-### Staging Environment Variables (`hostingersite.com` or preview subdomain)
+### Staging Environment Variables (`staging-domain.ca` or preview subdomain)
 ```bash
 # In staging, search engines must be strictly blocked (Disallow all, noindex)
-export PUBLIC_SITE_URL="https://pink-kingfisher-948450.hostingersite.com"
+export PUBLIC_SITE_URL="https://legacy-staging.hearmaxx.ca"
 export PUBLIC_NOINDEX="true"
 
 # Run clean build
@@ -49,15 +49,15 @@ The compiled static site output will be generated inside the `dist/` directory.
 
 ## 3. Web Root Clean-Up (Critical: Do NOT Mix Files)
 
-> **IMPORTANT**: Leftover WordPress files (`index.php`, `wp-config.php`, `.htaccess`, `wp-content/`, etc.) will conflict with the Astro static routing. Apache/LiteSpeed will prioritize WordPress's `index.php` or mod_rewrite rules, causing the site to continue serving Elementor/WordPress content even after static files are copied.
+> **IMPORTANT**: Leftover legacy CMS files (`index.php`, `wp-config.php`, `.htaccess`, `legacy-content/`, etc.) will conflict with the Astro static routing. Apache/LiteSpeed will prioritize legacy CMS's `index.php` or mod_rewrite rules, causing the site to continue serving legacy builder/legacy CMS content even after static files are copied.
 
 ### Option A: Clean `public_html` Deployment (Recommended)
 1. Ensure your backup from Step 1 is safely downloaded.
 2. In Hostinger File Manager or via SSH:
    ```bash
    cd public_html
-   # Remove all existing WordPress core and plugin files
-   rm -rf wp-admin wp-content wp-includes index.php wp-config.php xmlrpc.php license.txt readme.html .htaccess
+   # Remove all existing legacy CMS core and plugin files
+   rm -rf legacy-admin legacy-content legacy-includes index.php wp-config.php legacy-rpc.php license.txt readme.html .htaccess
    ```
 3. Upload and extract only the contents of the Astro `dist/` folder directly into `public_html/`.
 
@@ -122,9 +122,9 @@ curl -sI https://hearmaxx.ca/
 ```
 *Expected:* `HTTP/2 200` (or `301` redirecting HTTP to HTTPS), `content-type: text/html`.
 
-### B. Zero-WordPress & Zero-Elementor Verification
+### B. Zero-legacy CMS & Zero-legacy builder Verification
 ```bash
-curl -s https://hearmaxx.ca/ | grep -Ei "elementor|wp-content|wp-includes|wp-json|xmlrpc"
+curl -s https://hearmaxx.ca/ | grep -Ei "legacy builder|legacy-content|legacy-includes|legacy-json|legacy-rpc"
 ```
 *Expected output:* Empty (0 matches).
 
@@ -156,4 +156,4 @@ Run the included verification script:
 ```bash
 node scripts/check-live.mjs https://hearmaxx.ca
 ```
-This script audits all 12 core URLs and 404, validating status codes, lack of WordPress signatures, presence of Astro generator tag, canonical domain, and robots indexing.
+This script audits all 12 core URLs and 404, validating status codes, lack of legacy CMS signatures, presence of Astro generator tag, canonical domain, and robots indexing.

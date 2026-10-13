@@ -1,26 +1,26 @@
 {
   "generatedAt": "2026-10-12T20:09:44.688Z",
-  "liveBaseUrl": "https://pink-kingfisher-948450.hostingersite.com",
+  "liveBaseUrl": "https://hearmaxx.ca",
   "allowedRemovals": [
     "Buy 2 Get 1 Free eCommerce template block",
     "Stray ## H heading on Ear Infections page",
     "Duplicated slider slides",
     "Third-party hotlinked images (replaced with local placeholders)",
-    "WordPress/Elementor engine classes & tags",
-    "WordPress widget header artifacts (\"socials\", \"skip to content\")"
+    "legacy engine classes & tags",
+    "legacy widget header artifacts (\"socials\", \"skip to content\")"
   ],
   "pages": {
     "home": {
       "slug": "home",
       "path": "/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/",
+      "url": "https://hearmaxx.ca/",
       "meta": {
         "title": "Hear Maxx - Ultimate Hearing Solutions",
         "description": "Hear Maxx offers certified audiologist consultations, comprehensive hearing evaluations, advanced digital hearing aids, and complete ear care solutions.",
         "ogTitle": "Hear Maxx - Ultimate Hearing Solutions",
         "ogDescription": "Hear Maxx offers certified audiologist consultations, comprehensive hearing evaluations, advanced digital hearing aids, and complete ear care solutions.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/",
         "ogType": "website"
       },
       "headings": [
@@ -255,45 +255,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx - Ultimate Hearing Solutions"
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/03/Untitled-design-1.webp",
-          "alt": "Hear Maxx Ongoing Support and Adjustments"
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/5.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/3.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/4.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/06/2.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/1.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Untitled-150-x-60-px-200-x-150-pxphonak.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -337,14 +306,14 @@
     "explore-hearing-solutions": {
       "slug": "explore-hearing-solutions",
       "path": "/explore-hearing-solutions/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/explore-hearing-solutions/",
+      "url": "https://hearmaxx.ca/explore-hearing-solutions/",
       "meta": {
         "title": "Hearing Solutions - Hear Maxx",
         "description": "Discover advanced digital hearing aids, rechargeable hearing devices, musician earplugs, and custom hearing protection options at Hear Maxx.",
         "ogTitle": "Hearing Solutions - Hear Maxx",
         "ogDescription": "Discover advanced digital hearing aids, rechargeable hearing devices, musician earplugs, and custom hearing protection options at Hear Maxx.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/explore-hearing-solutions/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/explore-hearing-solutions/",
         "ogType": "website"
       },
       "headings": [
@@ -643,117 +612,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/08/ph-packshot-naida-p-pr-hook-050-0810-p8-768x768-1.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/1638355189629-768x768.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/light.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/deaf.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/water-resistant.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/equalizer.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/1638355189629.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/ph-packshot-naida-p-pr-hook-050-0810-p8-768x768-1.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/67330fd0fc882144205da3a9_ePa6i971tur9beSsZqggOsNGUUYzsAV3e3qEUls7NYQ.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/PH_Packshot_Slim_pair_with_receiver_P-R_050-0851-4A_d0ccbd22-3dbe-449d-8d14-0910300b2d07_grande.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/67330fd0fc882144205da3a9_ePa6i971tur9beSsZqggOsNGUUYzsAV3e3qEUls7NYQ.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/PH_Packshot_Slim_pair_with_receiver_P-R_050-0851-4A_d0ccbd22-3dbe-449d-8d14-0910300b2d07_grande.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/hearing-aid-types-pictures-3-1.webp",
-          "alt": ""
-        },
-        {
-          "src": "https://www.hearingaid.org.uk/images/618x0/0x0-0x0/website-general-pictures/hearing-aid-types-pictures-3.jpg",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/8.webp",
-          "alt": ""
-        },
-        {
-          "src": "https://www.starkey.com/Sites/Starkey2015/branded-sites/shared/img/360s/utica/in-the-canal/head/8.jpg",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/music-1536x512.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/noise-during-holiday.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/types-of-earplugs-853x1024.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/26_20240514_AP_SLEEP_DEEP_CLOSEUP_002_copy_optimized_100.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/Widex-CROS-solution_1000x1000-1024x1024.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/bicros-solution-1000-1000-1024x1024.webp",
-          "alt": ""
-        },
-        {
-          "src": "https://azurecdn.widex.com/-/media/widex/global/images/campaigns/illustrations-and-charts/widex-cros-solution_1000x1000.png?w=1900&rev=7efa40afe08b481b86c0ecf539592939&extension=webp&hash=7803E6A4EBDF2E6F2DCF9F2FBCB69CFE",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/bicros-solution-1000-1000.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/08/10.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -857,14 +723,14 @@
     "our-services": {
       "slug": "our-services",
       "path": "/our-services/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/our-services/",
+      "url": "https://hearmaxx.ca/our-services/",
       "meta": {
         "title": "Our Services - Hear Maxx",
         "description": "Explore comprehensive hearing healthcare services at Hear Maxx including diagnostic audiometry, digital hearing aid fitting, tinnitus care, and ear wax management.",
         "ogTitle": "Our Services - Hear Maxx",
         "ogDescription": "Explore comprehensive hearing healthcare services at Hear Maxx including diagnostic audiometry, digital hearing aid fitting, tinnitus care, and ear wax management.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/our-services/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/our-services/",
         "ogType": "website"
       },
       "headings": [
@@ -1088,65 +954,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/04/Untitled-512-x-512-px.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/ear.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/auditory.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/auditory.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Untitled-512-x-512-px-1.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Untitled-512-x-512-px-2.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Untitled-design-52.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Untitled-design-52.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Untitled-design-29.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/protection.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/tinnitus.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/tinnitus.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -1203,14 +1018,14 @@
     "about-us": {
       "slug": "about-us",
       "path": "/about-us/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/about-us/",
+      "url": "https://hearmaxx.ca/about-us/",
       "meta": {
         "title": "About Us - Hear Maxx",
         "description": "Learn about Hear Maxx, our mission, core values, and dedicated team of hearing care specialists transforming lives through better hearing.",
         "ogTitle": "About Us - Hear Maxx",
         "ogDescription": "Learn about Hear Maxx, our mission, core values, and dedicated team of hearing care specialists transforming lives through better hearing.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/about-us/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/about-us/",
         "ogType": "website"
       },
       "headings": [
@@ -1382,26 +1197,12 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
-        {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Our-Clinic.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
-        }
-      ],
       "videos": [
         {
-          "src": "/wp-content/uploads/2025/08/Services.mp4"
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/08/Clicnic.mp4"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
       "contacts": {
@@ -1437,14 +1238,14 @@
     "contact-us": {
       "slug": "contact-us",
       "path": "/contact-us/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/contact-us/",
+      "url": "https://hearmaxx.ca/contact-us/",
       "meta": {
         "title": "Contact Us - Hear Maxx",
         "description": "Contact Hear Maxx for appointments, consultations, and guidance on hearing loss and modern digital hearing aids.",
         "ogTitle": "Contact Us - Hear Maxx",
         "ogDescription": "Contact Hear Maxx for appointments, consultations, and guidance on hearing loss and modern digital hearing aids.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/contact-us/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/contact-us/",
         "ogType": "website"
       },
       "headings": [
@@ -1630,17 +1431,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -1668,14 +1466,14 @@
     "appointment-form": {
       "slug": "appointment-form",
       "path": "/appointment-form/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/appointment-form/",
+      "url": "https://hearmaxx.ca/appointment-form/",
       "meta": {
         "title": "Appointment Form - Hear Maxx",
         "description": "Schedule your hearing consultation and diagnostic hearing assessment online with certified audiologists at Hear Maxx.",
         "ogTitle": "Appointment Form - Hear Maxx",
         "ogDescription": "Schedule your hearing consultation and diagnostic hearing assessment online with certified audiologists at Hear Maxx.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/appointment-form/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/appointment-form/",
         "ogType": "website"
       },
       "headings": [
@@ -1845,17 +1643,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -1880,14 +1675,14 @@
     "find-our-clinics": {
       "slug": "find-our-clinics",
       "path": "/find-our-clinics/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/find-our-clinics/",
+      "url": "https://hearmaxx.ca/find-our-clinics/",
       "meta": {
         "title": "Find Our Clinics - Hear Maxx",
         "description": "Locate a trusted Hear Maxx hearing clinic near you. Contact our welcoming centers to schedule your expert hearing evaluation today.",
         "ogTitle": "Find Our Clinics - Hear Maxx",
         "ogDescription": "Locate a trusted Hear Maxx hearing clinic near you. Contact our welcoming centers to schedule your expert hearing evaluation today.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/find-our-clinics/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/find-our-clinics/",
         "ogType": "website"
       },
       "headings": [
@@ -2081,17 +1876,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -2120,14 +1912,14 @@
     "get-expert-advice": {
       "slug": "get-expert-advice",
       "path": "/get-expert-advice/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/get-expert-advice/",
+      "url": "https://hearmaxx.ca/get-expert-advice/",
       "meta": {
         "title": "Get Expert Advice - Hear Maxx",
         "description": "Ask our certified audiologists and hearing specialists your questions about hearing health, modern hearing aids, and rehabilitation.",
         "ogTitle": "Get Expert Advice - Hear Maxx",
         "ogDescription": "Ask our certified audiologists and hearing specialists your questions about hearing health, modern hearing aids, and rehabilitation.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/get-expert-advice/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/get-expert-advice/",
         "ogType": "website"
       },
       "headings": [
@@ -2378,17 +2170,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -2462,14 +2251,14 @@
     "the-impact-of-untreated-hearing-loss": {
       "slug": "the-impact-of-untreated-hearing-loss",
       "path": "/the-impact-of-untreated-hearing-loss/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/the-impact-of-untreated-hearing-loss/",
+      "url": "https://hearmaxx.ca/the-impact-of-untreated-hearing-loss/",
       "meta": {
         "title": "The Impact of Untreated Hearing Loss - Hear Maxx",
         "description": "Learn about the cognitive, emotional, and social consequences of untreated hearing loss and how early treatment restores connection and health.",
         "ogTitle": "The Impact of Untreated Hearing Loss - Hear Maxx",
         "ogDescription": "Learn about the cognitive, emotional, and social consequences of untreated hearing loss and how early treatment restores connection and health.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/the-impact-of-untreated-hearing-loss/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/the-impact-of-untreated-hearing-loss/",
         "ogType": "website"
       },
       "headings": [
@@ -2671,33 +2460,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/05/Untitled-1000-x-1000-px-800-x-800-px.webp",
-          "alt": "Pure tone audiometry hearing test, model ear with hearing aid, and otoscope"
-        },
-        {
-          "src": "https://imgs.search.brave.com/b6KC0krDMZgvS5S5m1NuekqTB4NQSh-Wt3d0e8e9Q_U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aGVhcmluZ2FpZC5v/cmcudWsvaW1hZ2Vz/LzY0MHgzNTAvMHgw/LTB4MC93ZWJzaXRl/LWdlbmVyYWwtcGlj/dHVyZXMvaS1jYW50/LWhlYXItc29mdC1z/b3VuZHMtZG8taS1o/YXZlLWhlYXJpbmct/bG9zcy5qcGc",
-          "alt": ""
-        },
-        {
-          "src": "https://assets-ue.cas.dgs.com/-/media/oticon-us/main/inside-oticon/xintrobanner-insideoticonhomepage-connected-1920x900.jpg,qh=900,ala=en,aw=1920,arev=6601,ahash=6C0EED01458063D66B6E7D519EF5CA83.pagespeed.ic.NNYZA3-xlY.webp",
-          "alt": ""
-        },
-        {
-          "src": "https://a.storyblok.com/f/45415/1200x675/42c59bc041/noisy-settings-and-hearing-loss_1200x675.jpg/m/1200x0/filters:quality(40)",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -2735,14 +2505,14 @@
     "signs-you-may-have-hearing-loss": {
       "slug": "signs-you-may-have-hearing-loss",
       "path": "/signs-you-may-have-hearing-loss/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/signs-you-may-have-hearing-loss/",
+      "url": "https://hearmaxx.ca/signs-you-may-have-hearing-loss/",
       "meta": {
         "title": "Signs You May Have Hearing Loss - Hear Maxx",
         "description": "Discover the common warning signs of hearing loss, symptoms to watch for, and when to schedule a professional evaluation with Hear Maxx specialists.",
         "ogTitle": "Signs You May Have Hearing Loss - Hear Maxx",
         "ogDescription": "Discover the common warning signs of hearing loss, symptoms to watch for, and when to schedule a professional evaluation with Hear Maxx specialists.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/signs-you-may-have-hearing-loss/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/signs-you-may-have-hearing-loss/",
         "ogType": "website"
       },
       "headings": [
@@ -2966,29 +2736,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "https://suttonhearingcentre.co.uk/wp-content/uploads/2024/02/AdobeStock_572209886-min.jpeg",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/2-1.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/05/Untitled-682-x-750-px-750-x-682-px-1750-x-682-px-1050-x-882-px.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -3031,14 +2786,14 @@
     "what-is-tinnitus": {
       "slug": "what-is-tinnitus",
       "path": "/what-is-tinnitus/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/what-is-tinnitus/",
+      "url": "https://hearmaxx.ca/what-is-tinnitus/",
       "meta": {
         "title": "Tinnitus & Types? - Hear Maxx",
         "description": "Understand the causes, symptoms, and proven management strategies for tinnitus (ringing in the ears). Get personalized relief at Hear Maxx.",
         "ogTitle": "Tinnitus & Types? - Hear Maxx",
         "ogDescription": "Understand the causes, symptoms, and proven management strategies for tinnitus (ringing in the ears). Get personalized relief at Hear Maxx.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/what-is-tinnitus/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/what-is-tinnitus/",
         "ogType": "website"
       },
       "headings": [
@@ -3284,21 +3039,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "/wp-content/uploads/2025/04/maxresdefault.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",
@@ -3357,14 +3105,14 @@
     "ear-infections-conditions": {
       "slug": "ear-infections-conditions",
       "path": "/ear-infections-conditions/",
-      "url": "https://pink-kingfisher-948450.hostingersite.com/ear-infections-conditions/",
+      "url": "https://hearmaxx.ca/ear-infections-conditions/",
       "meta": {
         "title": "Ear Infections & Conditions - Hear Maxx",
         "description": "Learn about common ear infections, ear health conditions, symptoms to monitor, and effective treatment options from Hear Maxx hearing specialists.",
         "ogTitle": "Ear Infections & Conditions - Hear Maxx",
         "ogDescription": "Learn about common ear infections, ear health conditions, symptoms to monitor, and effective treatment options from Hear Maxx hearing specialists.",
-        "ogImage": "https://pink-kingfisher-948450.hostingersite.com/wp-content/uploads/2024/11/Untitled-design2.png",
-        "ogUrl": "https://pink-kingfisher-948450.hostingersite.com/ear-infections-conditions/",
+        "ogImage": "https://hearmaxx.ca/og-image.png",
+        "ogUrl": "https://hearmaxx.ca/ear-infections-conditions/",
         "ogType": "website"
       },
       "headings": [
@@ -3608,25 +3356,14 @@
           "href": "https://www.instagram.com/hearmaxxofficial"
         }
       ],
-      "images": [
+      "videos": [
         {
-          "src": "/wp-content/uploads/2024/11/hear_maxx_logo-300x71.png",
-          "alt": ""
+          "src": "/videos/clinic-services.mp4"
         },
         {
-          "src": "https://imgs.search.brave.com/AIkCDR8ynC2cr8XRFZiOFx3t6B1VILThYjWMD0KFxwA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGFrZWNvdW50eWVu/dC5jb20vaW1nL2Ns/dWUvZWFyLXBhaW4u/anBn",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/04/Middle-Ear.webp",
-          "alt": ""
-        },
-        {
-          "src": "/wp-content/uploads/2025/03/Footer-Logo-HearMaXXsMALL.png",
-          "alt": "Hear Maxx Logo"
+          "src": "/videos/clinic-tour.mp4"
         }
       ],
-      "videos": [],
       "contacts": {
         "phones": [
           "+1 905-232-7860",

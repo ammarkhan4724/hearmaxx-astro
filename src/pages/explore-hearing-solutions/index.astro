@@ -4,14 +4,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import BrandStrip from '../../components/BrandStrip.astro';
 import { siteConfig } from '../../data/site';
-import bteImg from '../../assets/images/bte-hearing-aid.webp';
-import ricImg from '../../assets/images/ric-hearing-aid.webp';
-import iteImg from '../../assets/images/ite-hearing-aid.webp';
-import crosImg from '../../assets/images/cros-hearing-solution.webp';
-import bicrosImg from '../../assets/images/bicros-hearing-solution.webp';
-import musicianImg from '../../assets/images/musician-earplugs.webp';
-import swimmingImg from '../../assets/images/swimming-earplugs.webp';
-import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
+import {
+  exploreNaidaBteImg,
+  exploreRicDeviceImg,
+  exploreSlimProfileImg,
+  exploreSlimPairImg,
+  exploreIteAidImg,
+  exploreItcAidImg,
+  exploreCicAidImg,
+  exploreFeatureComfortImg,
+  exploreFeatureClarityImg,
+  exploreFeatureDurabilityImg,
+  exploreFeatureEqualizerImg,
+  exploreMusicianBannerImg,
+  exploreNoiseProtectionImg,
+  exploreTypesOfEarplugsImg,
+  exploreSleepingEarplugsImg,
+  exploreCrosDiagramImg,
+  exploreBiCrosDiagramImg
+} from '../../assets';
 ---
 
 <BaseLayout
@@ -76,7 +87,7 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5">
           <div class="rounded-3xl overflow-hidden glass-strong border border-white/90 p-6 flex items-center justify-center shadow-xs">
-            <Image src={bteImg} alt="Behind-the-Ear (BTE) Digital Hearing Aid" width={500} height={380} class="max-h-72 w-auto object-contain" loading="eager" fetchpriority="high" decoding="async" />
+            <Image src={exploreNaidaBteImg} alt="Phonak Naida Behind-the-Ear (BTE) Digital Hearing Aid" width={768} height={768} class="max-h-72 w-auto object-contain" loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -99,6 +110,9 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
           <h3 class="text-xs font-bold uppercase tracking-wider text-text-muted mt-2">Key Features</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
             <div class="p-4 rounded-2xl glass-strong border border-white/90 shadow-2xs glass-card-hover">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 p-2 mb-2 flex items-center justify-center">
+                <Image src={exploreFeatureComfortImg} alt="Comfort icon" width={32} height={32} class="w-6 h-6 object-contain" />
+              </div>
               <h4 class="text-xs font-bold uppercase tracking-wider text-text-muted block mb-0.5">Comfort</h4>
               <h5 class="text-xs font-bold text-brand uppercase block mb-1">Open-Fit Option</h5>
               <p class="text-xs text-secondary leading-relaxed">
@@ -106,6 +120,9 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
               </p>
             </div>
             <div class="p-4 rounded-2xl glass-strong border border-white/90 shadow-2xs glass-card-hover">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 p-2 mb-2 flex items-center justify-center">
+                <Image src={exploreFeatureEqualizerImg} alt="Equalizer icon" width={32} height={32} class="w-6 h-6 object-contain" />
+              </div>
               <h4 class="text-xs font-bold uppercase tracking-wider text-text-muted block mb-0.5">Flexibility</h4>
               <h5 class="text-xs font-bold text-brand uppercase block mb-1">Telecoil Compatibility</h5>
               <p class="text-xs text-secondary leading-relaxed">
@@ -113,6 +130,9 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
               </p>
             </div>
             <div class="p-4 rounded-2xl glass-strong border border-white/90 shadow-2xs glass-card-hover">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 p-2 mb-2 flex items-center justify-center">
+                <Image src={exploreFeatureDurabilityImg} alt="Durability icon" width={32} height={32} class="w-6 h-6 object-contain" />
+              </div>
               <h4 class="text-xs font-bold uppercase tracking-wider text-text-muted block mb-0.5">Durability</h4>
               <h5 class="text-xs font-bold text-brand uppercase block mb-1">IP68 Water / Dust Resistance</h5>
               <p class="text-xs text-secondary leading-relaxed">
@@ -120,6 +140,9 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
               </p>
             </div>
             <div class="p-4 rounded-2xl glass-strong border border-white/90 shadow-2xs glass-card-hover">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 p-2 mb-2 flex items-center justify-center">
+                <Image src={exploreFeatureClarityImg} alt="Clarity icon" width={32} height={32} class="w-6 h-6 object-contain" />
+              </div>
               <h4 class="text-xs font-bold uppercase tracking-wider text-text-muted block mb-0.5">Strength</h4>
               <h5 class="text-xs font-bold text-brand uppercase block mb-1">High-Power Amplification</h5>
               <p class="text-xs text-secondary leading-relaxed">
@@ -179,11 +202,23 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
               </p>
             </div>
           </div>
+
+          <!-- Phonak Slim Showcase -->
+          <div class="grid grid-cols-2 gap-4 pt-3">
+            <div class="rounded-2xl glass-strong border border-white/90 p-3 flex flex-col items-center text-center shadow-2xs">
+              <Image src={exploreSlimPairImg} alt="Phonak Slim pair with receiver" width={280} height={280} class="max-h-28 w-auto object-contain mb-2" loading="lazy" />
+              <span class="text-[11px] font-semibold text-text-muted">Phonak Slim Pair with Receiver</span>
+            </div>
+            <div class="rounded-2xl glass-strong border border-white/90 p-3 flex flex-col items-center text-center shadow-2xs">
+              <Image src={exploreSlimProfileImg} alt="Phonak Slim ergonomic profile" width={280} height={280} class="max-h-28 w-auto object-contain mb-2" loading="lazy" />
+              <span class="text-[11px] font-semibold text-text-muted">Contoured Ergonomic Profile</span>
+            </div>
+          </div>
         </div>
 
         <div class="lg:col-span-5 order-1 lg:order-2">
           <div class="rounded-3xl overflow-hidden glass-strong border border-white/90 p-6 flex items-center justify-center shadow-xs">
-            <Image src={ricImg} alt="Receiver-in-Canal (RIC) Hearing Device" width={500} height={380} class="max-h-72 w-auto object-contain" loading="lazy" />
+            <Image src={exploreRicDeviceImg} alt="Receiver-in-Canal (RIC) Hearing Device" width={768} height={768} class="max-h-72 w-auto object-contain" loading="lazy" />
           </div>
         </div>
       </div>
@@ -194,7 +229,7 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5">
           <div class="rounded-3xl overflow-hidden glass-strong border border-white/90 p-6 flex items-center justify-center shadow-xs">
-            <Image src={iteImg} alt="In-the-Ear (ITE) Custom Hearing Aid" width={500} height={380} class="max-h-72 w-auto object-contain" loading="lazy" />
+            <Image src={exploreIteAidImg} alt="In-the-Ear (ITE) Custom Hearing Aid" width={618} height={618} class="max-h-72 w-auto object-contain" loading="lazy" />
           </div>
         </div>
 
@@ -242,32 +277,38 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
           </div>
 
           <!-- In-the-Canal (ITC) Specific Details -->
-          <div class="mt-6 p-6 rounded-2xl glass-strong border border-white/90 space-y-3">
-            <div class="flex items-center justify-between">
-              <h3 class="text-lg font-bold text-primary">In‑the‑Canal (ITC)</h3>
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand/10 text-brand">Partially Visible</span>
+          <div class="mt-6 p-6 rounded-2xl glass-strong border border-white/90 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-8 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-bold text-primary">In‑the‑Canal (ITC)</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand/10 text-brand">Partially Visible</span>
+              </div>
+              <p class="text-xs text-secondary leading-relaxed">
+                ITC hearing aids are designed to fit partly in the ear canal, making them less visible than larger models, but still easy to handle.
+              </p>
+              <ul class="space-y-2 text-xs text-secondary">
+                <li class="flex items-start gap-1.5">
+                  <span class="text-brand font-bold">•</span>
+                  <span><strong class="text-primary font-bold">Ease of Handling:</strong> The larger size of ITC devices makes them easier to handle, insert, and remove, which can be beneficial for users with dexterity concerns.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-brand font-bold">•</span>
+                  <span><strong class="text-primary font-bold">Discreet Appearance:</strong> While slightly more visible than CIC models, ITC aids still offer a discreet appearance, fitting snugly within the ear canal.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-brand font-bold">•</span>
+                  <span><strong class="text-primary font-bold">Custom-Molded Fit:</strong> Like CIC devices, ITC hearing aids are custom-molded to the user's ear, providing comfort and a secure fit.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-brand font-bold">•</span>
+                  <span><strong class="text-primary font-bold">On-Board Controls:</strong> The slightly larger size of ITC aids allows for additional features, such as manual volume controls and directional microphones, enhancing user experience.</span>
+                </li>
+              </ul>
             </div>
-            <p class="text-xs text-secondary leading-relaxed">
-              ITC hearing aids are designed to fit partly in the ear canal, making them less visible than larger models, but still easy to handle.
-            </p>
-            <ul class="space-y-2 text-xs text-secondary">
-              <li class="flex items-start gap-1.5">
-                <span class="text-brand font-bold">•</span>
-                <span><strong class="text-primary font-bold">Ease of Handling:</strong> The larger size of ITC devices makes them easier to handle, insert, and remove, which can be beneficial for users with dexterity concerns.</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <span class="text-brand font-bold">•</span>
-                <span><strong class="text-primary font-bold">Discreet Appearance:</strong> While slightly more visible than CIC models, ITC aids still offer a discreet appearance, fitting snugly within the ear canal.</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <span class="text-brand font-bold">•</span>
-                <span><strong class="text-primary font-bold">Custom-Molded Fit:</strong> Like CIC devices, ITC hearing aids are custom-molded to the user's ear, providing comfort and a secure fit.</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <span class="text-brand font-bold">•</span>
-                <span><strong class="text-primary font-bold">On-Board Controls:</strong> The slightly larger size of ITC aids allows for additional features, such as manual volume controls and directional microphones, enhancing user experience.</span>
-              </li>
-            </ul>
+            <div class="md:col-span-4 flex flex-col items-center justify-center p-4 rounded-xl bg-white/70 border border-border-subtle/80 text-center">
+              <Image src={exploreItcAidImg} alt="In-the-Canal (ITC) Custom Hearing Aid in ear" width={320} height={300} class="max-h-44 w-auto object-contain mb-2" loading="lazy" />
+              <span class="text-[11px] font-semibold text-text-muted">In-Canal Anatomy Fit</span>
+            </div>
           </div>
         </div>
       </div>
@@ -333,6 +374,9 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
         <!-- Completely-in-Canal (CIC) Card -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
+              <Image src={exploreCicAidImg} alt="Completely-in-Canal (CIC) Hearing Device" width={400} height={350} class="max-h-44 w-auto object-contain" loading="lazy" />
+            </div>
             <span class="text-xs font-bold uppercase tracking-wider text-brand">Near-Invisible Precision</span>
             <h3 class="text-2xl font-bold text-primary">Completely-in-Canal (CIC)</h3>
             <p class="text-sm text-secondary leading-relaxed">
@@ -393,7 +437,7 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={crosImg} alt="CROS Hearing System" width={400} height={260} class="max-h-52 w-auto object-contain" loading="lazy" />
+              <Image src={exploreCrosDiagramImg} alt="Widex CROS Hearing System Diagram" width={600} height={600} class="max-h-52 w-auto object-contain" loading="lazy" />
             </div>
             <h3 class="text-xl font-bold text-primary">CROS (Contralateral Routing of Signals)</h3>
             <p class="text-xs font-bold uppercase tracking-wider text-brand">
@@ -414,7 +458,7 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={bicrosImg} alt="BiCROS Hearing System" width={400} height={260} class="max-h-52 w-auto object-contain" loading="lazy" />
+              <Image src={exploreBiCrosDiagramImg} alt="BiCROS Hearing System Wireless Transmission Diagram" width={600} height={600} class="max-h-52 w-auto object-contain" loading="lazy" />
             </div>
             <h3 class="text-xl font-bold text-primary">BiCROS Hearing Aids</h3>
             <p class="text-xs font-bold uppercase tracking-wider text-brand">
@@ -462,12 +506,17 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
         </p>
       </div>
 
+      <!-- Musician Protection Banner -->
+      <div class="rounded-2xl overflow-hidden glass-strong border border-white/90 p-2 shadow-xs max-w-4xl mx-auto flex items-center justify-center">
+        <Image src={exploreMusicianBannerImg} alt="Custom Musician Hearing Protection and Concert Acoustic Performance" width={1280} height={426} class="w-full h-auto max-h-64 object-contain rounded-xl" loading="lazy" />
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Musician Plugs -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={musicianImg} alt="Custom Musician Earplugs" width={300} height={200} class="max-h-40 w-auto object-contain" loading="lazy" />
+              <Image src={exploreTypesOfEarplugsImg} alt="Custom Musician Earplugs and Attenuation Filters" width={400} height={480} class="max-h-44 w-auto object-contain" loading="lazy" />
             </div>
             <h3 class="text-xl font-bold text-primary">Musician Ear Plugs</h3>
             <h4 class="text-xs font-bold uppercase tracking-wider text-brand">Musician Ear Plugs – Extended Key Features</h4>
@@ -505,11 +554,11 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
           </div>
         </div>
 
-        <!-- Swimming Plugs -->
+        <!-- Swimming / Noise Plugs -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={swimmingImg} alt="Custom Swimming Earplugs" width={300} height={200} class="max-h-40 w-auto object-contain" loading="lazy" />
+              <Image src={exploreNoiseProtectionImg} alt="Custom Noise and Swimming Earplugs" width={400} height={400} class="max-h-44 w-auto object-contain" loading="lazy" />
             </div>
             <h3 class="text-xl font-bold text-primary">Swimming Ear Plugs</h3>
             <ul class="space-y-2 text-xs text-secondary">
@@ -558,7 +607,7 @@ import sleepingImg from '../../assets/images/sleeping-earplugs.webp';
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={sleepingImg} alt="Custom Sleeping Earplugs" width={300} height={200} class="max-h-40 w-auto object-contain" loading="lazy" />
+              <Image src={exploreSleepingEarplugsImg} alt="Custom Sleeping Earplugs Deep Fit" width={400} height={400} class="max-h-44 w-auto object-contain" loading="lazy" />
             </div>
             <h3 class="text-xl font-bold text-primary">Custom Sleeping Plugs</h3>
             <p class="text-xs text-secondary leading-relaxed">

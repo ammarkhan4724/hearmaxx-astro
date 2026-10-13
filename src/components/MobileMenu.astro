@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import { siteConfig } from '../data/site';
-import logoImg from '../assets/images/hear-maxx-logo.png';
+import { hearMaxxLogo } from '../assets';
 
 interface Props {
   currentPath?: string;
@@ -33,10 +33,10 @@ const { currentPath = '' } = Astro.props;
     <div class="p-4 border-b border-border-subtle flex items-center justify-between">
       <a href="/" class="flex items-center gap-2" aria-label="HearMaxx Home">
         <Image
-          src={logoImg}
+          src={hearMaxxLogo}
           alt="HearMaxx Logo"
-          width={logoImg.width}
-          height={logoImg.height}
+          width={hearMaxxLogo.width}
+          height={hearMaxxLogo.height}
           class="h-8 w-auto max-w-[170px] object-contain"
           loading="eager"
         />

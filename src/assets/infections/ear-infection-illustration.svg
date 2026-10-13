@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="earGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bg4)"/>
+  <!-- Cross section ear anatomy diagram -->
+  <g transform="translate(180, 80)">
+    <!-- Outer ear pinna outline -->
+    <path d="M 60,70 C 40,30 90,10 110,25 C 130,40 120,70 120,100 C 120,140 100,180 80,195 C 60,210 40,190 50,170 C 60,150 70,140 70,120" stroke="url(#earGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Ear Canal -->
+    <path d="M 90,110 C 130,115 170,125 210,120" stroke="url(#earGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M 85,135 C 130,140 170,150 210,145" stroke="url(#earGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Tympanic membrane (Eardrum) -->
+    <line x1="210" y1="110" x2="210" y2="155" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Middle Ear Cavity (highlighted region) -->
+    <ellipse cx="270" cy="135" rx="55" ry="40" fill="#e11d48" fill-opacity="0.15" stroke="url(#alertGrad)" stroke-width="2" stroke-dasharray="6 4"/>
+    <!-- Ossicles (Malleus, Incus, Stapes) -->
+    <path d="M 215,128 L 235,120 L 255,132 L 275,132" stroke="#f8fafc" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Eustachian Tube heading down -->
+    <path d="M 270,170 C 285,195 300,225 320,245" stroke="url(#earGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="4 4"/>
+    <!-- Inner ear / Cochlea spiral -->
+    <path d="M 280,132 C 300,120 330,125 335,145 C 340,165 315,180 295,170 C 280,160 285,140 305,140" stroke="#38bdf8" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Indicator pin for infection area -->
+    <g transform="translate(270, 75)">
+      <circle cx="0" cy="0" r="14" fill="#e11d48" fill-opacity="0.2"/>
+      <circle cx="0" cy="0" r="7" fill="#f43f5e"/>
+      <line x1="0" y1="12" x2="0" y2="40" stroke="#f43f5e" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- Labels -->
+  <text x="400" y="380" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="0.5">Middle Ear Cavity &amp; Eustachian Health</text>
+  <text x="400" y="412" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Professional diagnosis addresses fluid buildup, pressure, and infection</text>
+</svg>

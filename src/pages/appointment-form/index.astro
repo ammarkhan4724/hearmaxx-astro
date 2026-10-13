@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import AppointmentForm from '../../components/AppointmentForm.astro';
 import { siteConfig } from '../../data/site';
+import { appointmentHeroImg } from '../../assets';
 ---
 
 <BaseLayout
@@ -39,6 +41,18 @@ import { siteConfig } from '../../data/site';
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       <!-- Left Column: What to Expect & General Inquiries -->
       <div class="lg:col-span-5 space-y-6">
+        <div class="rounded-3xl overflow-hidden glass-strong p-3 border border-white/90 shadow-md flex items-center justify-center bg-slate-50/50">
+          <Image
+            src={appointmentHeroImg}
+            alt="Licensed audiologist providing compassionate hearing consultation and evaluation"
+            width={720}
+            height={960}
+            class="w-full h-auto max-h-72 object-contain rounded-2xl"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+
         <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md space-y-6">
           <div class="space-y-2">
             <h2 class="text-2xl font-extrabold text-primary tracking-tight">
