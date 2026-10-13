@@ -1,14 +1,154 @@
 ---
-import Raw from '../../layouts/Raw.astro';
-import head from '../../generated/the-impact-of-untreated-hearing-loss.head.html?raw';
-import body from '../../generated/the-impact-of-untreated-hearing-loss.body.html?raw';
+import { Image } from 'astro:assets';
+import featuredImg from '../../assets/images/hearing-in-noise.webp';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Icon from '../../components/Icon.astro';
+import { getEntry, render } from 'astro:content';
+import { siteConfig } from '../../data/site';
+
+const entry = await getEntry('hearingHealth', 'the-impact-of-untreated-hearing-loss');
+if (!entry) {
+  throw new Error('Content entry not found');
+}
+const { Content } = await render(entry);
+
+const mythsFaqs = [
+  {
+    question: "Only old people lose their hearing",
+    answer: "While prevalence increases with age, 13% of U.S. adults aged 18+ report hearing difficulties, and up to 63% of Canadian men aged 40–79 have measurable loss despite not noticing it.",
+    mythPill: true,
+    factPill: true,
+  },
+  {
+    question: "Mild hearing loss isn’t a big deal",
+    answer: "Even a mild hearing loss can significantly strain your brain as it tries to fill in missing sounds and speech cues. This constant mental effort can cause fatigue, reduce your ability to concentrate, and increase emotional stress.",
+    mythPill: true,
+    factPill: true,
+  },
+  {
+    question: "Hearing aids are bulky and ineffective",
+    answer: "Modern hearing aids are discreet, smartphone-compatible devices that can reduce depression and slow cognitive decline by up to 50%.",
+    mythPill: true,
+    factPill: true,
+  },
+  {
+    question: "If I ignore it, it will go away",
+    answer: "Hearing loss rarely improves on its own. Delaying treatment allows brain changes and social withdrawal to worsen, increasing risks of dementia, depression, and falls.",
+    mythPill: true,
+    factPill: true,
+  },
+];
 ---
-<Raw
-  title="The Impact of Untreated Hearing Loss – Hear Maxx"
-  lang="en-US"
-  bodyClass="wp-singular page-template page-template-elementor_header_footer page page-id-6721 wp-embed-responsive wp-theme-twentytwentyfive mega-menu-max-mega-menu-1 mega-menu-max-mega-menu-2 elementor-default elementor-template-full-width elementor-kit-3000 elementor-page elementor-page-6721"
-  head={head}
-  body={body}
-  description="Learn about the cognitive, emotional, and social consequences of untreated hearing loss and how early treatment restores connection and health."
+
+<BaseLayout
+  title={`The Hidden Cost of Ignoring Hearing Loss – ${siteConfig.name}`}
+  description={entry.data.description}
   canonicalPath="/the-impact-of-untreated-hearing-loss/"
-/>
+  type="article"
+  article={{
+    headline: "The Hidden Cost of Ignoring Hearing Loss",
+    description: entry.data.description,
+    datePublished: entry.data.publishDate,
+    authorName: entry.data.author,
+  }}
+>
+  <!-- Breadcrumbs & Hero Header -->
+  <header class="relative py-12 md:py-16 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="glass-strong rounded-3xl p-8 sm:p-10 border border-white/90 shadow-lg">
+        <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-text-muted mb-6">
+          <a href="/" class="hover:text-brand transition-colors">Home</a>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span>Hearing Health</span>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span class="text-text-primary font-medium">{entry.data.title}</span>
+        </nav>
+
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase mb-3">
+          {entry.data.category}
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4">
+          The Hidden Cost of Ignoring Hearing Loss
+        </h1>
+        <p class="text-lg text-secondary leading-relaxed max-w-3xl">
+          {entry.data.description}
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border-subtle/80 text-xs text-text-muted">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-brand text-inverse flex items-center justify-center font-bold text-xs shadow-xs">
+              SR
+            </span>
+            <div>
+              <span class="font-semibold text-text-primary block">{entry.data.author}</span>
+              <span>{entry.data.authorTitle}</span>
+            </div>
+          </div>
+          <span class="text-border">•</span>
+          <span class="font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">Clinically Reviewed</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16">
+    <!-- Featured Image in Glass Frame -->
+    <div class="mb-10 rounded-3xl overflow-hidden glass-light p-2 border border-white/80 shadow-md">
+      <Image
+        src={featuredImg}
+        alt="Person navigating speech and conversation in a noisy environment"
+        width={896}
+        height={504}
+        class="w-full h-auto object-cover max-h-[420px] rounded-2xl"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Article Content -->
+    <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-primary prose-a:text-brand prose-a:underline hover:prose-a:text-brand-dark prose-strong:text-primary leading-relaxed">
+      <Content />
+    </div>
+
+    <!-- Myths vs Facts Premium FAQ Component -->
+    <section class="mt-12" aria-labelledby="myths-table-heading">
+      <FaqAccordion
+        title="Common Myths About Hearing Loss"
+        subtitle="Separating widespread hearing misconceptions from evidence-based clinical facts."
+        items={mythsFaqs}
+        groupName="myths-group"
+        showControls={true}
+        enableJsonLd={true}
+      />
+    </section>
+
+    <!-- Consultation CTA Card (Glass Dark) -->
+    <div class="mt-14 p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-white tracking-tight">
+          Take Control of Your Hearing Health
+        </h2>
+        <p class="text-slate-200 text-sm max-w-xl leading-relaxed">
+          Ignoring hearing loss carries hidden costs—for your mind, mood, relationships, and safety. At HearMaxx , Dr. Sheeraz Rahim provides a painless hearing evaluation and personalized treatment plan to help you reconnect with life’s sounds. Don’t let unaddressed hearing loss rob you of your best days.
+        </p>
+      </div>
+      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <a
+          href="/appointment-form/"
+          class="btn-primary"
+        >
+          Request Assessment
+        </a>
+        <a
+          href={`tel:${siteConfig.clinics.mississauga.phoneRaw}`}
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors text-center border border-white/20"
+        >
+          Call (905) 232-7860
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

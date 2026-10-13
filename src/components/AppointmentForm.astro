@@ -1,0 +1,217 @@
+---
+import Icon from './Icon.astro';
+import { siteConfig } from '../data/site';
+---
+
+<div class="glass-strong rounded-3xl p-6 sm:p-10 border border-white/90 shadow-xl">
+  <div class="mb-8 space-y-2">
+    <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase">
+      No Cost. No Commitment.
+    </span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Book Free Appointment Today!</h2>
+    <p class="text-sm text-secondary">
+      No cost. No commitment. Just better hearing — get started by submitting your request below.
+    </p>
+  </div>
+
+  <form id="appointment-booking-form" action="/form-handler.php" method="POST" class="space-y-5">
+    <input type="hidden" name="form_type" value="appointment" />
+    
+    <!-- Honeypot -->
+    <div class="hidden" aria-hidden="true">
+      <label for="appt-hp">Do not fill this</label>
+      <input type="text" id="appt-hp" name="_hp_check" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <!-- Personal Info Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="appt-name" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Full Name <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          id="appt-name"
+          name="full_name"
+          required
+          autocomplete="name"
+          placeholder="e.g. Sarah Jenkins"
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs placeholder:text-text-muted/60"
+        />
+      </div>
+
+      <div>
+        <label for="appt-phone" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Phone Number <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="tel"
+          id="appt-phone"
+          name="phone"
+          required
+          autocomplete="tel"
+          placeholder="e.g. (905) 232-7860"
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs placeholder:text-text-muted/60"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="appt-email" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Email Address <span class="text-text-muted font-normal">(Optional)</span>
+        </label>
+        <input
+          type="email"
+          id="appt-email"
+          name="email"
+          autocomplete="email"
+          placeholder="e.g. sarah@example.com"
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs placeholder:text-text-muted/60"
+        />
+      </div>
+
+      <div>
+        <label for="appt-clinic" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Select Clinic Location <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="appt-clinic"
+          name="clinic"
+          required
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs font-medium cursor-pointer"
+        >
+          <option value="Mississauga Clinic">Mississauga Clinic (1151 Dundas St W #17)</option>
+          <option value="York Clinic">York Clinic (Jane Park Plaza, 861 A Jane St)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Service Selection -->
+    <div>
+      <label for="appt-service" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+        Service Needed <span class="text-red-500">*</span>
+      </label>
+      <select
+        id="appt-service"
+        name="service_type"
+        required
+        class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs font-medium cursor-pointer"
+      >
+        <option value="Comprehensive Hearing Evaluation">Comprehensive Hearing Evaluation & Audiogram</option>
+        <option value="Hearing Aid Consultation & Selection">Hearing Aid Consultation & Brand Selection</option>
+        <option value="Device Fitting & Tuning">Hearing Aid Fitting & Precision Tuning</option>
+        <option value="Tinnitus Evaluation">Tinnitus Assessment & Advice</option>
+        <option value="Ear Health Management">Ear Health Check & Tympanometry</option>
+        <option value="Maintenance and Cleaning">Device Cleaning, Maintenance & Repairs</option>
+      </select>
+    </div>
+
+    <!-- Date and Time Preference -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="appt-date" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Preferred Date
+        </label>
+        <input
+          type="date"
+          id="appt-date"
+          name="preferred_date"
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs cursor-pointer"
+        />
+      </div>
+
+      <div>
+        <label for="appt-time" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+          Preferred Time Window
+        </label>
+        <select
+          id="appt-time"
+          name="preferred_time"
+          class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs font-medium cursor-pointer"
+        >
+          <option value="Morning (10:00 AM - 12:00 PM)">Morning (10:00 AM – 12:00 PM)</option>
+          <option value="Afternoon (12:00 PM - 3:00 PM)">Afternoon (12:00 PM – 3:00 PM)</option>
+          <option value="Late Afternoon (3:00 PM - 5:00 PM)">Late Afternoon (3:00 PM – 5:00 PM)</option>
+          <option value="Saturday Morning">Saturday (Morning / Midday)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Additional notes -->
+    <div>
+      <label for="appt-notes" class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+        Additional Notes or Specific Symptoms <span class="text-text-muted font-normal">(Optional)</span>
+      </label>
+      <textarea
+        id="appt-notes"
+        name="message"
+        rows="3"
+        placeholder="e.g. Ringing in ears, difficulty following conversations in noise, existing hearing aid user..."
+        class="w-full px-4 py-3 rounded-xl border border-white/90 focus:border-brand focus:ring-2 focus:ring-brand/20 text-sm text-primary transition-colors bg-white/80 shadow-2xs placeholder:text-text-muted/60"
+      ></textarea>
+    </div>
+
+    <!-- Status feedback -->
+    <div id="appt-status" class="hidden p-4 rounded-xl text-sm font-medium" role="alert" aria-live="polite"></div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      id="appt-submit"
+      class="btn-primary w-full !py-4 !rounded-xl !text-base shadow-md cursor-pointer justify-center"
+    >
+      <Icon name="calendar" class="w-5 h-5" />
+      <span>Submit Request</span>
+    </button>
+  </form>
+</div>
+
+<script>
+  function setupApptForm() {
+    const form = document.getElementById('appointment-booking-form') as HTMLFormElement | null;
+    const statusBox = document.getElementById('appt-status');
+    const submitBtn = document.getElementById('appt-submit') as HTMLButtonElement | null;
+
+    if (!form || !statusBox || !submitBtn) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>Submitting Request...</span>';
+      statusBox.className = 'hidden';
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.status === 'success') {
+          statusBox.className = 'p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 block';
+          statusBox.textContent = data.message || 'Thank you! Your consultation request has been received. We will contact you to confirm the time slot.';
+          form.reset();
+        } else {
+          statusBox.className = 'p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200 block';
+          statusBox.textContent = data.message || 'There was an issue submitting your request. Please call our clinic directly.';
+        }
+      } catch (err) {
+        statusBox.className = 'p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200 block';
+        statusBox.textContent = 'Network error. Please call our clinic directly at (905) 232-7860 or (416) 792-8792.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+
+  setupApptForm();
+  document.addEventListener('astro:page-load', setupApptForm);
+</script>

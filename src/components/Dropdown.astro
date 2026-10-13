@@ -1,0 +1,152 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  label: string;
+  categories: {
+    category: string;
+    items: {
+      label: string;
+      href: string;
+      description?: string;
+    }[];
+  }[];
+  currentPath?: string;
+}
+
+const { label, categories, currentPath = '' } = Astro.props;
+const isChildActive = categories.some((c) => c.items.some((i) => i.href === currentPath));
+---
+
+<div class="relative group" id="desktop-dropdown">
+  <button
+    type="button"
+    id="desktop-dropdown-trigger"
+    class={`flex items-center gap-1.5 py-2 text-sm font-semibold transition-colors focus:outline-none cursor-pointer ${
+      isChildActive ? 'text-brand font-bold' : 'text-primary hover:text-brand'
+    }`}
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-controls="desktop-dropdown-panel"
+  >
+    <span>{label}</span>
+    <Icon
+      name="chevron-down"
+      class="w-4 h-4 text-text-muted group-hover:text-brand transition-transform duration-200"
+      id="dropdown-chevron"
+    />
+  </button>
+
+  <!-- Dropdown panel with invisible hover bridge (pt-2 -mt-1) to eliminate gaps -->
+  <div
+    id="desktop-dropdown-panel"
+    class="hidden absolute top-full left-0 w-[580px] pt-2 -mt-1 opacity-0 translate-y-2 pointer-events-none transition-all duration-200 z-50"
+    aria-labelledby="desktop-dropdown-trigger"
+  >
+    <div class="glass-strong rounded-3xl shadow-2xl border border-white/90 p-6 grid grid-cols-2 gap-6 ring-1 ring-brand/10">
+      {categories.map((cat) => (
+        <div>
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-brand mb-3 pb-1 border-b border-border-subtle/80">
+            {cat.category}
+          </span>
+          <ul class="space-y-1.5">
+            {cat.items.map((item) => {
+              const isActive = currentPath === item.href;
+              return (
+                <li>
+                  <a
+                    href={item.href}
+                    class={`group/link block p-2.5 rounded-2xl transition-all duration-150 ${
+                      isActive ? 'bg-brand/10 text-brand font-bold' : 'hover:bg-white/80 text-primary'
+                    }`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span class="block text-sm font-semibold group-hover/link:text-brand transition-colors">
+                      {item.label}
+                    </span>
+                    {item.description && (
+                      <span class="block text-xs text-text-muted mt-0.5 leading-relaxed">
+                        {item.description}
+                      </span>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupDropdown() {
+    const dropdown = document.getElementById('desktop-dropdown');
+    const trigger = document.getElementById('desktop-dropdown-trigger');
+    const panel = document.getElementById('desktop-dropdown-panel');
+    const chevron = document.getElementById('dropdown-chevron');
+
+    if (!dropdown || !trigger || !panel) return;
+
+    let isOpen = false;
+
+    function openDropdown() {
+      isOpen = true;
+      trigger?.setAttribute('aria-expanded', 'true');
+      panel?.classList.remove('hidden', 'opacity-0', 'translate-y-2', 'pointer-events-none');
+      panel?.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      chevron?.classList.add('rotate-180');
+    }
+
+    function closeDropdown() {
+      isOpen = false;
+      trigger?.setAttribute('aria-expanded', 'false');
+      panel?.classList.add('hidden', 'opacity-0', 'translate-y-2', 'pointer-events-none');
+      panel?.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      chevron?.classList.remove('rotate-180');
+    }
+
+    // Hover listeners
+    dropdown.addEventListener('mouseenter', openDropdown);
+    dropdown.addEventListener('mouseleave', closeDropdown);
+
+    // Keyboard & click toggle
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        openDropdown();
+        // Focus first link in menu
+        const firstLink = panel.querySelector('a');
+        firstLink?.focus();
+      }
+    });
+
+    // Escape listener
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeDropdown();
+        trigger.focus();
+      }
+    });
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (isOpen && !dropdown.contains(e.target as Node)) {
+        closeDropdown();
+      }
+    });
+  }
+
+  setupDropdown();
+  document.addEventListener('astro:page-load', setupDropdown);
+</script>

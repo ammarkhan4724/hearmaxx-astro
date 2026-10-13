@@ -1,0 +1,60 @@
+---
+interface MythFactItem {
+  myth: string;
+  fact: string;
+}
+
+const items: MythFactItem[] = [
+  {
+    myth: 'Only old people lose their hearing',
+    fact: 'While prevalence increases with age, 13% of U.S. adults aged 18+ report hearing difficulties, and up to 63% of Canadian men aged 40–79 have measurable loss despite not noticing it.',
+  },
+  {
+    myth: 'Mild hearing loss isn’t a big deal',
+    fact: 'Even a mild hearing loss can significantly strain your brain as it tries to fill in missing sounds and speech cues. This constant mental effort can cause fatigue, reduce your ability to concentrate, and increase emotional stress.',
+  },
+  {
+    myth: 'Hearing aids are bulky and ineffective',
+    fact: 'Modern hearing aids are discreet, smartphone-compatible devices that can reduce depression and slow cognitive decline by up to 50%.',
+  },
+  {
+    myth: 'If I ignore it, it will go away',
+    fact: 'Hearing loss rarely improves on its own. Delaying treatment allows brain changes and social withdrawal to worsen, increasing risks of dementia, depression, and falls.',
+  },
+];
+---
+
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
+  <div class="grid grid-cols-1 md:grid-cols-2 bg-slate-50 border-b border-slate-200 font-bold text-sm tracking-wider uppercase">
+    <div class="p-4 sm:p-5 text-red-600 flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+      <span>Common Myth</span>
+    </div>
+    <div class="hidden md:flex p-4 sm:p-5 text-emerald-700 items-center gap-2 border-l border-slate-200">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+      <span>Medical Fact</span>
+    </div>
+  </div>
+
+  <div class="divide-y divide-slate-100">
+    {items.map((item, idx) => (
+      <div class="grid grid-cols-1 md:grid-cols-2 hover:bg-slate-50/50 transition-colors">
+        <!-- Myth Cell -->
+        <div class="p-5 sm:p-6 bg-red-50/20 border-b md:border-b-0">
+          <div class="md:hidden text-xs font-bold uppercase text-red-600 tracking-wider mb-1">Myth</div>
+          <p class="font-semibold text-slate-800 text-base sm:text-lg">
+            "{item.myth}"
+          </p>
+        </div>
+
+        <!-- Fact Cell -->
+        <div class="p-5 sm:p-6 md:border-l border-slate-200 bg-emerald-50/15">
+          <div class="md:hidden text-xs font-bold uppercase text-emerald-700 tracking-wider mb-1">Fact</div>
+          <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+            {item.fact}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

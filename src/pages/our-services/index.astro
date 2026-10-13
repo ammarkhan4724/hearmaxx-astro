@@ -1,15 +1,406 @@
 ---
-import Raw from '../../layouts/Raw.astro';
-import head from '../../generated/our-services.head.html?raw';
-import body from '../../generated/our-services.body.html?raw';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import BrandStrip from '../../components/BrandStrip.astro';
+import { siteConfig } from '../../data/site';
+import diagImg from '../../assets/images/advanced-diagnostics.webp';
+import tuningImg from '../../assets/images/precision-adjustment.webp';
+import protectImg from '../../assets/images/ear-protection.webp';
 ---
-<Raw
-  title="Our Services – Hear Maxx"
-  lang="en-US"
-  bodyClass="wp-singular page-template page-template-elementor_header_footer page page-id-6642 wp-embed-responsive wp-theme-twentytwentyfive mega-menu-max-mega-menu-1 mega-menu-max-mega-menu-2 elementor-default elementor-template-full-width elementor-kit-3000 elementor-page elementor-page-6642"
-  head={head}
-  body={body}
-  description="Explore comprehensive hearing healthcare services at Hear Maxx including diagnostic audiometry, digital hearing aid fitting, tinnitus care, and ear wax management."
+
+<BaseLayout
+  title={`Our Services – ${siteConfig.name}`}
+  description="From assessment to fitting, our experts provide the best hearing solutions: comprehensive hearing evaluations, tympanometry, custom fitting, maintenance, and earwax management."
   canonicalPath="/our-services/"
-  preloadImage="/wp-content/uploads/2025/04/Untitled-design-29.webp"
-/>
+>
+  <!-- Page Header -->
+  <header class="relative py-12 md:py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-strong rounded-3xl p-8 sm:p-12 border border-white/90 shadow-lg">
+        <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-text-muted mb-6">
+          <a href="/" class="hover:text-brand transition-colors">Home</a>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span class="text-text-primary font-medium">Our Services</span>
+        </nav>
+
+        <div class="max-w-3xl">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase mb-3">
+            Expert Hearing Care
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4">
+            From Assessment to Fitting: Our Expert Provide Best Hearing Solutions
+          </h1>
+          <p class="text-lg text-secondary leading-relaxed mb-4">
+            Benefit from personalized assessments, advanced fittings, and expert follow-up to ensure your hearing aids perform at their best.
+          </p>
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand">
+            We offer extensive Range of Hearing Services
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Services Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16 space-y-16">
+    <!-- Pillar 1: Diagnostic & Evaluation Services -->
+    <section aria-labelledby="diagnostic-services-heading" class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand">(Diagnostic & Evaluation Services)</span>
+          <h2 id="diagnostic-services-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+            Rediscover the Joy of Hearing with Our Expert Care & Services
+          </h2>
+          <p class="text-secondary text-sm mt-1 max-w-2xl">
+            Accurate diagnostics and thorough ear evaluations tailored to identify hearing loss and ear conditions.
+          </p>
+        </div>
+        <div class="hidden md:block w-48 h-24 rounded-2xl overflow-hidden glass-strong p-1 border border-white/90 shadow-2xs shrink-0">
+          <Image
+            src={diagImg}
+            alt="Advanced audiology diagnostic testing equipment"
+            width={192}
+            height={96}
+            class="w-full h-full object-cover rounded-xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Comprehensive Hearing Evaluations</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We offer comprehensive hearing assessments using advanced tests to accurately identify hearing loss and create personalized treatment plans.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Book Evaluation →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Tympanometry</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide tympanometry testing to evaluate middle ear function, helping to identify issues such as fluid buildup or eardrum perforations, which are essential for accurate diagnosis and effective treatment.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Book Evaluation →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Overall Ear Health Management</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide routine ear check-ups, professional earwax removal, infection screening, and early detection of ear conditions to support your complete hearing health.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Book Evaluation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pillar 2: Hearing Aid Solutions -->
+    <section aria-labelledby="hearing-aid-solutions-heading" class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand">(Hearing Aid Solutions)</span>
+          <h2 id="hearing-aid-solutions-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+            Hearing Aid Consultation & Selection
+          </h2>
+          <p class="text-secondary text-sm mt-1 max-w-2xl">
+            Independent guidance across global manufacturers to ensure the ideal acoustic and ergonomic match.
+          </p>
+        </div>
+        <div class="hidden md:block w-48 h-24 rounded-2xl overflow-hidden glass-strong p-1 border border-white/90 shadow-2xs shrink-0">
+          <Image
+            src={tuningImg}
+            alt="Precision tuning and adjustment of hearing aid devices"
+            width={192}
+            height={96}
+            class="w-full h-full object-cover rounded-xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Hearing Aid Consultation & Selection</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide personalized consultations to help you select the most suitable hearing aid, considering your lifestyle, hearing needs, and budget, ensuring optimal hearing enhancement.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/explore-hearing-solutions/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Explore Solutions →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Custom Fitting Services</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide custom fitting and programming of hearing aids, utilizing real-ear measurements to ensure the devices are tailored to your unique hearing profile for maximum comfort and effectiveness.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Schedule Fitting →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Maintenance & Repairs</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide ongoing maintenance and repair services for your hearing aids, including cleaning, adjustments, and troubleshooting, to ensure they function optimally at all times.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Request Service →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pillar 3: Ear Health & Protection -->
+    <section aria-labelledby="ear-health-protection-heading" class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand">(Ear Health & Protection)</span>
+          <h2 id="ear-health-protection-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+            Ear Health & Auditory Protection
+          </h2>
+          <p class="text-secondary text-sm mt-1 max-w-2xl">
+            Preventative care, cerumen management, and specialized sound therapy solutions.
+          </p>
+        </div>
+        <div class="hidden md:block w-48 h-24 rounded-2xl overflow-hidden glass-strong p-1 border border-white/90 shadow-2xs shrink-0">
+          <Image
+            src={protectImg}
+            alt="Custom ear protection and auditory preservation devices"
+            width={192}
+            height={96}
+            class="w-full h-full object-cover rounded-xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Earwax (Cerumen) Management</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide professional earwax removal services using safe and effective techniques to prevent blockages that can affect hearing and hearing aid performance.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/appointment-form/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Book Ear Cleaning →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Custom Ear Protection</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We provide custom-fitted earplugs designed for various activities such as swimming, sleeping, or exposure to loud environments, offering maximum comfort and protection.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/explore-hearing-solutions/#custom-protection" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              View Earplugs →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+              <Icon name="check" class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-primary">Tinnitus Management</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              We offer targeted tinnitus counseling services to support the effective management of the perception of ringing or buzzing in the ears.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/what-is-tinnitus/" class="text-xs font-bold text-brand hover:underline inline-flex items-center gap-1">
+              Learn More →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Why You Need Professional Hearing Care Services? -->
+    <section aria-labelledby="why-need-care-heading" class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md space-y-12">
+      <div class="text-center max-w-4xl mx-auto space-y-4">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">Get Started Today</span>
+        <h2 id="why-need-care-heading" class="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
+          Why You Need Professional Hearing Care Services?
+        </h2>
+        <p class="text-secondary text-base leading-relaxed max-w-3xl mx-auto">
+          Hearing is one of life’s greatest gifts, yet many underestimate its importance until challenges arise. Untreated hearing loss doesn’t just affect your ability to hear—it impacts your relationships, work, and overall quality of life. Our professional hearing care services are here to bridge that gap. Whether it’s through comprehensive assessments, personalized hearing aid solutions, or expert guidance, we ensure that your journey to better hearing is seamless and effective. Don’t let hearing issues hold you back—let us help you reconnect with the moments that matters the most.
+        </p>
+        <div class="pt-3">
+          <a
+            href="/appointment-form/"
+            class="btn-primary"
+          >
+            Request Appointment
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 Key Value Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Advanced Technology -->
+        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Advanced Technology You Can Trust</h3>
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand">
+              Stay connected with cutting-edge hearing aids.
+            </p>
+            <p class="text-sm text-secondary leading-relaxed">
+              From Bluetooth-enabled devices to invisible hearing aids, we offer the latest technology from top manufacturers, ensuring you get the best sound quality and comfort.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/explore-hearing-solutions/"
+              class="btn-primary !text-xs !py-2.5 !px-5"
+            >
+              Explore technologies
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Cognitive Health -->
+        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Protecting Cognitive Health Through Hearing Care</h3>
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand">
+              Better Hearing, Sharper Mind
+            </p>
+            <p class="text-sm text-secondary leading-relaxed">
+              Scientific studies show a strong link between untreated hearing loss and cognitive decline, including memory loss and increased risk of dementia. At our clinic, we take this connection seriously. By addressing hearing loss early with expert care and appropriate devices, you can protect not only your hearing but also your mental well-being. Let us help you stay mentally sharp, socially connected, and fully engaged in the life you love.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/the-impact-of-untreated-hearing-loss/"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
+            >
+              Learn More →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Ongoing Support -->
+        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Ongoing Support and Patient Education</h3>
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand">
+              Care That Continues Beyond the First Visit
+            </p>
+            <p class="text-sm text-secondary leading-relaxed">
+              We believe that successful hearing care is an ongoing journey—not a one-time event. That’s why we offer continued support after your initial fitting. Our team provides regular follow-ups, device adjustments, maintenance services, and education about hearing health. Whether you need assistance with your device, have questions about your hearing, or simply want to stay informed, we're here to support you every step of the way.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/get-expert-advice/"
+              class="btn-primary !text-xs !py-2.5 !px-5"
+            >
+              Learn More Info
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Brand Partners Strip -->
+  <BrandStrip />
+
+  <!-- Bottom CTA (Glass Dark) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="glass-dark rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl text-center space-y-6">
+      <h2 class="text-3xl font-extrabold text-white tracking-tight">
+        Step into a World of Clear, Vibrant Sound
+      </h2>
+      <p class="text-slate-200 text-sm max-w-2xl mx-auto leading-relaxed">
+        Step into a world of clear, vibrant sound with HearMaxx . Our passion for restoring hearing goes beyond technology—it's about enhancing every moment of your life. Embrace a future where every whisper and every cheer is beautifully heard.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/appointment-form/"
+          class="btn-primary"
+        >
+          Request Appointment
+        </a>
+        <a
+          href="/find-our-clinics/"
+          class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors border border-white/20"
+        >
+          Find Nearest Clinic
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

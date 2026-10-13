@@ -1,14 +1,267 @@
 ---
-import Raw from '../../layouts/Raw.astro';
-import head from '../../generated/get-expert-advice.head.html?raw';
-import body from '../../generated/get-expert-advice.body.html?raw';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { siteConfig } from '../../data/site';
+
+const basicFaqs = [
+  {
+    question: 'What is Hearing Loss and how is It defined?',
+    answer: 'Hearing loss is a partial or total inability to perceive sounds that are normally audible. It is typically classified by degree (mild, moderate, severe, and profound) and type:\n\n• Conductive Hearing Loss: Caused by problems in the outer or middle ear (e.g., earwax build up, eardrum perforation).\n• Sensorineural Hearing Loss (SNHL): Resulting from damage to the inner ear (cochlear hair cells) or auditory nerve, and is most often permanent.\n• Mixed Hearing Loss: A combination of both conductive and sensorineural deficits.',
+  },
+  {
+    question: 'What are Common Signs and Symptoms of Hearing Loss?',
+    answer: 'Key symptoms include:\n\n• Difficulty following conversations (especially in background noise).\n• Frequently asking people to repeat themselves.\n• Needing to turn up the volume on devices.\n• Perception of muffled or distorted speech.\n• In some cases, tinnitus (ringing or buzzing in the ear).',
+  },
+];
+
+const causesFaqs = [
+  {
+    question: 'What Causes Hearing Loss?',
+    answer: 'Hearing loss may have multiple etiologies. Major causes include:\n\n• Age-related (Presbycusis): Gradual loss of high-frequency sounds as the cochlear hair cells degenerate with age.\n• Noise-induced: Excessive or prolonged exposure to loud sounds (e.g., concerts, machinery, headphones at high volume) can permanently damage inner ear cells.\n• Genetics: Inherited conditions (e.g., mutations in connexin 26) can cause congenital or progressive hearing impairment.\n• Medical conditions and infections: Ear infections, chronic otitis media, or systemic diseases like diabetes may contribute.\n• Ototoxic medications: Certain antibiotics and chemotherapy agents can harm the delicate structures in the ear.',
+  },
+  {
+    question: 'Can Hearing Loss Be Prevented?',
+    answer: 'While some forms of hearing loss (especially sensorineural, such as presbycusis) are not reversible, a number of preventive strategies exist:\n\n• Use protective devices (earplugs, earmuffs) in noisy environments.\n• Monitor volume levels on personal audio devices (follow recommendations like the "60:60 rule").\n• Manage health conditions like diabetes and hypertension.\n• Limit exposure to ototoxic chemicals and medications when alternatives are available.',
+  },
+];
+
+const clinicalFaqs = [
+  {
+    question: 'When Should I Consult an Audiologist or ENT?',
+    answer: 'You should schedule a professional evaluation if you notice:\n\n• Persistent difficulty following conversations or frequently asking for repetition.\n• A noticeable increase in the need to adjust device volumes.\n• The onset of tinnitus, dizziness, or imbalance.',
+  },
+  {
+    question: 'What Tests Are Used to Diagnose Hearing Loss?',
+    answer: 'An audiological evaluation typically includes:\n\n• Pure Tone Audiometry: Charts the lowest sound intensity you can hear at different frequencies using an audiogram.\n• Speech Audiometry: Assesses your ability to understand speech in quiet and noisy settings.\n• Tympanometry: Evaluates the mobility of your eardrum, helping to detect conductive loss.\n• In some cases, additional tests (e.g., otoacoustic emissions, auditory brainstem responses) may be used.',
+  },
+];
+
+const treatmentFaqs = [
+  {
+    question: 'What Are the Available Treatment Options?',
+    answer: 'Treatment depends on the type and cause:\n\n• For Conductive Loss: Medical or surgical interventions (e.g., removal of earwax, repair of perforated eardrum).\n• For Sensorineural Loss: While permanent, symptoms can be managed with hearing aids or cochlear implants to amplify sound.\n• Assistive Listening Devices & Communication Strategies: Using devices and adaptive strategies (lip-reading, captioning) can also help.\n• Emerging Technologies: Over-the-counter (OTC) hearing aids are now available, and even products such as Apple AirPods Pro 2 have features that function as personal amplifiers.',
+  },
+  {
+    question: 'How Do Hearing Aids and Cochlear Implants Work?',
+    answer: '• Hearing Aids: These devices amplify sounds. They work by converting sound waves into electrical signals, amplifying them, and then converting them back to sound—customized to your hearing thresholds.\n• Cochlear Implants: For severe cases where hearing aids are insufficient, cochlear implants bypass the damaged hair cells and directly stimulate the auditory nerve, allowing for functional hearing.',
+  },
+];
+
+const allFaqs = [...basicFaqs, ...causesFaqs, ...clinicalFaqs, ...treatmentFaqs];
 ---
-<Raw
-  title="Get Expert Advice – Hear Maxx"
-  lang="en-US"
-  bodyClass="wp-singular page-template page-template-elementor_header_footer page page-id-7208 wp-embed-responsive wp-theme-twentytwentyfive mega-menu-max-mega-menu-1 mega-menu-max-mega-menu-2 elementor-default elementor-template-full-width elementor-kit-3000 elementor-page elementor-page-7208"
-  head={head}
-  body={body}
-  description="Ask our certified audiologists and hearing specialists your questions about hearing health, modern hearing aids, and rehabilitation."
+
+<BaseLayout
+  title={`Expert Answers on Hearing Care – ${siteConfig.name}`}
+  description="Get insights from top specialists on the causes, symptoms, and treatments of hearing loss. Expert answers, diagnosis guidance, and topic overviews."
   canonicalPath="/get-expert-advice/"
-/>
+  type="faq"
+  faqs={allFaqs}
+>
+  <!-- Header -->
+  <header class="relative py-12 md:py-16 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="glass-strong rounded-3xl p-8 sm:p-10 border border-white/90 shadow-lg">
+        <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-text-muted mb-6">
+          <a href="/" class="hover:text-brand transition-colors">Home</a>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span class="text-text-primary font-medium">Get Expert Advice</span>
+        </nav>
+
+        <div class="space-y-4">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase">
+            Patient Knowledge Base
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
+            Expert Answers on Hearing Care
+          </h1>
+          <p class="text-lg text-secondary leading-relaxed">
+            Get insights from top specialists on the causes, symptoms, and treatments of hearing loss.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 pb-16 space-y-14">
+    <!-- Category 1 -->
+    <section aria-labelledby="basic-understanding-heading" class="space-y-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand">Understanding Basics</span>
+        <h2 id="basic-understanding-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+          Basic Understanding of Hearing Loss
+        </h2>
+      </div>
+
+      <FaqAccordion
+        items={basicFaqs}
+        groupName="basic-faqs-group"
+        showControls={false}
+        enableJsonLd={true}
+      />
+    </section>
+
+    <!-- Category 2 -->
+    <section aria-labelledby="causes-risk-heading" class="space-y-4 pt-8 border-t border-border-subtle/80">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand">Etiology & Prevention</span>
+        <h2 id="causes-risk-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+          Causes and Risk Factors
+        </h2>
+      </div>
+
+      <FaqAccordion
+        items={causesFaqs}
+        groupName="causes-faqs-group"
+        showControls={false}
+        enableJsonLd={true}
+      />
+    </section>
+
+    <!-- Category 3 -->
+    <section aria-labelledby="when-to-seek-heading" class="space-y-4 pt-8 border-t border-border-subtle/80">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand">Clinical Guidance</span>
+        <h2 id="when-to-seek-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+          When to Seek Professional Help
+        </h2>
+      </div>
+
+      <FaqAccordion
+        items={clinicalFaqs}
+        groupName="clinical-faqs-group"
+        showControls={false}
+        enableJsonLd={true}
+      />
+    </section>
+
+    <!-- Category 4 -->
+    <section aria-labelledby="treatment-tech-heading" class="space-y-4 pt-8 border-t border-border-subtle/80">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand">Clinical Solutions</span>
+        <h2 id="treatment-tech-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight mt-1">
+          Treatment Options and Technology
+        </h2>
+      </div>
+
+      <FaqAccordion
+        items={treatmentFaqs}
+        groupName="treatment-faqs-group"
+        showControls={false}
+        enableJsonLd={true}
+      />
+    </section>
+
+    <!-- Section: Explore Key Hearing Topics -->
+    <section aria-labelledby="key-topics-heading" class="pt-8 border-t border-border-subtle/80 space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+          Explore Key Hearing Topics
+        </span>
+        <h2 id="key-topics-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight leading-snug">
+          Unlock expert insights, actionable tips, and treatment options to help you stay informed about your hearing health.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Recognize the Signs</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              Have you ever struggled to follow a conversation in a crowded room or found yourself turning up the TV louder than everyone else? In this section, we help you spot the early clues of hearing loss so you know when it might be time for a check-up. We're here to guide you through the simple signs to look out for—because taking care of your hearing matters.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/signs-you-may-have-hearing-loss/"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
+            >
+              Recognize Signs →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Expert Insights & Prevention Tips</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              Your hearing is too important to take for granted. Here, our specialists share straightforward advice on keeping your ears safe from everyday hazards. From tips on lowering volume levels to easy strategies for protecting your hearing in noisy places, we’re offering you expert insights you can start using today.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/what-is-tinnitus/"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
+            >
+              Prevention Tips →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Treatment Options & Technologies</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              Explore the full range of solutions for hearing loss—from advanced hearing aids and cochlear implants to new over-the-counter options. Learn which technologies may best match your hearing needs and lifestyle.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/explore-hearing-solutions/"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
+            >
+              Explore Solutions →
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md flex flex-col justify-between glass-card-hover">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-primary">Your Hearing Health Journey</h3>
+            <p class="text-sm text-secondary leading-relaxed">
+              Take charge of your hearing health with practical tips, expert advice, and real-life experiences. Whether you're just getting started or looking to improve ongoing care, find the support you need to make informed decisions.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a
+              href="/our-services/"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
+            >
+              View Our Services →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Question Card (Glass Dark) -->
+    <div class="mt-14 p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold text-white tracking-tight">
+          Have Questions? Not ready to book yet?
+        </h3>
+        <p class="text-slate-200 text-sm max-w-xl leading-relaxed">
+          We’re here to help with anything you need. Reach out via phone, email, or our contact form — no question is too small!
+        </p>
+      </div>
+      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <a
+          href="/contact-us/"
+          class="btn-primary"
+        >
+          Contact Our Team
+        </a>
+        <a
+          href="/appointment-form/"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors text-center border border-white/20"
+        >
+          Book Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

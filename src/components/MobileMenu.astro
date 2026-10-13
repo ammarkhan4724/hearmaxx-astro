@@ -1,0 +1,365 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { siteConfig } from '../data/site';
+import logoImg from '../assets/images/hear-maxx-logo.png';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+---
+
+<div
+  id="mobile-menu-drawer"
+  class="fixed inset-0 z-50 invisible transition-all duration-300"
+  aria-modal="true"
+  role="dialog"
+  aria-label="Mobile Navigation Menu"
+>
+  <!-- Backdrop -->
+  <div
+    id="mobile-backdrop"
+    class="fixed inset-0 bg-primary/60 backdrop-blur-xs opacity-0 transition-opacity duration-300"
+  ></div>
+
+  <!-- Off-canvas panel -->
+  <div
+    id="mobile-panel"
+    class="fixed top-0 right-0 bottom-0 w-full max-w-sm glass-strong border-l border-white/80 shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+  >
+    <!-- Header -->
+    <div class="p-4 border-b border-border-subtle flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2" aria-label="HearMaxx Home">
+        <Image
+          src={logoImg}
+          alt="HearMaxx Logo"
+          width={130}
+          height={32}
+          class="h-8 w-auto object-contain"
+          loading="eager"
+        />
+      </a>
+      <button
+        id="close-mobile-menu"
+        type="button"
+        class="min-w-[44px] min-h-[44px] p-2 rounded-lg text-secondary hover:text-primary hover:bg-surface focus:outline-none focus:ring-2 focus:ring-brand flex items-center justify-center cursor-pointer"
+        aria-label="Close navigation menu"
+      >
+        <Icon name="close" class="w-6 h-6" />
+      </button>
+    </div>
+
+    <!-- Rating badge in drawer -->
+    <div class="px-5 py-3 bg-surface border-b border-border-subtle flex items-center gap-2 text-xs font-medium text-secondary">
+      <div class="flex text-amber-500" role="img" aria-label="5 star rating">
+        <Icon name="star" class="w-3.5 h-3.5" />
+        <Icon name="star" class="w-3.5 h-3.5" />
+        <Icon name="star" class="w-3.5 h-3.5" />
+        <Icon name="star" class="w-3.5 h-3.5" />
+        <Icon name="star" class="w-3.5 h-3.5" />
+      </div>
+      <span>{siteConfig.ratingLine}</span>
+    </div>
+
+    <!-- Links list -->
+    <nav class="flex-1 px-4 py-6 space-y-4">
+      <!-- Hearing Health Accordion Group -->
+      <div class="border-b border-border-subtle pb-4">
+        <button
+          type="button"
+          id="mobile-accordion-toggle"
+          class="w-full min-h-[44px] flex items-center justify-between px-3 py-2 text-base font-bold text-primary rounded-lg hover:bg-surface transition-colors cursor-pointer"
+          aria-expanded="true"
+          aria-controls="mobile-accordion-content"
+        >
+          <span class="flex items-center gap-2">
+            <span class="text-xs uppercase font-bold text-brand tracking-wider">Hearing Health</span>
+          </span>
+          <Icon name="chevron-down" class="w-4 h-4 text-brand transform rotate-180 transition-transform duration-200" id="accordion-arrow" />
+        </button>
+
+        <div id="mobile-accordion-content" class="space-y-4 pt-2 pl-3">
+          <!-- Subgroup 1: Understanding Hearing Loss -->
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-text-muted px-3 block mb-1">
+              Understanding Hearing Loss
+            </span>
+            <ul class="space-y-1">
+              <li>
+                <a
+                  href="/the-impact-of-untreated-hearing-loss/"
+                  class={`block min-h-[44px] px-3 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center ${
+                    currentPath === '/the-impact-of-untreated-hearing-loss/'
+                      ? 'bg-surface-subtle text-brand font-bold'
+                      : 'text-secondary hover:bg-surface hover:text-primary'
+                  }`}
+                  aria-current={currentPath === '/the-impact-of-untreated-hearing-loss/' ? 'page' : undefined}
+                >
+                  The Impact of Untreated Hearing Loss
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/signs-you-may-have-hearing-loss/"
+                  class={`block min-h-[44px] px-3 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center ${
+                    currentPath === '/signs-you-may-have-hearing-loss/'
+                      ? 'bg-surface-subtle text-brand font-bold'
+                      : 'text-secondary hover:bg-surface hover:text-primary'
+                  }`}
+                  aria-current={currentPath === '/signs-you-may-have-hearing-loss/' ? 'page' : undefined}
+                >
+                  Signs You May Have Hearing Loss
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Subgroup 2: Tinnitus & Ear Health -->
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-text-muted px-3 block mb-1">
+              Tinnitus & Ear Health
+            </span>
+            <ul class="space-y-1">
+              <li>
+                <a
+                  href="/what-is-tinnitus/"
+                  class={`block min-h-[44px] px-3 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center ${
+                    currentPath === '/what-is-tinnitus/'
+                      ? 'bg-surface-subtle text-brand font-bold'
+                      : 'text-secondary hover:bg-surface hover:text-primary'
+                  }`}
+                  aria-current={currentPath === '/what-is-tinnitus/' ? 'page' : undefined}
+                >
+                  What is Tinnitus & Its Treatment?
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/ear-infections-conditions/"
+                  class={`block min-h-[44px] px-3 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center ${
+                    currentPath === '/ear-infections-conditions/'
+                      ? 'bg-surface-subtle text-brand font-bold'
+                      : 'text-secondary hover:bg-surface hover:text-primary'
+                  }`}
+                  aria-current={currentPath === '/ear-infections-conditions/' ? 'page' : undefined}
+                >
+                  Ear Infections & Conditions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main pages -->
+      <ul class="space-y-1 border-b border-border-subtle pb-4">
+        <li>
+          <a
+            href="/explore-hearing-solutions/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/explore-hearing-solutions/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/explore-hearing-solutions/' ? 'page' : undefined}
+          >
+            Hearing Solutions
+          </a>
+        </li>
+        <li>
+          <a
+            href="/our-services/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/our-services/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/our-services/' ? 'page' : undefined}
+          >
+            Our Services
+          </a>
+        </li>
+        <li>
+          <a
+            href="/find-our-clinics/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/find-our-clinics/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/find-our-clinics/' ? 'page' : undefined}
+          >
+            Find Our Clinics
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about-us/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/about-us/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/about-us/' ? 'page' : undefined}
+          >
+            About Us
+          </a>
+        </li>
+        <li>
+          <a
+            href="/get-expert-advice/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/get-expert-advice/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/get-expert-advice/' ? 'page' : undefined}
+          >
+            Get Expert Advice
+          </a>
+        </li>
+        <li>
+          <a
+            href="/contact-us/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/contact-us/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/contact-us/' ? 'page' : undefined}
+          >
+            Contact Us
+          </a>
+        </li>
+      </ul>
+
+      <!-- CTA Button: Book Appointment! -->
+      <div class="pt-2">
+        <a
+          href="/appointment-form/"
+          class="flex items-center justify-center gap-2 w-full min-h-[48px] py-3.5 px-4 rounded-xl bg-brand text-inverse font-semibold text-sm shadow-md hover:bg-brand-dark transition-colors"
+        >
+          <Icon name="calendar" class="w-4 h-4" />
+          <span>Book Appointment!</span>
+        </a>
+      </div>
+
+      <!-- Quick Clinic Phone Numbers -->
+      <div class="pt-4 space-y-2">
+        <p class="text-xs font-semibold text-text-muted uppercase tracking-wider px-3">
+          Call A Clinic
+        </p>
+        <a
+          href={`tel:${siteConfig.clinics.mississauga.phoneRaw}`}
+          class="flex items-center justify-between px-3 py-2.5 min-h-[44px] rounded-lg bg-surface text-xs font-medium text-secondary hover:bg-border-subtle"
+        >
+          <span>Mississauga</span>
+          <span class="font-bold text-brand">{siteConfig.clinics.mississauga.phone}</span>
+        </a>
+        <a
+          href={`tel:${siteConfig.clinics.york.phoneRaw}`}
+          class="flex items-center justify-between px-3 py-2.5 min-h-[44px] rounded-lg bg-surface text-xs font-medium text-secondary hover:bg-border-subtle"
+        >
+          <span>York (Jane St)</span>
+          <span class="font-bold text-brand">{siteConfig.clinics.york.phone}</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const trigger = document.getElementById('open-mobile-menu');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const backdrop = document.getElementById('mobile-backdrop');
+    const panel = document.getElementById('mobile-panel');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    const accordionToggle = document.getElementById('mobile-accordion-toggle');
+    const accordionContent = document.getElementById('mobile-accordion-content');
+    const accordionArrow = document.getElementById('accordion-arrow');
+
+    if (!trigger || !drawer || !backdrop || !panel) return;
+
+    // Focus trap variables
+    const focusableElementsSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    function open() {
+      drawer.classList.remove('invisible');
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+      trigger.setAttribute('aria-expanded', 'true');
+      closeBtn?.focus();
+    }
+
+    function close() {
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0');
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+      trigger.setAttribute('aria-expanded', 'false');
+      setTimeout(() => {
+        drawer.classList.add('invisible');
+      }, 300);
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', open);
+    closeBtn?.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+
+    // Escape listener and focus trap
+    drawer.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        close();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = panel.querySelectorAll(focusableElementsSelector);
+        const first = focusables[0] as HTMLElement;
+        const last = focusables[focusables.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    });
+
+    // Accordion toggle
+    accordionToggle?.addEventListener('click', () => {
+      const isExpanded = accordionToggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        accordionToggle.setAttribute('aria-expanded', 'false');
+        accordionContent?.classList.add('hidden');
+        accordionArrow?.classList.remove('rotate-180');
+      } else {
+        accordionToggle.setAttribute('aria-expanded', 'true');
+        accordionContent?.classList.remove('hidden');
+        accordionArrow?.classList.add('rotate-180');
+      }
+    });
+
+    // Close on navigation link click
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', close);
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

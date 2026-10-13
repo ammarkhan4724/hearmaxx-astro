@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  items: {
+    question: string;
+    answer: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-4">
+  {items.map((item, index) => (
+    <details
+      class="group bg-white rounded-xl border border-slate-200/80 shadow-2xs overflow-hidden transition-all duration-200 open:border-[#006cb5]/40 open:shadow-xs"
+    >
+      <summary
+        class="flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer select-none font-semibold text-[#14233a] hover:text-[#006cb5] list-none transition-colors focus:outline-none focus:ring-2 focus:ring-[#006cb5]/50"
+      >
+        <span class="text-base sm:text-lg pr-4">{item.question}</span>
+        <span class="shrink-0 p-1 rounded-full bg-slate-100 group-hover:bg-[#006cb5]/10 text-slate-500 group-hover:text-[#006cb5] group-open:rotate-180 group-open:bg-[#006cb5] group-open:text-white transition-all duration-200">
+          <Icon name="chevron-down" class="w-4 h-4" />
+        </span>
+      </summary>
+      <div class="px-5 sm:px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100">
+        <p>{item.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>

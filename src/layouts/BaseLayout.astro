@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  type?: 'home' | 'clinic' | 'faq' | 'article' | 'page';
+  faqs?: { question: string; answer: string }[];
+  article?: {
+    headline: string;
+    description: string;
+    datePublished?: string;
+    authorName?: string;
+  };
+}
+
+const {
+  title = `${siteConfig.name} – ${siteConfig.tagline}`,
+  description = siteConfig.description,
+  canonicalPath = Astro.url.pathname,
+  type = 'page',
+  faqs = [],
+  article,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, siteConfig.url).href;
+const ogImage = `${siteConfig.url}/images/hear-maxx-og.png`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Font Preloads (critical self-hosted fonts) -->
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/outfit-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Structured Data -->
+    <JsonLd
+      type={type}
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      faqs={faqs}
+      article={article}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-slate-800 antialiased font-sans">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#006cb5] focus:text-white focus:rounded focus:shadow-lg focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
+    <Header />
+
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

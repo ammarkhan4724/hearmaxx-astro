@@ -2,12 +2,37 @@
 # Hear Maxx - High-Performance Apache / LiteSpeed Configuration
 # ----------------------------------------------------------------------
 
-# 1. Enable Browser Caching via mod_expires
+# 1. Force HTTPS & Canonical URL Redirects
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect non-www to www or canonical hearmaxx.ca if desired
+  # RewriteCond %{HTTP_HOST} ^www\.hearmaxx\.ca [NC]
+  # RewriteRule ^(.*)$ https://hearmaxx.ca/$1 [L,R=301]
+</IfModule>
+
+# 2. Correct MIME Types
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType image/svg+xml .svg
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+</IfModule>
+
+# 3. Enable Browser Caching via mod_expires
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
 
-  # HTML & Feeds (revalidate)
+  # HTML documents (always revalidate)
   ExpiresByType text/html "access plus 0 seconds"
   ExpiresByType application/xml "access plus 1 hour"
   ExpiresByType application/json "access plus 1 hour"
@@ -22,6 +47,7 @@
 
   # Images & Media (1 year)
   ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
@@ -37,26 +63,27 @@
   ExpiresByType application/x-javascript "access plus 1 year"
 </IfModule>
 
-# 2. Cache-Control & Security Headers via mod_headers
+# 4. Security & Caching Headers via mod_headers
 <IfModule mod_headers.c>
-  # 1 Year Immutable Cache for Static Assets
-  <FilesMatch "\.(ico|jpe?g|png|gif|webp|svg|woff|woff2|ttf|otf|css|js)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
+  # Immutable Cache-Control for fingerprinted assets
+  <FilesMatch "\.(woff2|webp|avif|png|jpg|jpeg|svg|mp4|webm|css|js)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
   </FilesMatch>
 
-  # HTML revalidation
+  # Revalidate HTML
   <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "public, max-age=0, must-revalidate"
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
   </FilesMatch>
 
-  # Security & SEO Headers
+  # Security & Privacy Headers
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube-nocookie.com; media-src 'self'; connect-src 'self';"
 </IfModule>
 
-# 3. Gzip / Brotli Compression via mod_deflate
+# 5. Gzip & Brotli Compression via mod_deflate
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/plain

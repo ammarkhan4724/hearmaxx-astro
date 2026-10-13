@@ -1,90 +1,214 @@
 ---
-const year = new Date().getFullYear();
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { siteConfig } from '../data/site';
+import logoImg from '../assets/images/hear-maxx-logo.png';
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="site-footer" id="contact">
-  <div class="container footer__grid">
-    <div>
-      <a href="/" class="brand">Sound<em>&</em>Clarity</a>
-      <p>Hearing care that puts you first. Certified specialists, honest advice, and support that continues long after your first fitting.</p>
+<footer class="relative bg-[#0c182b] text-slate-200 pt-16 pb-12 border-t border-white/10 overflow-hidden">
+  <!-- Subtle ambient glow -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pb-12 border-b border-white/10">
+      <!-- Col 1: Brand & Trust -->
+      <div class="space-y-4">
+        <a href="/" class="inline-block" aria-label="Hear Maxx Home">
+          <Image
+            src={logoImg}
+            alt="Hear Maxx Logo"
+            width={168}
+            height={42}
+            class="h-9 w-auto brightness-0 invert object-contain"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-sm text-slate-200 leading-relaxed">
+          Step into a world of clear, vibrant sound with <strong class="text-white">HearMaxx</strong>. Our passion for restoring hearing goes beyond technology—it's about enhancing every moment of your life. Embrace a future where every whisper and every cheer is beautifully heard.
+        </p>
+
+        <!-- Rating Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-xs text-slate-200 shadow-sm">
+          <div class="flex text-amber-400" role="img" aria-label="5 star rating">
+            <Icon name="star" class="w-3.5 h-3.5" />
+            <Icon name="star" class="w-3.5 h-3.5" />
+            <Icon name="star" class="w-3.5 h-3.5" />
+            <Icon name="star" class="w-3.5 h-3.5" />
+            <Icon name="star" class="w-3.5 h-3.5" />
+          </div>
+          <span class="font-medium text-slate-200">{siteConfig.ratingLine}</span>
+        </div>
+
+        <p class="text-xs text-slate-300">
+          {siteConfig.trustBadge}
+        </p>
+      </div>
+
+      <!-- Col 2: Mississauga Clinic Card -->
+      <div class="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-3 shadow-sm hover:border-white/20 transition-all">
+        <h2 class="font-bold text-white uppercase tracking-wider text-xs border-b border-white/10 pb-2">
+          Mississauga, ON
+        </h2>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2.5">
+            <Icon name="map-pin" class="w-4 h-4 text-sky-400 shrink-0 mt-1" />
+            <a href="https://maps.app.goo.gl/WLhxkACZhsuVZnCm9" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              <span class="block font-medium text-slate-200">Located in Erindale Dental Centre</span>
+              <span class="block">1151 Dundas Street</span>
+              <span class="block">Mississauga, ON L5C 4C4, Canada</span>
+            </a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <Icon name="phone" class="w-4 h-4 text-sky-400 shrink-0" />
+            <a href="tel:+19052327860" class="hover:text-white font-medium">
+              +1 905-232-7860
+            </a>
+          </li>
+          <li class="flex items-start gap-2.5 pt-1 text-xs text-slate-300">
+            <Icon name="clock" class="w-4 h-4 text-slate-300 shrink-0 mt-0.5" />
+            <div>
+              <div>Monday – Friday: <span class="text-slate-300">10:00 – 17:00</span></div>
+              <div>Saturday – Sunday: <span class="text-slate-300">Closed</span></div>
+            </div>
+          </li>
+          <li class="pt-1">
+            <a
+              href="https://www.google.com/maps/dir//Hear+Maxx+Hearing+Centre,+Dundas+Street+West+%2317,+Mississauga,+ON,+Canada/@43.5575205,-79.6868255,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x882b46adceb6834f:0xb49f99265bfccdba!2m2!1d-79.6456261!2d43.5574657?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:text-white font-semibold transition-colors"
+            >
+              <span>Get Directions</span>
+              <Icon name="external" class="w-3.5 h-3.5" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: York Clinic Card -->
+      <div class="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-3 shadow-sm hover:border-white/20 transition-all">
+        <h2 class="font-bold text-white uppercase tracking-wider text-xs border-b border-white/10 pb-2">
+          York, ON
+        </h2>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2.5">
+            <Icon name="map-pin" class="w-4 h-4 text-sky-400 shrink-0 mt-1" />
+            <a href="https://maps.app.goo.gl/2pLZD36HHoEA2HWBA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+              <span class="block font-medium text-slate-200">Located in Jane Park Plaza</span>
+              <span class="block">861 A Jane Street</span>
+              <span class="block">York, ON M6N 4C4, Canada</span>
+            </a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <Icon name="phone" class="w-4 h-4 text-sky-400 shrink-0" />
+            <a href="tel:+14167928792" class="hover:text-white font-medium">
+              +1 416-792-8792
+            </a>
+          </li>
+          <li class="flex items-start gap-2.5 pt-1 text-xs text-slate-300">
+            <Icon name="clock" class="w-4 h-4 text-slate-300 shrink-0 mt-0.5" />
+            <div>
+              <div>Monday – Friday: <span class="text-slate-300">10:00 – 17:00</span></div>
+              <div>Saturday – Sunday: <span class="text-slate-300">Closed</span></div>
+            </div>
+          </li>
+          <li class="pt-1">
+            <a
+              href="https://www.google.com/maps/dir//Hear+Maxx+Hearing+Centre,+861+A+Jane+St,+York,+ON+M6N+4C4,+Canada/@43.6771851,-79.4943301,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x882b36c7aad59b0b:0x26c1642ac7bb1c79!2m2!1d-79.4943301!2d43.6771851?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:text-white font-semibold transition-colors"
+            >
+              <span>Get Directions</span>
+              <Icon name="external" class="w-3.5 h-3.5" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Quick Links & Articles Card -->
+      <div class="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 space-y-3 shadow-sm hover:border-white/20 transition-all">
+        <p class="font-bold text-white uppercase tracking-wider text-xs border-b border-white/10 pb-2">
+          Quick Links
+        </p>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/explore-hearing-solutions/" class="text-slate-300 hover:text-white transition-colors block">
+              Hearing Solutions
+            </a>
+          </li>
+          <li>
+            <a href="/our-services/" class="text-slate-300 hover:text-white transition-colors block">
+              Our Services
+            </a>
+          </li>
+          <li>
+            <a href="/about-us/" class="text-slate-300 hover:text-white transition-colors block">
+              About Us & Specialist
+            </a>
+          </li>
+          <li>
+            <a href="/the-impact-of-untreated-hearing-loss/" class="text-slate-300 hover:text-white transition-colors block">
+              Untreated Hearing Loss Impact
+            </a>
+          </li>
+          <li>
+            <a href="/what-is-tinnitus/" class="text-slate-300 hover:text-white transition-colors block">
+              Tinnitus & Its Treatment
+            </a>
+          </li>
+          <li>
+            <a href="/get-expert-advice/" class="text-slate-300 hover:text-white transition-colors block">
+              FAQs & Hearing Advice
+            </a>
+          </li>
+          <li class="pt-1">
+            <a href="/appointment-form/" class="text-sky-300 hover:text-white font-semibold transition-colors flex items-center gap-1">
+              <span>Book Free Consultation</span>
+              <Icon name="chevron-right" class="w-3.5 h-3.5" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <h4>Hearing Health</h4>
-      <ul>
-        <li><a href="#hearing-health">Understanding hearing loss</a></li>
-        <li><a href="#hearing-health">Tinnitus &amp; ear health</a></li>
-        <li><a href="#solutions">Hearing solutions</a></li>
-        <li><a href="#services">Our services</a></li>
-      </ul>
-    </div>
+    <!-- Bottom Bar with Glass Social Buttons -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+      <p class="text-slate-300">
+        © {currentYear} {siteConfig.name}. All rights reserved.
+      </p>
 
-    <div>
-      <h4>Visit Us</h4>
-      <ul>
-        <li>123 Example Street, Suite 100</li>
-        <li>Your City, Province A1A 1A1</li>
-        <li><a href="tel:+15550000000">+1 (555) 000-0000</a></li>
-        <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-      </ul>
+      <!-- Circular Glass Socials -->
+      <div class="flex items-center gap-3">
+        <a
+          href={siteConfig.socials.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center border border-white/15 hover:border-brand transition-all hover:scale-105 shadow-sm"
+          aria-label="Hear Maxx on Facebook"
+        >
+          <Icon name="facebook" class="w-4 h-4" />
+        </a>
+        <a
+          href={siteConfig.socials.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center border border-white/15 hover:border-brand transition-all hover:scale-105 shadow-sm"
+          aria-label="Hear Maxx on Instagram"
+        >
+          <Icon name="instagram" class="w-4 h-4" />
+        </a>
+        <a
+          href={siteConfig.socials.email}
+          class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand text-white flex items-center justify-center border border-white/15 hover:border-brand transition-all hover:scale-105 shadow-sm"
+          aria-label="Email Hear Maxx"
+        >
+          <Icon name="mail" class="w-4 h-4" />
+        </a>
+      </div>
     </div>
-
-    <div>
-      <h4>Opening Hours</h4>
-      <ul>
-        <li>Mon – Fri: 9:00 – 17:30</li>
-        <li>Saturday: 10:00 – 14:00</li>
-        <li>Sunday: Closed</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="container footer__bottom">
-    <span>© {year} Sound &amp; Clarity. All rights reserved.</span>
-    <span>Placeholder site for demonstration purposes.</span>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    background: var(--navy);
-    color: #b8c4d6;
-    padding: 4rem 0 1.5rem;
-    font-size: 0.95rem;
-  }
-  .footer__grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 2.5rem;
-  }
-  .brand {
-    display: inline-block;
-    font-weight: 800;
-    font-size: 1.3rem;
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 1rem;
-  }
-  .brand em { color: #4cb8f0; font-style: normal; }
-  .site-footer p { color: #b8c4d6; }
-  .site-footer h4 { color: #fff; font-size: 1rem; margin-bottom: 1rem; }
-  .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
-  .site-footer a { color: #b8c4d6; text-decoration: none; }
-  .site-footer a:hover { color: #fff; }
-  .footer__bottom {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-  }
-  @media (max-width: 860px) {
-    .footer__grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 560px) {
-    .footer__grid { grid-template-columns: 1fr; }
-  }
-</style>

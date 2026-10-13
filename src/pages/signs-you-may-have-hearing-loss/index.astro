@@ -1,15 +1,134 @@
 ---
-import Raw from '../../layouts/Raw.astro';
-import head from '../../generated/signs-you-may-have-hearing-loss.head.html?raw';
-import body from '../../generated/signs-you-may-have-hearing-loss.body.html?raw';
+import { Image } from 'astro:assets';
+import featuredImg from '../../assets/images/hearing-loss-evaluation.webp';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { getEntry, render } from 'astro:content';
+import { siteConfig } from '../../data/site';
+
+const entry = await getEntry('hearingHealth', 'signs-you-may-have-hearing-loss');
+if (!entry) {
+  throw new Error('Content entry not found');
+}
+const { Content } = await render(entry);
 ---
-<Raw
-  title="Signs You May Have Hearing Loss – Hear Maxx"
-  lang="en-US"
-  bodyClass="wp-singular page-template page-template-elementor_header_footer page page-id-6719 wp-embed-responsive wp-theme-twentytwentyfive mega-menu-max-mega-menu-1 mega-menu-max-mega-menu-2 elementor-default elementor-template-full-width elementor-kit-3000 elementor-page elementor-page-6719"
-  head={head}
-  body={body}
-  description="Discover the common warning signs of hearing loss, symptoms to watch for, and when to schedule a professional evaluation with Hear Maxx specialists."
+
+<BaseLayout
+  title={`Could You Be Experiencing Hearing Loss? – ${siteConfig.name}`}
+  description="Could you be experiencing hearing loss? Recognize common signs, why early detection matters, and take the first step towards better hearing health."
   canonicalPath="/signs-you-may-have-hearing-loss/"
-  preloadImage="/wp-content/uploads/2025/05/2-1.webp"
-/>
+  type="article"
+  article={{
+    headline: "Could You Be Experiencing Hearing Loss?",
+    description: entry.data.description,
+    datePublished: entry.data.publishDate,
+    authorName: entry.data.author,
+  }}
+>
+  <!-- Header -->
+  <header class="relative py-12 md:py-16 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="glass-strong rounded-3xl p-8 sm:p-10 border border-white/90 shadow-lg">
+        <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-text-muted mb-6">
+          <a href="/" class="hover:text-brand transition-colors">Home</a>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span>Hearing Health</span>
+          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
+          <span class="text-text-primary font-medium">{entry.data.title}</span>
+        </nav>
+
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase mb-3">
+          {entry.data.category}
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4">
+          Could You Be Experiencing Hearing Loss?
+        </h1>
+        <p class="text-lg text-secondary leading-relaxed max-w-3xl">
+          Hearing loss often develops gradually, making it easy to overlook early signs. Recognizing these signs is crucial for timely intervention and maintaining your quality of life.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border-subtle/80 text-xs text-text-muted">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-brand text-inverse flex items-center justify-center font-bold text-xs shadow-xs">
+              SR
+            </span>
+            <div>
+              <span class="font-semibold text-text-primary block">{entry.data.author}</span>
+              <span>{entry.data.authorTitle}</span>
+            </div>
+          </div>
+          <span class="text-border">•</span>
+          <span class="font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">Clinically Reviewed</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
+    <!-- Featured Image in Glass Frame -->
+    <div class="rounded-3xl overflow-hidden glass-light p-2 border border-white/80 shadow-md">
+      <Image
+        src={featuredImg}
+        alt="Audiological evaluation examining hearing loss symptoms and patterns"
+        width={896}
+        height={504}
+        class="w-full h-auto object-cover max-h-[420px] rounded-2xl"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Article Content -->
+    <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-primary prose-a:text-brand prose-a:underline hover:prose-a:text-brand-dark prose-strong:text-primary leading-relaxed">
+      <Content />
+    </div>
+
+    <!-- Clinic Locations Callout (Glass Card) -->
+    <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md space-y-4">
+      <h3 class="text-xl font-bold text-primary">More Info</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-secondary">
+        <div class="space-y-1.5 p-4 rounded-2xl bg-white/70 border border-border-subtle/80">
+          <strong class="text-primary block text-base">Mississauga Clinic</strong>
+          <p>1151 Dundas St W #17, Mississauga, ON, Canada</p>
+          <p>Phone: <a href="tel:+19052327860" class="text-brand font-semibold hover:underline">+1 905-232-7860</a></p>
+        </div>
+        <div class="space-y-1.5 p-4 rounded-2xl bg-white/70 border border-border-subtle/80">
+          <strong class="text-primary block text-base">York Clinic</strong>
+          <p>861 A Jane St, York, ON M6N 4C4, Canada</p>
+          <p>Phone: <a href="tel:+14167928792" class="text-brand font-semibold hover:underline">+1 416-792-8792</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schedule CTA Card (Glass Dark) -->
+    <div class="p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold text-white tracking-tight">
+          Schedule Your Hearing Test Today!
+        </h3>
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-300">
+          Take the First Step Towards Better Hearing
+        </p>
+        <p class="text-slate-200 text-sm max-w-xl leading-relaxed">
+          Don't let hearing loss affect your quality of life. Contact HearMaxx today to schedule your comprehensive hearing evaluation and take the first step towards improved hearing health.
+        </p>
+      </div>
+      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <a
+          href="/appointment-form/"
+          class="btn-primary"
+        >
+          Schedule Today
+        </a>
+        <a
+          href="/find-our-clinics/"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors text-center border border-white/20"
+        >
+          Find Nearest Clinic
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

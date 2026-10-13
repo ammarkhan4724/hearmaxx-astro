@@ -1,4 +1,11 @@
 node_modules/
-/dist/
+dist/
 .astro/
-scratch_*.cjs
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

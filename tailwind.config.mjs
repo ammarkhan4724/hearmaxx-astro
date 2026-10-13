@@ -1,0 +1,47 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        background: '#ffffff',
+        surface: '#f8fafc',
+        'surface-subtle': '#f0f7fc',
+        'surface-lavender': '#f5f3fa',
+        'text-primary': '#0f1e36',
+        'text-secondary': '#334155',
+        'text-muted': '#475569',
+        'text-inverse': '#ffffff',
+        primary: '#0f1e36',
+        secondary: '#334155',
+        inverse: '#ffffff',
+        brand: {
+          DEFAULT: '#005a96',
+          50: '#f0f7fc',
+          100: '#e0f0fa',
+          200: '#b8ddf5',
+          300: '#85c3ee',
+          400: '#4da6e5',
+          500: '#005a96',
+          600: '#00487a',
+          700: '#003e6b',
+          800: '#002f52',
+          900: '#0f1e36',
+          dark: '#003e6b',
+          blue: '#005a96',
+          'blue-dark': '#003e6b',
+          navy: '#0f1e36',
+          'navy-dark': '#0a1628',
+        },
+        accent: {
+          DEFAULT: '#0284c7',
+          teal: '#0ea5e9',
+          gold: '#b4832c',
+          soft: '#e0f2fe',
+        },
+        border: '#cbd5e1',
+        'border-subtle': '#e2e8f0',
+      },
+    },
+  },
+};
