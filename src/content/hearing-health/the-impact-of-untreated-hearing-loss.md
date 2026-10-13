@@ -33,24 +33,3 @@ Your brain does a lot of work when you hear. With hearing loss, the brain must a
 
 Missed words and constant requests to repeat yourself make social gatherings exhausting. A systematic review found that hearing loss doubles the odds of social isolation in older adults. When hearing is untreated, people tend to avoid family dinners, group chats, and community events—leading to strained relationships and a shrinking support network. At HearMaxx, treating hearing loss often restores confidence and reconnects patients with loved ones.
 
----
-
-## Common Myths About Hearing Loss
-
-### Myth 1: "Only old people lose their hearing."
-While prevalence increases with age, 13% of U.S. adults aged 18+ report hearing difficulties, and up to 63% of Canadian men aged 40–79 have measurable loss despite not noticing it.
-
-### Myth 2: "Mild hearing loss isn't a big deal."
-Even a mild hearing loss can significantly strain your brain as it tries to fill in missing sounds and speech cues. This constant mental effort can cause fatigue, reduce your ability to concentrate, and increase emotional stress.
-
-### Myth 3: "Hearing aids are bulky and ineffective."
-Modern hearing aids are discreet, smartphone-compatible devices that can reduce depression and slow cognitive decline by up to 50%.
-
-### Myth 4: "If I ignore it, it will go away."
-Hearing loss rarely improves on its own. Delaying treatment allows brain changes and social withdrawal to worsen, increasing risks of dementia, depression, and falls.
-
----
-
-## Take Control of Your Hearing Health
-
-Ignoring hearing loss carries hidden costs—for your mind, mood, relationships, and safety. At HearMaxx, Dr. Sheeraz Rahim provides a painless hearing evaluation and personalized treatment plan to help you reconnect with life’s sounds. Don’t let unaddressed hearing loss rob you of your best days.

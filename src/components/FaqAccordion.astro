@@ -45,7 +45,7 @@ const faqSchema = enableJsonLd
   : null;
 ---
 
-<div class={`space-y-4 ${className}`} id={accordionId}>
+<div class={`faq-accordion-root space-y-4 ${className}`} id={accordionId}>
   {title && (
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
       <div>
@@ -81,7 +81,6 @@ const faqSchema = enableJsonLd
       const numBadge = String(index + 1).padStart(2, '0');
       return (
         <details
-          name={groupName}
           class="group glass-light rounded-2xl sm:rounded-3xl border border-white/80 p-5 sm:p-6 transition-all duration-280 ease-out open:glass-strong open:border-brand/40 open:shadow-[0_12px_36px_rgba(0,90,150,0.12)] hover:border-brand/30"
         >
           <summary class="flex items-start sm:items-center justify-between gap-4 cursor-pointer select-none">
@@ -153,16 +152,18 @@ const faqSchema = enableJsonLd
 
 <script>
   function setupAccordionControls() {
-    document.querySelectorAll('.expand-all-btn').forEach((btn) => {
+    document.querySelectorAll('.expand-all-btn:not([data-accordion-bound])').forEach((btn) => {
+      btn.setAttribute('data-accordion-bound', 'true');
       btn.addEventListener('click', (e) => {
-        const container = (e.currentTarget as HTMLElement).closest('.space-y-4');
+        const container = (e.currentTarget as HTMLElement).closest('.faq-accordion-root');
         container?.querySelectorAll('details').forEach((d) => (d.open = true));
       });
     });
 
-    document.querySelectorAll('.collapse-all-btn').forEach((btn) => {
+    document.querySelectorAll('.collapse-all-btn:not([data-accordion-bound])').forEach((btn) => {
+      btn.setAttribute('data-accordion-bound', 'true');
       btn.addEventListener('click', (e) => {
-        const container = (e.currentTarget as HTMLElement).closest('.space-y-4');
+        const container = (e.currentTarget as HTMLElement).closest('.faq-accordion-root');
         container?.querySelectorAll('details').forEach((d) => (d.open = false));
       });
     });
