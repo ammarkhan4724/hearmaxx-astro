@@ -133,14 +133,14 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
-    <!-- Featured Image in Glass Frame -->
-    <div class="rounded-3xl overflow-hidden glass-light p-2 border border-white/80 shadow-md">
+    <!-- Featured Image in Glass Frame (Uncropped) -->
+    <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
       <Image
         src={featuredImg}
         alt="Diagram and illustration of auditory neural pathways affected by tinnitus"
-        width={896}
-        height={504}
-        class="w-full h-auto object-cover max-h-[420px] rounded-2xl"
+        width={512}
+        height={512}
+        class="w-full h-auto max-h-[420px] aspect-square object-contain rounded-2xl mx-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
@@ -152,7 +152,8 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
       <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
         What is Tinnitus
       </h2>
-      <p class="text-secondary text-base sm:text-lg leading-relaxed">
+      <div class="heading-accent-bar"></div>
+      <p class="text-secondary text-base sm:text-lg leading-relaxed max-w-[68ch]">
         Tinnitus is the sensation of hearing sound—commonly described as ringing, buzzing, hissing, or clicking—when no external noise is present. It can occur in one or both ears, be constant or intermittent, and vary in pitch and volume. When tinnitus persists for three months or more, it is classified as chronic and may require intervention to manage its impact on daily life.
       </p>
     </section>

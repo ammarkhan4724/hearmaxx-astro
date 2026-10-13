@@ -82,7 +82,7 @@ const faqSchema = enableJsonLd
       return (
         <details
           name={groupName}
-          class="group glass-light rounded-2xl sm:rounded-3xl border border-white/80 p-5 sm:p-6 transition-all duration-200 open:glass-strong open:border-brand/40 open:shadow-lg hover:border-brand/30"
+          class="group glass-light rounded-2xl sm:rounded-3xl border border-white/80 p-5 sm:p-6 transition-all duration-280 ease-out open:glass-strong open:border-brand/40 open:shadow-[0_12px_36px_rgba(0,90,150,0.12)] hover:border-brand/30"
         >
           <summary class="flex items-start sm:items-center justify-between gap-4 cursor-pointer select-none">
             <div class="flex items-start sm:items-center gap-3 sm:gap-4 flex-grow">
@@ -107,7 +107,7 @@ const faqSchema = enableJsonLd
 
             <!-- Circular animated plus/minus icon -->
             <div
-              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 border border-border-subtle shadow-2xs flex items-center justify-center shrink-0 group-open:rotate-45 group-open:bg-brand group-open:text-white transition-all duration-200 mt-0.5 sm:mt-0"
+              class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 border border-border-subtle shadow-2xs flex items-center justify-center shrink-0 group-open:rotate-45 group-open:bg-brand group-open:text-white transition-transform duration-280 ease-out mt-0.5 sm:mt-0"
               aria-hidden="true"
             >
               <svg
@@ -121,19 +121,24 @@ const faqSchema = enableJsonLd
             </div>
           </summary>
 
-          <div class="pt-4 mt-3 border-t border-border-subtle/50 text-secondary text-sm sm:text-base leading-relaxed space-y-2">
-            {item.factPill && (
-              <div class="mb-2">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200/80">
-                  <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Clinical Fact
-                </span>
+          <!-- Smooth Grid Expansion Container -->
+          <div class="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows,opacity] duration-280 ease-out opacity-0 group-open:opacity-100">
+            <div class="overflow-hidden">
+              <div class="pt-4 mt-3 border-t border-border-subtle/60 text-secondary text-sm sm:text-base leading-relaxed space-y-2">
+                {item.factPill && (
+                  <div class="mb-2">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200/80">
+                      <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                      Clinical Fact
+                    </span>
+                  </div>
+                )}
+                <div class="prose-p:leading-relaxed break-anywhere">
+                  {item.answer}
+                </div>
               </div>
-            )}
-            <div class="prose-p:leading-relaxed break-anywhere">
-              {item.answer}
             </div>
           </div>
         </details>

@@ -12,7 +12,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
 ---
 
 <!-- Top Rating and Direct Phone Bar -->
-<div class="bg-primary text-slate-300 text-xs py-2 px-4 border-b border-brand-navy-dark">
+<div class="bg-primary text-slate-300 text-xs py-2 px-4 border-b border-brand-navy-dark relative z-50">
   <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
     <!-- Rating badge -->
     <div class="flex items-center gap-2">
@@ -46,11 +46,14 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
   </div>
 </div>
 
-<!-- Sticky Main Navigation Bar -->
-<header class="sticky top-0 z-40 glass-strong border-b border-white/70 shadow-xs">
+<!-- Sticky Main Navigation Bar (z-50) -->
+<header
+  id="main-header"
+  class="sticky top-0 z-50 glass-strong border-b border-white/80 transition-colors duration-200"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20 gap-4">
-      <!-- Logo Left -->
+      <!-- Logo Left (Uncropped with intrinsic aspect ratio) -->
       <a href="/" class="shrink-0 flex items-center" aria-label="HearMaxx Home">
         <Image
           src={logoImg}
@@ -59,6 +62,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
           height={42}
           class="h-10 w-auto object-contain"
           loading="eager"
+          decoding="async"
         />
       </a>
 
@@ -77,9 +81,9 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
           return (
             <a
               href={item.href}
-              class={`text-sm font-semibold transition-colors py-2 relative ${
+              class={`text-sm font-semibold py-2 px-1 nav-link-underline transition-colors ${
                 isActive
-                  ? 'text-brand font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand'
+                  ? 'text-brand font-bold is-active'
                   : 'text-primary hover:text-brand'
               }`}
               aria-current={isActive ? 'page' : undefined}
@@ -91,9 +95,9 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
 
         <a
           href="/find-our-clinics/"
-          class={`text-sm font-semibold transition-colors py-2 relative ${
+          class={`text-sm font-semibold py-2 px-1 nav-link-underline transition-colors ${
             currentPath === '/find-our-clinics/'
-              ? 'text-brand font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand'
+              ? 'text-brand font-bold is-active'
               : 'text-primary hover:text-brand'
           }`}
           aria-current={currentPath === '/find-our-clinics/' ? 'page' : undefined}
@@ -107,9 +111,9 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
         <!-- Always visible Book Appointment! button on desktop -->
         <a
           href="/appointment-form/"
-          class="hidden md:inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-brand to-brand-dark text-inverse font-semibold text-sm shadow-sm hover:shadow-brand/25 transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 shrink-0 cursor-pointer"
+          class="hidden md:inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-brand to-brand-dark text-inverse font-semibold text-sm shadow-sm hover:shadow-brand/25 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 shrink-0 cursor-pointer sheen-card group"
         >
-          <Icon name="calendar" class="w-4 h-4" />
+          <Icon name="calendar" class="w-4 h-4 btn-icon-nudge" />
           <span>Book Appointment!</span>
         </a>
 
@@ -129,5 +133,26 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
   </div>
 </header>
 
-<!-- Mobile Off-Canvas Drawer -->
+<!-- Mobile Off-Canvas Drawer (z-100) -->
 <MobileMenu currentPath={currentPath} />
+
+<script>
+  function setupHeaderScroll() {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    function handleScroll() {
+      if (window.scrollY > 15) {
+        header?.classList.add('header-scrolled');
+      } else {
+        header?.classList.remove('header-scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  setupHeaderScroll();
+  document.addEventListener('astro:page-load', setupHeaderScroll);
+</script>

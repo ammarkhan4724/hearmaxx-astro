@@ -7,7 +7,7 @@ author: "Sheeraz Rahim"
 authorTitle: "Hearing Care Specialist"
 ---
 
-At HearMaxx , under the expert guidance of our hearing expert Sheeraz Rahim, we are dedicated to providing comprehensive information and care for various ear-related issues. Understanding these conditions is the first step toward effective treatment and better hearing health. ​
+At HearMaxx, under the expert guidance of our hearing expert Sheeraz Rahim, we are dedicated to providing comprehensive information and care for various ear-related issues. Understanding these conditions is the first step toward effective treatment and better hearing health. ​
 
 ---
 

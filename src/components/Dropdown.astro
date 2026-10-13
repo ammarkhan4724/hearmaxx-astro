@@ -19,11 +19,12 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
 ---
 
 <div class="relative group" id="desktop-dropdown">
+  <!-- Trigger Button -->
   <button
     type="button"
     id="desktop-dropdown-trigger"
-    class={`flex items-center gap-1.5 py-2 text-sm font-semibold transition-colors focus:outline-none cursor-pointer ${
-      isChildActive ? 'text-brand font-bold' : 'text-primary hover:text-brand'
+    class={`flex items-center gap-1.5 py-2 px-1 text-sm font-semibold transition-colors focus:outline-none cursor-pointer nav-link-underline ${
+      isChildActive ? 'text-brand font-bold is-active' : 'text-primary hover:text-brand'
     }`}
     aria-expanded="false"
     aria-haspopup="true"
@@ -37,16 +38,17 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
     />
   </button>
 
-  <!-- Dropdown panel with invisible hover bridge (pt-2 -mt-1) to eliminate gaps -->
+  <!-- Dropdown Panel (10-12px below header, with invisible hover bridge) -->
   <div
     id="desktop-dropdown-panel"
-    class="hidden absolute top-full left-0 w-[580px] pt-2 -mt-1 opacity-0 translate-y-2 pointer-events-none transition-all duration-200 z-50"
+    class="hidden absolute top-[calc(100%+11px)] left-0 w-[600px] opacity-0 translate-y-2 pointer-events-none transition-all duration-180 z-[60] before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-4 before:bg-transparent"
+    style="z-index: 60;"
     aria-labelledby="desktop-dropdown-trigger"
   >
-    <div class="glass-strong rounded-3xl shadow-2xl border border-white/90 p-6 grid grid-cols-2 gap-6 ring-1 ring-brand/10">
+    <div class="glass-dropdown p-6 grid grid-cols-2 gap-6 ring-1 ring-brand/10">
       {categories.map((cat) => (
         <div>
-          <span class="block text-[11px] font-bold uppercase tracking-wider text-brand mb-3 pb-1 border-b border-border-subtle/80">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-brand mb-3 pb-1 border-b border-slate-200/80">
             {cat.category}
           </span>
           <ul class="space-y-1.5">
@@ -56,16 +58,20 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
                 <li>
                   <a
                     href={item.href}
-                    class={`group/link block p-2.5 rounded-2xl transition-all duration-150 ${
-                      isActive ? 'bg-brand/10 text-brand font-bold' : 'hover:bg-white/80 text-primary'
+                    class={`group/link block relative pl-3.5 pr-3 py-2.5 rounded-xl transition-colors duration-150 before:content-[''] before:absolute before:left-1 before:top-2.5 before:bottom-2.5 before:w-1 before:rounded-full before:bg-brand before:transition-opacity ${
+                      isActive
+                        ? 'bg-brand/10 before:opacity-100'
+                        : 'hover:bg-brand/5 before:opacity-0 hover:before:opacity-100'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
-                    <span class="block text-sm font-semibold group-hover/link:text-brand transition-colors">
+                    <span class={`block text-sm font-semibold transition-colors ${
+                      isActive ? 'text-brand' : 'text-[#0f1e36] group-hover/link:text-brand'
+                    }`}>
                       {item.label}
                     </span>
                     {item.description && (
-                      <span class="block text-xs text-text-muted mt-0.5 leading-relaxed">
+                      <span class="block text-xs text-[#334155] mt-0.5 leading-relaxed font-normal">
                         {item.description}
                       </span>
                     )}
@@ -85,6 +91,7 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
     const dropdown = document.getElementById('desktop-dropdown');
     const trigger = document.getElementById('desktop-dropdown-trigger');
     const panel = document.getElementById('desktop-dropdown-panel');
+    const scrim = document.getElementById('desktop-dropdown-scrim');
     const chevron = document.getElementById('dropdown-chevron');
 
     if (!dropdown || !trigger || !panel) return;
@@ -92,26 +99,54 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
     let isOpen = false;
 
     function openDropdown() {
+      if (isOpen) return;
       isOpen = true;
       trigger?.setAttribute('aria-expanded', 'true');
-      panel?.classList.remove('hidden', 'opacity-0', 'translate-y-2', 'pointer-events-none');
-      panel?.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      
+      // Panel animation
+      panel?.classList.remove('hidden', 'pointer-events-none');
+      // trigger reflow
+      void panel?.offsetWidth;
+      panel?.classList.add('opacity-100', 'translate-y-0');
+      panel?.classList.remove('opacity-0', 'translate-y-2');
       chevron?.classList.add('rotate-180');
+
+      // Scrim
+      if (scrim) {
+        scrim.classList.remove('hidden', 'pointer-events-none');
+        void scrim.offsetWidth;
+        scrim.classList.add('opacity-100', 'pointer-events-auto');
+        scrim.classList.remove('opacity-0');
+      }
     }
 
     function closeDropdown() {
+      if (!isOpen) return;
       isOpen = false;
       trigger?.setAttribute('aria-expanded', 'false');
-      panel?.classList.add('hidden', 'opacity-0', 'translate-y-2', 'pointer-events-none');
-      panel?.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+
+      panel?.classList.add('opacity-0', 'translate-y-2');
+      panel?.classList.remove('opacity-100', 'translate-y-0');
       chevron?.classList.remove('rotate-180');
+
+      if (scrim) {
+        scrim.classList.add('opacity-0');
+        scrim.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+
+      setTimeout(() => {
+        if (!isOpen) {
+          panel?.classList.add('hidden', 'pointer-events-none');
+          scrim?.classList.add('hidden', 'pointer-events-none');
+        }
+      }, 180);
     }
 
     // Hover listeners
     dropdown.addEventListener('mouseenter', openDropdown);
     dropdown.addEventListener('mouseleave', closeDropdown);
 
-    // Keyboard & click toggle
+    // Click trigger toggle
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isOpen) {
@@ -121,28 +156,35 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
       }
     });
 
+    // Keyboard support: Enter / Space / ArrowDown
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
         e.preventDefault();
         openDropdown();
-        // Focus first link in menu
-        const firstLink = panel.querySelector('a');
+        const firstLink = panel?.querySelector('a') as HTMLElement | null;
         firstLink?.focus();
       }
     });
 
-    // Escape listener
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen) {
+    // Panel keyboard navigation
+    panel.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
         closeDropdown();
         trigger.focus();
       }
     });
 
-    // Click outside to close
-    document.addEventListener('click', (e) => {
-      if (isOpen && !dropdown.contains(e.target as Node)) {
+    // Scrim click to close
+    scrim?.addEventListener('click', () => {
+      closeDropdown();
+    });
+
+    // Global Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
         closeDropdown();
+        trigger.focus();
       }
     });
   }

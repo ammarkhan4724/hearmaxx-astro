@@ -94,23 +94,25 @@ const mythsFaqs = [
 
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16">
-    <!-- Featured Image in Glass Frame -->
-    <div class="mb-10 rounded-3xl overflow-hidden glass-light p-2 border border-white/80 shadow-md">
+    <!-- Featured Image in Glass Frame (Uncropped) -->
+    <div class="mb-12 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
       <Image
         src={featuredImg}
         alt="Person navigating speech and conversation in a noisy environment"
-        width={896}
-        height={504}
-        class="w-full h-auto object-cover max-h-[420px] rounded-2xl"
+        width={754}
+        height={774}
+        class="w-full h-auto max-h-[420px] aspect-[754/774] object-contain rounded-2xl mx-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
       />
     </div>
 
-    <!-- Article Content -->
-    <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:text-primary prose-a:text-brand prose-a:underline hover:prose-a:text-brand-dark prose-strong:text-primary leading-relaxed">
-      <Content />
+    <!-- Article Content in 68ch Reading Column -->
+    <div class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md">
+      <div class="reading-column prose-clinical">
+        <Content />
+      </div>
     </div>
 
     <!-- Myths vs Facts Premium FAQ Component -->

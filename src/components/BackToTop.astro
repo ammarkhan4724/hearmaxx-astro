@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  id="back-to-top-btn"
+  type="button"
+  class="fixed bottom-20 lg:bottom-8 right-4 sm:right-6 z-30 p-3 rounded-full glass-strong border border-white/95 shadow-lg text-primary hover:text-brand hover:scale-105 transition-all duration-200 opacity-0 pointer-events-none translate-y-3 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-brand"
+  aria-label="Back to top of page"
+>
+  <Icon name="arrow-up" class="w-5 h-5" />
+</button>
+
+<script>
+  function setupBackToTop() {
+    const btn = document.getElementById('back-to-top-btn');
+    if (!btn) return;
+
+    function handleScroll() {
+      const threshold = window.innerHeight * 1.4;
+      if (window.scrollY > threshold) {
+        btn?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        btn?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      } else {
+        btn?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        btn?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    }
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Reset focus to top
+      const skipLink = document.querySelector('a[href="#main-content"]') as HTMLElement | null;
+      skipLink?.focus();
+    });
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  setupBackToTop();
+  document.addEventListener('astro:page-load', setupBackToTop);
+</script>

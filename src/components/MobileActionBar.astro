@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import { siteConfig } from '../data/site';
+---
+
+<aside
+  id="mobile-action-bar"
+  class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(10,35,80,0.08)] px-4 py-2.5 transition-transform duration-200"
+  aria-label="Quick actions"
+>
+  <div class="max-w-md mx-auto flex items-center gap-3">
+    <!-- Call Clinic (Phone link to Mississauga primary) -->
+    <a
+      href={`tel:${siteConfig.clinics.mississauga.phoneRaw}`}
+      class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-full bg-slate-100 hover:bg-slate-200/80 text-primary font-semibold text-xs border border-slate-200 transition-colors cursor-pointer"
+      aria-label={`Call Mississauga clinic at ${siteConfig.clinics.mississauga.phone}`}
+    >
+      <Icon name="phone" class="w-4 h-4 text-brand" />
+      <span>Call Clinic</span>
+    </a>
+
+    <!-- Book Appointment Button -->
+    <a
+      href="/appointment-form/"
+      class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-full bg-gradient-to-r from-brand to-brand-dark text-white font-semibold text-xs shadow-sm hover:shadow-brand/25 transition-all cursor-pointer sheen-card"
+    >
+      <Icon name="calendar" class="w-4 h-4" />
+      <span>Book Appointment!</span>
+    </a>
+  </div>
+</aside>
+
+<style>
+  :global(body.mobile-menu-open) #mobile-action-bar {
+    transform: translateY(100%);
+    pointer-events: none;
+  }
+</style>

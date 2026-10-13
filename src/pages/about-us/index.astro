@@ -67,15 +67,15 @@ import specialistImg from '../../assets/images/sheeraz-rahim-specialist.webp';
           </div>
         </div>
 
-        <!-- Specialist Image -->
+        <!-- Specialist Image (Uncropped 1:1) -->
         <div class="lg:col-span-5">
-          <div class="rounded-3xl overflow-hidden glass-strong p-2 border border-white/90 shadow-lg aspect-4/5 max-w-md mx-auto">
+          <div class="rounded-3xl overflow-hidden glass-strong p-3 border border-white/90 shadow-lg max-w-md mx-auto">
             <Image
               src={specialistImg}
               alt="Sheeraz Rahim, Founder of HearMaxx"
-              width={450}
-              height={562}
-              class="w-full h-full object-cover rounded-2xl"
+              width={800}
+              height={800}
+              class="w-full h-auto aspect-square object-contain rounded-2xl"
               loading="eager"
               fetchpriority="high"
               decoding="async"
@@ -95,7 +95,7 @@ import specialistImg from '../../assets/images/sheeraz-rahim-specialist.webp';
           Hear Directly from Sheeraz Rahim
         </h2>
         <p class="text-secondary text-sm leading-relaxed max-w-2xl mx-auto">
-          Hear directly from Sheeraz Rahim , the founder and lead hearing care specialist at HearMaxx , as he walks you through what makes our clinic different. From the personalized assessments to the latest in hearing aid technology, discover how we’re transforming lives with better hearing — one patient at a time.
+          Hear directly from Sheeraz Rahim, the founder and lead hearing care specialist at HearMaxx, as he walks you through what makes our clinic different. From the personalized assessments to the latest in hearing aid technology, discover how we’re transforming lives with better hearing — one patient at a time.
         </p>
         <p class="text-secondary text-sm leading-relaxed max-w-2xl mx-auto">
           Our commitment extends beyond assessments; we are dedicated to educating our patients about their hearing health and the available options to improve it. By combining state-of-the-art technology with individualized care plans, we strive to enhance our patients' quality of life through better hearing.​
@@ -110,54 +110,54 @@ import specialistImg from '../../assets/images/sheeraz-rahim-specialist.webp';
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Video 1: Services Overview -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- Video 1: Services Overview (9:16 Uncropped with Full Frame Poster) -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover space-y-4">
           <div class="space-y-4">
             <h3 class="text-xl font-bold text-primary">Services & Clinical Approach</h3>
             <p class="text-xs sm:text-sm text-secondary leading-relaxed">
               Walk through what makes our clinic different—from personalized assessments to real-ear verification and tailored brand selection.
             </p>
-            <div class="rounded-2xl overflow-hidden shadow-inner bg-black aspect-video border border-border-subtle">
+            <div class="rounded-2xl overflow-hidden shadow-inner bg-black aspect-[9/16] max-h-[75vh] max-w-[340px] mx-auto border border-border-subtle flex items-center justify-center">
               <video
                 controls
                 preload="none"
-                poster="/images/hear-maxx-og.png"
+                poster="/videos/services-overview-poster.webp"
                 playsinline
-                class="w-full h-full object-cover"
+                class="w-full h-full object-contain"
                 aria-label="Services overview video with Sheeraz Rahim"
               >
                 <source src="/videos/services-overview.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p class="text-xs text-text-muted pt-1">
+            <p class="text-xs text-text-muted pt-1 text-center">
               <a href="/videos/services-overview.mp4" class="underline hover:text-brand" download>Download / Direct Video Link</a>
             </p>
           </div>
         </div>
 
-        <!-- Video 2: Clinic Tour -->
+        <!-- Video 2: Clinic Tour (9:16 Uncropped with Full Frame Poster) -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover space-y-4">
           <div class="space-y-4">
             <h3 class="text-xl font-bold text-primary">Tour Our Clinic Facilities</h3>
             <p class="text-xs sm:text-sm text-secondary leading-relaxed">
               Explore our modern consultation rooms, sound-treated testing suites, and welcoming patient care environment in Ontario.
             </p>
-            <div class="rounded-2xl overflow-hidden shadow-inner bg-black aspect-video border border-border-subtle">
+            <div class="rounded-2xl overflow-hidden shadow-inner bg-black aspect-[9/16] max-h-[75vh] max-w-[340px] mx-auto border border-border-subtle flex items-center justify-center">
               <video
                 controls
                 preload="none"
-                poster="/images/hear-maxx-og.png"
+                poster="/videos/clinic-tour-poster.webp"
                 playsinline
-                class="w-full h-full object-cover"
+                class="w-full h-full object-contain"
                 aria-label="HearMaxx clinic walkthrough and facilities tour"
               >
                 <source src="/videos/clinic-tour.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p class="text-xs text-text-muted pt-1">
+            <p class="text-xs text-text-muted pt-1 text-center">
               <a href="/videos/clinic-tour.mp4" class="underline hover:text-brand" download>Download / Direct Video Link</a>
             </p>
           </div>

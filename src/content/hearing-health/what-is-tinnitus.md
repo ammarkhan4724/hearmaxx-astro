@@ -43,7 +43,7 @@ When exposed to loud noises, especially over extended periods, these delicate ha
 ### Tips for Safe Earbud Use
 
 - **Follow the 60/60 rule:** Listen at no more than 60% of maximum volume for no more than 60 minutes at a time.
-- **Use noise-cancelling earbuds :** These can help reduce the need to increase volume in noisy environments.
+- **Use noise-cancelling earbuds:** These can help reduce the need to increase volume in noisy environments.
 - **Take regular breaks:** Give your ears time to rest and recover.
 - **Stay informed:** Regular hearing check-ups can help detect early signs of hearing loss.
 
@@ -51,13 +51,13 @@ When exposed to loud noises, especially over extended periods, these delicate ha
 
 ## Diagnosis and Evaluation
 
-A thorough evaluation by an audiologist includes :
+A thorough evaluation by an audiologist includes:
 
 <p>1. Medical & Otoscopic Exam: To detect earwax, infections, or structural issues.</p>
 <p>2. Pure-Tone & Speech Audiometry: To assess hearing thresholds and speech-understanding ability</p>
 <p>3. Tympanometry: To evaluate middle-ear pressure and eardrum mobility</p>
 <p>4. Otoacoustic Emissions (OAE): To measure cochlear hair-cell function</p>
-<p>5. Questionnaires & Tinnitus Matching: To quantify tinnitus loudness, pitch, and handicap .</p>
+<p>5. Questionnaires & Tinnitus Matching: To quantify tinnitus loudness, pitch, and handicap.</p>
 
 ---
 

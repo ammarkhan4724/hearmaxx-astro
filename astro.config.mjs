@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hearmaxx.ca',
+  site: process.env.PUBLIC_SITE_URL || 'https://hearmaxx.ca',
   trailingSlash: 'always',
   output: 'static',
   compressHTML: true,

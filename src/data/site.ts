@@ -41,7 +41,7 @@ export interface NavItem {
 export const siteConfig = {
   name: 'Hear Maxx',
   tagline: 'Your hearing, Our priority.',
-  url: 'https://hearmaxx.ca',
+  url: (typeof process !== 'undefined' && process.env?.PUBLIC_SITE_URL) ? process.env.PUBLIC_SITE_URL : 'https://hearmaxx.ca',
   description: 'Hear Maxx offers certified audiologist consultations, comprehensive hearing evaluations, advanced digital hearing aids, and complete ear care solutions in Mississauga and York, Ontario.',
   reviewScore: '4.93',
   reviewCount: '105+',

@@ -96,25 +96,25 @@ const otherConditionsFaqs = [
 
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
-    <!-- Featured Image in Glass Frame -->
-    <div class="rounded-3xl overflow-hidden glass-light p-2 border border-white/80 shadow-md">
+    <!-- Featured Image in Glass Frame (Uncropped) -->
+    <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center bg-slate-50/50">
       <Image
         src={featuredImg}
         alt="Anatomical diagram of the middle ear and Eustachian tube structure"
-        width={896}
-        height={504}
-        class="w-full h-auto object-cover max-h-[420px] rounded-2xl"
+        width={937}
+        height={1000}
+        class="w-full h-auto max-h-[420px] aspect-[937/1000] object-contain rounded-2xl mx-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
       />
     </div>
 
-    <!-- Introduction Card -->
+    <!-- Introduction Card (68ch Measure) -->
     <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md">
       <h2 class="sr-only">Ear Infections & Conditions</h2>
-      <p class="text-secondary text-base sm:text-lg leading-relaxed">
-        At HearMaxx , under the expert guidance of our hearing expert Sheeraz Rahim, we are dedicated to providing comprehensive information and care for various ear-related issues. Understanding these conditions is the first step toward effective treatment and better hearing health. ​
+      <p class="text-secondary text-base sm:text-lg leading-relaxed max-w-[68ch]">
+        At HearMaxx, under the expert guidance of our hearing expert Sheeraz Rahim, we are dedicated to providing comprehensive information and care for various ear-related issues. Understanding these conditions is the first step toward effective treatment and better hearing health. ​
       </p>
     </div>
 
