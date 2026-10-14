@@ -73,50 +73,56 @@ const { Content } = await render(entry);
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
     <!-- Visual Showcase Gallery (Authentic Master Images) -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
-        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
-          <Image
-            src={signsConversationImg}
-            alt="Family conversation and social interaction signs of hearing loss"
-            width={640}
-            height={427}
-            class="w-full h-auto max-h-48 object-contain rounded-xl"
-            loading="eager"
-            fetchpriority="high"
-          />
+      <div class="glass-strong rounded-3xl p-5 border border-white/90 shadow-md flex flex-col justify-between text-center glass-card-hover">
+        <div class="space-y-3">
+          <div class="rounded-2xl overflow-hidden aspect-4/3 shadow-xs bg-slate-50 w-full">
+            <Image
+              src={signsConversationImg}
+              alt="Adult straining to follow family dinner conversation in a noisy environment"
+              width={640}
+              height={480}
+              class="w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+          <h3 class="text-sm font-bold text-primary block">Family & Social Situations</h3>
+          <p class="text-xs text-text-muted leading-relaxed">Difficulty following dinner conversations and group discussions in bustling environments.</p>
         </div>
-        <span class="text-xs font-bold text-primary block">Family & Social Situations</span>
-        <span class="text-[11px] text-text-muted mt-1 leading-snug">Difficulty following dinner conversations and group discussions</span>
       </div>
 
-      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
-        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
-          <Image
-            src={signsListeningImg}
-            alt="Listening effort and concentration challenges in everyday environments"
-            width={640}
-            height={537}
-            class="w-full h-auto max-h-48 object-contain rounded-xl"
-            loading="lazy"
-          />
+      <div class="glass-strong rounded-3xl p-5 border border-white/90 shadow-md flex flex-col justify-between text-center glass-card-hover">
+        <div class="space-y-3">
+          <div class="rounded-2xl overflow-hidden aspect-4/3 shadow-xs bg-slate-50 w-full">
+            <Image
+              src={signsListeningImg}
+              alt="Listening effort, TV volume adjustments, and concentration fatigue"
+              width={640}
+              height={480}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-sm font-bold text-primary block">Active Listening Challenges</h3>
+          <p class="text-xs text-text-muted leading-relaxed">Frequent fatigue from mental effort to fill in missed sounds and turning up device volumes.</p>
         </div>
-        <span class="text-xs font-bold text-primary block">Active Listening Challenges</span>
-        <span class="text-[11px] text-text-muted mt-1 leading-snug">Frequent fatigue from mental effort to fill in missed sounds</span>
       </div>
 
-      <div class="glass-strong rounded-3xl p-4 border border-white/90 shadow-md flex flex-col items-center text-center">
-        <div class="rounded-2xl overflow-hidden bg-slate-50/50 w-full flex items-center justify-center p-2 mb-3">
-          <Image
-            src={signsEvaluationIllustration}
-            alt="Diagnostic audiometry evaluation and clinical frequency analysis chart"
-            width={640}
-            height={537}
-            class="w-full h-auto max-h-48 object-contain rounded-xl"
-            loading="lazy"
-          />
+      <div class="glass-strong rounded-3xl p-5 border border-white/90 shadow-md flex flex-col justify-between text-center glass-card-hover">
+        <div class="space-y-3">
+          <div class="rounded-2xl overflow-hidden aspect-4/3 shadow-xs bg-slate-50 w-full">
+            <Image
+              src={signsEvaluationIllustration}
+              alt="Professional clinical otoscopic examination by audiology specialist"
+              width={640}
+              height={480}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-sm font-bold text-primary block">Diagnostic Ear Examination</h3>
+          <p class="text-xs text-text-muted leading-relaxed">Comprehensive otoscopic inspection and precision frequency testing to determine ear canal health.</p>
         </div>
-        <span class="text-xs font-bold text-primary block">Diagnostic Audiometry</span>
-        <span class="text-[11px] text-text-muted mt-1 leading-snug">Pinpointing exact frequency thresholds and hearing clarity</span>
       </div>
     </div>
 
@@ -144,29 +150,41 @@ const { Content } = await render(entry);
       </div>
     </div>
 
-    <!-- Schedule CTA Card (Glass Dark) -->
-    <div class="p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="space-y-3">
-        <h3 class="text-2xl font-bold text-white tracking-tight">
+    <!-- Schedule CTA Card (Glass Dark with Photographic Depth) -->
+    <div class="relative p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+      <!-- Background Image with Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <Image
+          src={signsHeroImg}
+          alt="HearMaxx Comprehensive Hearing Evaluation"
+          width={1200}
+          height={600}
+          class="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/85 to-primary/90"></div>
+      </div>
+
+      <div class="relative z-10 space-y-3">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Schedule Your Hearing Test Today!
         </h3>
         <p class="text-xs font-semibold uppercase tracking-wider text-sky-300">
           Take the First Step Towards Better Hearing
         </p>
-        <p class="text-slate-200 text-sm max-w-xl leading-relaxed">
+        <p class="text-slate-200 text-sm sm:text-base max-w-xl leading-relaxed">
           Don't let hearing loss affect your quality of life. Contact HearMaxx today to schedule your comprehensive hearing evaluation and take the first step towards improved hearing health.
         </p>
       </div>
-      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+      <div class="relative z-10 shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
         <a
           href="/appointment-form/"
-          class="btn-primary"
+          class="btn-primary shadow-lg shadow-brand/25 text-center"
         >
           Schedule Today
         </a>
         <a
           href="/find-our-clinics/"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors text-center border border-white/20"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors text-center border border-white/20 shadow-sm"
         >
           Find Nearest Clinic
         </a>

@@ -138,54 +138,59 @@ const mythsFaqs = [
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Cognitive Health Illustration -->
+          <!-- Cognitive Health Visualization -->
           <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
-            <div class="w-full flex items-center justify-center py-2">
+            <div class="w-full rounded-xl overflow-hidden aspect-16/9 shadow-xs bg-slate-900">
               <Image
                 src={impactCognitiveImg}
-                alt="Auditory pathway and brain cognitive health connection illustration"
-                width={400}
-                height={280}
-                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                alt="3D medical visualization of human brain auditory cortex and neural pathway"
+                width={800}
+                height={450}
+                class="w-full h-full object-cover rounded-xl"
                 loading="lazy"
               />
             </div>
-            <p class="text-xs text-text-muted text-center mt-2 font-medium">
-              Cognitive health & auditory processing pathway
+            <p class="text-xs text-text-muted text-center mt-3 font-semibold">
+              Cognitive Health & Auditory Processing Pathway
             </p>
           </div>
 
-          <!-- Social Connections Illustration -->
+          <!-- Social Connections Photography -->
           <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
-            <div class="w-full flex items-center justify-center py-2">
+            <div class="w-full rounded-xl overflow-hidden aspect-16/9 shadow-xs bg-slate-50">
               <Image
                 src={impactSocialConnectionsImg}
-                alt="Social communication and dinner conversations in noisy settings"
-                width={400}
-                height={280}
-                class="w-full h-auto max-h-48 object-contain rounded-xl"
+                alt="Active family and seniors enjoying dinner conversation together"
+                width={800}
+                height={450}
+                class="w-full h-full object-cover rounded-xl"
                 loading="lazy"
               />
             </div>
-            <p class="text-xs text-text-muted text-center mt-2 font-medium">
-              Preserving social connections and communication confidence
+            <p class="text-xs text-text-muted text-center mt-3 font-semibold">
+              Preserving Social Connections & Communication Confidence
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Myths vs Facts Premium FAQ Component -->
+    <!-- Myths vs Facts Premium Section -->
     <section class="mt-12" aria-labelledby="myths-table-heading">
-      <div class="mb-6 rounded-2xl overflow-hidden glass-strong p-3 border border-white/90 shadow-xs max-w-xl mx-auto flex items-center justify-center">
-        <Image
-          src={impactMythsFactsImg}
-          alt="Separating hearing loss myths from evidence-based clinical facts"
-          width={600}
-          height={340}
-          class="w-full h-auto max-h-52 object-contain rounded-xl"
-          loading="lazy"
-        />
+      <div class="mb-8 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center">
+        <div class="w-full rounded-2xl overflow-hidden aspect-16/9 shadow-xs bg-slate-50">
+          <Image
+            src={impactMythsFactsImg}
+            alt="Audiology specialist reviewing audiogram results with clinical ear model"
+            width={960}
+            height={540}
+            class="w-full h-full object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-xs text-text-muted text-center mt-2.5 font-medium">
+          Evidence-based audiological assessments separate hearing loss facts from common misconceptions.
+        </p>
       </div>
       <FaqAccordion
         title="Common Myths About Hearing Loss"
@@ -197,20 +202,32 @@ const mythsFaqs = [
       />
     </section>
 
-    <!-- Consultation CTA Card (Glass Dark) -->
-    <div class="mt-14 p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="space-y-3">
-        <h2 class="text-2xl font-bold text-white tracking-tight">
+    <!-- Consultation CTA Card (Glass Dark with Photographic Depth) -->
+    <div class="relative mt-14 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+      <!-- Background Image with Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <Image
+          src={impactEmotionalImg}
+          alt="Emotional well-being and hearing health"
+          width={1000}
+          height={600}
+          class="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/85 to-primary/90"></div>
+      </div>
+
+      <div class="relative z-10 space-y-3">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Take Control of Your Hearing Health
         </h2>
-        <p class="text-slate-200 text-sm max-w-xl leading-relaxed">
-          Ignoring hearing loss carries hidden costs—for your mind, mood, relationships, and safety. At HearMaxx , Dr. Sheeraz Rahim provides a painless hearing evaluation and personalized treatment plan to help you reconnect with life’s sounds. Don’t let unaddressed hearing loss rob you of your best days.
+        <p class="text-slate-200 text-sm sm:text-base max-w-xl leading-relaxed">
+          Ignoring hearing loss carries hidden costs—for your mind, mood, relationships, and safety. At HearMaxx, Dr. Sheeraz Rahim provides a painless hearing evaluation and personalized treatment plan to help you reconnect with life’s sounds.
         </p>
       </div>
-      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+      <div class="relative z-10 shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
         <a
           href="/appointment-form/"
-          class="btn-primary"
+          class="btn-primary shadow-lg shadow-brand/25 text-center"
         >
           Request Assessment
         </a>

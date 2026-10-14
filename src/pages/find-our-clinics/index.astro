@@ -3,11 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { siteConfig } from '../../data/site';
-import {
-  clinicsHeroImg,
-  clinicMississaugaImg,
-  clinicYorkImg
-} from '../../assets';
+import { clinicMississaugaImg } from '../../assets';
 ---
 
 <BaseLayout
@@ -34,7 +30,7 @@ import {
             Find a Clinic Near You
           </h1>
           <p class="text-lg text-secondary leading-relaxed">
-            Locate our clinics with detailed addresses, hours, and directions for each location.
+            Locate our clinics with detailed addresses, hours, and directions for each location across the Greater Toronto Area.
           </p>
         </div>
       </div>
@@ -54,13 +50,13 @@ import {
             <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
               Visit Our Mississauga Clinic
             </h2>
-            <div class="rounded-2xl overflow-hidden shadow-xs border border-white/90 glass-strong p-2 flex items-center justify-center bg-slate-50/50">
+            <div class="rounded-2xl overflow-hidden shadow-xs border border-white/90 aspect-16/10 bg-slate-50 w-full">
               <Image
                 src={clinicMississaugaImg}
                 alt="HearMaxx Mississauga Clinic storefront and entrance in Erindale Dental Centre"
                 width={800}
-                height={550}
-                class="w-full h-auto max-h-72 object-contain rounded-xl"
+                height={500}
+                class="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
@@ -175,16 +171,6 @@ import {
             <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
               Visit Our York Clinic
             </h2>
-            <div class="rounded-2xl overflow-hidden shadow-xs border border-white/90 glass-strong p-2 flex items-center justify-center bg-slate-50/50">
-              <Image
-                src={clinicYorkImg}
-                alt="HearMaxx York Clinic storefront and entrance in Jane Park Plaza"
-                width={800}
-                height={600}
-                class="w-full h-auto max-h-72 object-contain rounded-xl"
-                loading="lazy"
-              />
-            </div>
             <p class="text-sm text-secondary">
               Located in Jane Park Plaza 861 A Jane St York, ON M6N 4C4, Canada
             </p>

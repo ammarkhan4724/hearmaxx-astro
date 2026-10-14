@@ -124,15 +124,20 @@ const otherConditionsFaqs = [
 
     <!-- Group 1: Common Ear Infections (Premium FAQ) -->
     <section class="space-y-6">
-      <div class="rounded-2xl overflow-hidden glass-strong p-3 border border-white/90 shadow-xs max-w-xl mx-auto flex items-center justify-center">
-        <Image
-          src={infectionsIllustration}
-          alt="Clinical illustration of outer, middle, and inner ear infection indicators"
-          width={600}
-          height={340}
-          class="w-full h-auto max-h-56 object-contain rounded-xl"
-          loading="lazy"
-        />
+      <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center">
+        <div class="w-full rounded-2xl overflow-hidden aspect-16/9 bg-white shadow-xs">
+          <Image
+            src={infectionsIllustration}
+            alt="Medical comparison of normal healthy tympanic membrane versus acute otitis media infection"
+            width={960}
+            height={540}
+            class="w-full h-full object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-xs text-text-muted text-center mt-2.5 font-medium">
+          Clinical comparison: Normal healthy eardrum structure vs. Acute Otitis Media with purulent effusion and inflammation.
+        </p>
       </div>
       <FaqAccordion
         title="Common Ear Infections, Symptoms & Treatment"
@@ -295,20 +300,32 @@ const otherConditionsFaqs = [
       />
     </div>
 
-    <!-- Consultation CTA Card (Glass Dark) -->
-    <div class="mt-8 p-8 sm:p-10 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="space-y-3">
-        <h2 class="text-2xl font-bold text-white tracking-tight">
+    <!-- Consultation CTA Card (Glass Dark with Photographic Depth) -->
+    <div class="relative mt-8 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+      <!-- Background Image with Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <Image
+          src={infectionsCareBannerImg}
+          alt="Comprehensive ear health care and specialist consultation support"
+          width={1200}
+          height={600}
+          class="w-full h-full object-cover opacity-20 mix-blend-luminosity scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/85 to-primary/90"></div>
+      </div>
+
+      <div class="relative z-10 space-y-3">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Need Help with Ear Issues?
         </h2>
-        <h2 class="text-slate-200 text-sm max-w-xl leading-relaxed font-normal">
-          If you're experiencing any ear-related symptoms or have concerns about your hearing, don't hesitate to reach out to HearMaxx. Our hearing expert Sheeraz Rahim, is here to provide personalized care and effective solutions for your ear health.​
-        </h2>
+        <p class="text-slate-200 text-sm sm:text-base max-w-xl leading-relaxed font-normal">
+          If you're experiencing any ear-related symptoms or have concerns about your hearing, don't hesitate to reach out to HearMaxx. Our hearing expert Sheeraz Rahim, is here to provide personalized care and effective solutions for your ear health.
+        </p>
       </div>
-      <div class="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+      <div class="relative z-10 shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
         <a
           href="/appointment-form/"
-          class="btn-primary"
+          class="btn-primary shadow-lg shadow-brand/25 text-center"
         >
           Book Consultation
         </a>

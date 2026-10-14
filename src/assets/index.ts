@@ -75,15 +75,15 @@ export { default as exploreFeatureEqualizerImg } from './solutions/icon-equalize
 // Impact of Untreated Hearing Loss
 export { default as impactHeroImg } from './impact/impact-hero.webp';
 export { default as impactEmotionalImg } from './impact/emotional-wellbeing.webp';
-export { default as impactCognitiveImg } from './impact/cognitive-health.svg';
-export { default as impactSocialConnectionsImg } from './impact/social-connections.svg';
-export { default as impactMythsFactsImg } from './impact/myths-facts-illustration.svg';
+export { default as impactCognitiveImg } from './impact/cognitive-health.webp';
+export { default as impactSocialConnectionsImg } from './impact/social-connections.webp';
+export { default as impactMythsFactsImg } from './impact/myths-facts-photo.webp';
 
 // Signs of Hearing Loss
 export { default as signsHeroImg } from './signs/signs-hero.webp';
 export { default as signsConversationImg } from './signs/signs-conversation.webp';
 export { default as signsListeningImg } from './signs/signs-listening.webp';
-export { default as signsEvaluationIllustration } from './signs/hearing-evaluation-illustration.svg';
+export { default as signsEvaluationIllustration } from './signs/hearing-evaluation-exam.webp';
 
 // Tinnitus
 export { default as tinnitusHeroImg } from './tinnitus/tinnitus-hero.webp';
@@ -93,12 +93,12 @@ export { default as tinnitusReliefImg } from './tinnitus/tinnitus-relief.webp';
 // Ear Infections & Conditions
 export { default as infectionsMiddleEarImg } from './infections/ear-anatomy.webp';
 export { default as infectionsCareBannerImg } from './infections/ear-infection-care.webp';
-export { default as infectionsIllustration } from './infections/ear-infection-illustration.svg';
+export { default as infectionsIllustration } from './infections/ear-infection-comparison.webp';
 
 // Clinics
-export { default as clinicsHeroImg } from './clinics/clinics-hero.svg';
-export { default as clinicMississaugaImg } from './clinics/clinic-mississauga.webp';
-export { default as clinicYorkImg } from './clinics/clinic-york.webp';
+export { default as clinicsHeroImg } from './clinics/clinics-hero.webp';
+export { default as clinicMississaugaImg } from './clinics/clinic-mississauga-storefront.webp';
+export { default as clinicYorkImg } from './clinics/clinic-york-storefront.webp';
 
 // Advice
 export { default as adviceSignsImg } from './advice/advice-signs.webp';

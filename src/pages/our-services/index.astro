@@ -18,6 +18,7 @@ import {
   serviceTechEvaluation,
   serviceTechFitting,
   serviceTechConsultation,
+  appointmentHeroImg,
 } from '../../assets';
 ---
 
@@ -37,7 +38,7 @@ import {
         </nav>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8">
+          <div class="lg:col-span-7">
             <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase mb-3">
               Expert Hearing Care
             </span>
@@ -51,14 +52,14 @@ import {
               We offer extensive Range of Hearing Services
             </p>
           </div>
-          <div class="lg:col-span-4 flex justify-center">
-            <div class="rounded-2xl overflow-hidden glass-light p-2 border border-white/90 max-w-[280px]">
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="rounded-3xl overflow-hidden glass-light p-3 border border-white/90 shadow-xl w-full max-w-md bg-white/40">
               <Image
                 src={servicesHeroImg}
                 alt="HearMaxx Comprehensive Hearing Services and Solutions"
                 width={700}
                 height={500}
-                class="w-full h-auto object-contain rounded-xl"
+                class="w-full h-auto object-cover rounded-2xl shadow-sm"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
@@ -398,68 +399,119 @@ import {
         </div>
       </div>
 
-      <!-- 3 Key Value Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 1: Advanced Technology -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-3">
-            <h3 class="text-xl font-bold text-primary">Advanced Technology You Can Trust</h3>
+      <!-- 3 Key Value Photographic Alternating Sections -->
+      <div class="space-y-12">
+        <!-- Section 1: Advanced Technology (Image Left, Content Right) -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-10 border border-white/90 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="rounded-2xl overflow-hidden shadow-md border border-white/90 aspect-4/3 sm:aspect-16/10 bg-slate-50">
+              <Image
+                src={serviceTechEvaluation}
+                alt="Advanced Hearing Aid Technology and 3D Ear Anatomy Evaluation"
+                width={800}
+                height={533}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+              Cutting-Edge Innovation
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
+              Advanced Technology You Can Trust
+            </h3>
             <p class="text-xs font-semibold uppercase tracking-wider text-brand">
               Stay connected with cutting-edge hearing aids.
             </p>
-            <p class="text-sm text-secondary leading-relaxed">
-              From Bluetooth-enabled devices to invisible hearing aids, we offer the latest technology from top manufacturers, ensuring you get the best sound quality and comfort.
+            <p class="text-sm sm:text-base text-secondary leading-relaxed">
+              From Bluetooth-enabled devices to invisible hearing aids, we offer the latest technology from top manufacturers, ensuring you get the best sound quality and comfort. Experience seamless streaming, discreet designs, and tailored amplification for every environment.
             </p>
-          </div>
-          <div class="pt-6">
-            <a
-              href="/explore-hearing-solutions/"
-              class="btn-primary !text-xs !py-2.5 !px-5"
-            >
-              Explore technologies
-            </a>
+            <div class="pt-2">
+              <a
+                href="/explore-hearing-solutions/"
+                class="btn-primary !text-xs !py-2.5 !px-5 inline-flex"
+              >
+                Explore Technologies →
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2: Cognitive Health -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-3">
-            <h3 class="text-xl font-bold text-primary">Protecting Cognitive Health Through Hearing Care</h3>
+        <!-- Section 2: Cognitive Health (Content Left, Image Right) -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-10 border border-white/90 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+              Brain Health & Vitality
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
+              Protecting Cognitive Health Through Hearing Care
+            </h3>
             <p class="text-xs font-semibold uppercase tracking-wider text-brand">
               Better Hearing, Sharper Mind
             </p>
-            <p class="text-sm text-secondary leading-relaxed">
+            <p class="text-sm sm:text-base text-secondary leading-relaxed">
               Scientific studies show a strong link between untreated hearing loss and cognitive decline, including memory loss and increased risk of dementia. At our clinic, we take this connection seriously. By addressing hearing loss early with expert care and appropriate devices, you can protect not only your hearing but also your mental well-being. Let us help you stay mentally sharp, socially connected, and fully engaged in the life you love.
             </p>
+            <div class="pt-2">
+              <a
+                href="/the-impact-of-untreated-hearing-loss/"
+                class="btn-primary !text-xs !py-2.5 !px-5 inline-flex"
+              >
+                Learn More About Cognitive Health →
+              </a>
+            </div>
           </div>
-          <div class="pt-6">
-            <a
-              href="/the-impact-of-untreated-hearing-loss/"
-              class="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
-            >
-              Learn More →
-            </a>
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden shadow-md border border-white/90 aspect-4/3 sm:aspect-16/10 bg-slate-50">
+              <Image
+                src={serviceTechFitting}
+                alt="Senior enjoying mental clarity and cognitive wellness through proper hearing care"
+                width={800}
+                height={533}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
-        <!-- Card 3: Ongoing Support -->
-        <div class="glass-strong rounded-3xl p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
-          <div class="space-y-3">
-            <h3 class="text-xl font-bold text-primary">Ongoing Support and Patient Education</h3>
+        <!-- Section 3: Ongoing Support (Image Left, Content Right) -->
+        <div class="glass-strong rounded-3xl p-6 sm:p-10 border border-white/90 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="rounded-2xl overflow-hidden shadow-md border border-white/90 aspect-4/3 sm:aspect-16/10 bg-slate-50">
+              <Image
+                src={serviceTechConsultation}
+                alt="Compassionate audiologist providing ongoing hearing care support and patient consultation"
+                width={800}
+                height={533}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+              Lifelong Partnership
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
+              Ongoing Support and Patient Education
+            </h3>
             <p class="text-xs font-semibold uppercase tracking-wider text-brand">
               Care That Continues Beyond the First Visit
             </p>
-            <p class="text-sm text-secondary leading-relaxed">
+            <p class="text-sm sm:text-base text-secondary leading-relaxed">
               We believe that successful hearing care is an ongoing journey—not a one-time event. That’s why we offer continued support after your initial fitting. Our team provides regular follow-ups, device adjustments, maintenance services, and education about hearing health. Whether you need assistance with your device, have questions about your hearing, or simply want to stay informed, we're here to support you every step of the way.
             </p>
-          </div>
-          <div class="pt-6">
-            <a
-              href="/get-expert-advice/"
-              class="btn-primary !text-xs !py-2.5 !px-5"
-            >
-              Learn More Info
-            </a>
+            <div class="pt-2">
+              <a
+                href="/get-expert-advice/"
+                class="btn-primary !text-xs !py-2.5 !px-5 inline-flex"
+              >
+                Learn More Info →
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -469,28 +521,42 @@ import {
   <!-- Brand Partners Strip -->
   <BrandStrip />
 
-  <!-- Bottom CTA (Glass Dark) -->
+  <!-- Bottom CTA (Glass Dark with Photographic Depth) -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="glass-dark rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl text-center space-y-6">
-      <h2 class="text-3xl font-extrabold text-white tracking-tight">
-        Step into a World of Clear, Vibrant Sound
-      </h2>
-      <p class="text-slate-200 text-sm max-w-2xl mx-auto leading-relaxed">
-        Step into a world of clear, vibrant sound with HearMaxx . Our passion for restoring hearing goes beyond technology—it's about enhancing every moment of your life. Embrace a future where every whisper and every cheer is beautifully heard.
-      </p>
-      <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/appointment-form/"
-          class="btn-primary"
-        >
-          Request Appointment
-        </a>
-        <a
-          href="/find-our-clinics/"
-          class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors border border-white/20"
-        >
-          Find Nearest Clinic
-        </a>
+    <div class="relative glass-dark rounded-3xl p-8 sm:p-14 border border-white/20 shadow-2xl text-center space-y-6 overflow-hidden">
+      <!-- Background Image with Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <Image
+          src={appointmentHeroImg}
+          alt="HearMaxx Patient Care Center"
+          width={1200}
+          height={600}
+          class="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-primary/90"></div>
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Step into a World of Clear, Vibrant Sound
+        </h2>
+        <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Step into a world of clear, vibrant sound with HearMaxx. Our passion for restoring hearing goes beyond technology—it's about enhancing every moment of your life. Embrace a future where every whisper and every cheer is beautifully heard.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/appointment-form/"
+            class="btn-primary shadow-lg shadow-brand/25"
+          >
+            Request Appointment
+          </a>
+          <a
+            href="/find-our-clinics/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors border border-white/20 shadow-sm"
+          >
+            Find Nearest Clinic
+          </a>
+        </div>
       </div>
     </div>
   </section>

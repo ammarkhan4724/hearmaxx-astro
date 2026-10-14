@@ -10,6 +10,7 @@ import {
   aboutClinicReceptionImg,
   aboutPatientConsultationImg,
   homeAudiologistSpecialist,
+  clinicMississaugaImg,
 } from '../../assets';
 ---
 
@@ -29,7 +30,7 @@ import {
         </nav>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 space-y-4">
+          <div class="lg:col-span-7 space-y-4">
             <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase">
               Our Mission & Vision
             </span>
@@ -40,14 +41,14 @@ import {
               At HearMaxx, we combine empathy, expertise, and innovation to restore your hearing and transform your life
             </p>
           </div>
-          <div class="lg:col-span-4 flex justify-center">
-            <div class="rounded-2xl overflow-hidden glass-light p-2 border border-white/90 max-w-[280px]">
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="rounded-3xl overflow-hidden glass-light p-3 border border-white/90 shadow-xl w-full max-w-md bg-white/40">
               <Image
                 src={aboutHeroImg}
                 alt="HearMaxx Patient Consultation and Care"
                 width={700}
                 height={500}
-                class="w-full h-auto object-contain rounded-xl"
+                class="w-full h-auto object-cover rounded-2xl shadow-sm"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
@@ -112,11 +113,11 @@ import {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6 rounded-3xl overflow-hidden glass-strong p-3 border border-white/90 shadow-lg flex items-center justify-center">
           <Image
-            src={aboutClinicImg}
+            src={clinicMississaugaImg}
             alt="HearMaxx Clinic Facilities - Modern consultation and testing suites in Ontario"
-            width={768}
-            height={432}
-            class="w-full h-auto aspect-[16/9] object-contain rounded-2xl"
+            width={800}
+            height={500}
+            class="w-full h-full aspect-16/10 object-cover rounded-2xl"
             loading="lazy"
             decoding="async"
           />
@@ -333,28 +334,42 @@ import {
   <!-- Brand Partners Strip -->
   <BrandStrip />
 
-  <!-- Bottom CTA (Glass Dark) -->
+  <!-- Bottom CTA (Glass Dark with Photographic Depth) -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="glass-dark rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl text-center space-y-6">
-      <h2 class="text-3xl font-extrabold text-white tracking-tight">
-        Let's Begin Your Journey to Better Hearing
-      </h2>
-      <p class="text-slate-200 text-sm max-w-2xl mx-auto leading-relaxed">
-        Ready to take the first step toward improved hearing? Our team at HearMaxx is here to provide you with personalized care and the latest hearing solutions tailored to your needs. Click below to schedule your consultation and start your journey to better hearing today.
-      </p>
-      <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/appointment-form/"
-          class="btn-primary"
-        >
-          Join Our Mission Today
-        </a>
-        <a
-          href="/find-our-clinics/"
-          class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors border border-white/20"
-        >
-          Find Nearest Clinic
-        </a>
+    <div class="relative glass-dark rounded-3xl p-8 sm:p-14 border border-white/20 shadow-2xl text-center space-y-6 overflow-hidden">
+      <!-- Background Image with Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <Image
+          src={aboutPatientConsultationImg}
+          alt="Joy of clear sound and hearing rehabilitation"
+          width={1200}
+          height={600}
+          class="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/85 to-primary/90"></div>
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Let's Begin Your Journey to Better Hearing
+        </h2>
+        <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Ready to take the first step toward improved hearing? Our team at HearMaxx is here to provide you with personalized care and the latest hearing solutions tailored to your needs. Click below to schedule your consultation and start your journey to better hearing today.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/appointment-form/"
+            class="btn-primary shadow-lg shadow-brand/25"
+          >
+            Join Our Mission Today
+          </a>
+          <a
+            href="/find-our-clinics/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm transition-colors border border-white/20 shadow-sm"
+          >
+            Find Nearest Clinic
+          </a>
+        </div>
       </div>
     </div>
   </section>
