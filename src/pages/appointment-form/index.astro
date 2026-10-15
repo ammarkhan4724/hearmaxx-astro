@@ -12,26 +12,44 @@ import { appointmentHeroImg } from '../../assets';
   description="No cost. No commitment. Just better hearing — get started by submitting your request below. Schedule a consultation at HearMaxx Mississauga or York."
   canonicalPath="/appointment-form/"
 >
-  <!-- Header -->
-  <header class="relative py-12 md:py-16 overflow-hidden">
+  <!-- Page Header with Background Image & Adjusted Transparency Overlay -->
+  <header class="relative py-10 md:py-14 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-strong rounded-3xl p-8 sm:p-12 border border-white/90 shadow-lg">
-        <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-text-muted mb-6">
-          <a href="/" class="hover:text-brand transition-colors">Home</a>
-          <Icon name="chevron-right" class="w-3 h-3 text-text-muted" />
-          <span class="text-text-primary font-medium">Book Appointment</span>
-        </nav>
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-slate-950">
+        <!-- Background Hero Image -->
+        <Image
+          src={appointmentHeroImg}
+          alt="Licensed audiologist providing compassionate hearing consultation and evaluation"
+          width={1440}
+          height={726}
+          class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
 
-        <div class="max-w-3xl space-y-4">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs tracking-wider uppercase">
-            Complimentary Evaluation
-          </span>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
-            Book Free Appointment Today!
-          </h1>
-          <p class="text-lg text-secondary leading-relaxed">
-            No cost. No commitment. Just better hearing — get started by submitting your request below.
-          </p>
+        <!-- Dark Gradient Overlay for Maximum Text Visibility & Rich Contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/60 z-0"></div>
+
+        <!-- Content Overlay -->
+        <div class="relative z-10 p-8 sm:p-12 lg:p-14">
+          <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-300 mb-6">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <Icon name="chevron-right" class="w-3 h-3 text-slate-400" />
+            <span class="text-white font-medium">Book Appointment</span>
+          </nav>
+
+          <div class="max-w-3xl space-y-4">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-brand/20 backdrop-blur-md text-sky-300 border border-sky-400/30 font-bold text-xs tracking-wider uppercase">
+              Complimentary Evaluation
+            </span>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Book Free Appointment Today!
+            </h1>
+            <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+              No cost. No commitment. Just better hearing — get started by submitting your request below.
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -47,6 +47,7 @@ export { default as serviceTechFitting } from './services/technology-fitting.web
 export { default as serviceTechConsultation } from './services/technology-consultation.jpg';
 
 // Hearing Solutions
+export { default as exploreSolutionsHeroImg } from './solutions/solutions-hero.webp';
 export { default as exploreNaidaBteImg } from './solutions/bte-naida.webp';
 export { default as exploreBteDeviceImg } from './solutions/bte-device.webp';
 export { default as exploreRicDeviceImg } from './solutions/ric-receiver.webp';
@@ -96,7 +97,7 @@ export { default as infectionsCareBannerImg } from './infections/ear-infection-c
 export { default as infectionsIllustration } from './infections/ear-infection-comparison.webp';
 
 // Clinics
-export { default as clinicsHeroImg } from './clinics/clinics-hero.webp';
+export { default as clinicsHeroImg } from './clinics/clinics-hero-exterior.jpg';
 export { default as clinicMississaugaImg } from './clinics/clinic-mississauga-storefront.webp';
 export { default as clinicYorkImg } from './clinics/clinic-york-storefront.webp';
 

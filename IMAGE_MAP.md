@@ -39,6 +39,7 @@ This document inventories every media asset placed across the 12 pages of the He
 | **Our Services** | Earwax Management Card | `service-earwax-management.webp` | Safe micro-suction cerumen earwax removal icon | 96×96 | 42×42 | needs higher resolution |
 | **Our Services** | Custom Protection Card | `service-ear-protection.webp` | Custom molded musician and swimming ear protection icon | 96×96 | 42×42 | needs higher resolution |
 | **Our Services** | Tinnitus Management Card | `service-tinnitus-management.webp` | Tinnitus sound therapy and masking protocols icon | 96×96 | 42×42 | needs higher resolution |
+| **Hearing Solutions** | Solutions Hero | `solutions-hero.webp` | Audiologist and patient in clinical hearing test booth | 1440×644 | 1440×644 | own image |
 | **Hearing Solutions** | BTE Primary Model | `bte-naida.webp` | Phonak Naida Behind-the-Ear (BTE) Digital Hearing Aid | 768×768 | 288×288 | own image |
 | **Hearing Solutions** | BTE Device Chassis | `bte-device.webp` | Behind-the-Ear (BTE) hearing instrument chassis | 768×768 | 241×241 | own image |
 | **Hearing Solutions** | Feature: Comfort Icon | `icon-comfort.webp` | Comfort open-fit option icon | 32×32 | 24×24 | needs higher resolution |
