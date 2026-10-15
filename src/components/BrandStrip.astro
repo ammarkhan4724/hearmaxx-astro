@@ -53,14 +53,14 @@ const brandImageMap: Record<string, ImageMetadata> = {
               href={brand.website}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-center p-3 sm:p-4 glass-strong rounded-2xl border border-white/90 shadow-xs glass-card-hover group h-24 sm:h-28 bg-white/85"
+              class="flex items-center justify-center p-3 sm:p-4 glass-strong rounded-2xl border border-white/90 shadow-xs glass-card-hover group h-24 sm:h-28"
               title={`Visit ${brand.name} official website`}
             >
               {imgAsset ? (
                 <Image
                   src={imgAsset}
                   alt={`${brand.name} official hearing aid manufacturer logo`}
-                  class="h-14 sm:h-20 max-h-[82%] w-auto max-w-[92%] object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200"
+                  class="h-14 sm:h-20 max-h-[82%] w-auto max-w-[92%] object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200 no-rounded"
                   loading="lazy"
                   decoding="async"
                 />

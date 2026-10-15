@@ -20,7 +20,7 @@ export { default as homeHeroSlide4 } from './home/hero-slide-4.webp';
 export { default as homeMissingSounds } from './home/missing-sounds.jpg';
 export { default as homeHealthSteps } from './home/hearing-health-steps.webp';
 export { default as homeSupportImg } from './home/hearing-care-professional.webp';
-export { default as homeAudiologistSpecialist } from './home/sheeraz-specialist-framed.webp';
+export { default as homeAudiologistSpecialist } from './home/sheeraz-specialist.webp';
 export { default as homeGoogleReviewsBanner } from './home/google-reviews-banner.jpg';
 
 // About Us
@@ -53,9 +53,9 @@ export { default as exploreBteDeviceImg } from './solutions/bte-device.webp';
 export { default as exploreRicDeviceImg } from './solutions/ric-receiver.webp';
 export { default as exploreSlimProfileImg } from './solutions/ric-receiver.webp';
 export { default as exploreSlimPairImg } from './solutions/ric-slim-pair.webp';
-export { default as exploreIteAidImg } from './solutions/ite-hearing-aid.webp';
-export { default as exploreItcAidImg } from './solutions/itc-hearing-aid.webp';
-export { default as exploreCicAidImg } from './solutions/cic-hearing-aid.webp';
+export { default as exploreIteAidImg } from './solutions/ite-hearing-aid-transparent.webp';
+export { default as exploreItcAidImg } from './solutions/itc-hearing-aid-transparent.webp';
+export { default as exploreCicAidImg } from './solutions/cic-hearing-aid-transparent.webp';
 export { default as exploreMusicianBannerImg } from './solutions/musician-earplugs-banner.webp';
 export { default as exploreEarplugsProtection } from './solutions/earplugs-protection.png';
 export { default as exploreEarplugsWork } from './solutions/earplugs-work.webp';
@@ -89,11 +89,11 @@ export { default as signsEvaluationIllustration } from './signs/hearing-evaluati
 // Tinnitus
 export { default as tinnitusHeroImg } from './tinnitus/tinnitus-hero.webp';
 export { default as tinnitusLoudSoundsImg } from './tinnitus/loud-sounds-impact.webp';
-export { default as tinnitusReliefImg } from './tinnitus/tinnitus-relief.webp';
+export { default as tinnitusReliefImg } from './tinnitus/tinnitus-relief-transparent.webp';
 export { default as tinnitusVideoCoverImg } from './tinnitus/tinnitus-video-cover.webp';
 
 // Ear Infections & Conditions
-export { default as infectionsMiddleEarImg } from './infections/ear-anatomy.webp';
+export { default as infectionsMiddleEarImg } from './infections/ear-anatomy-transparent.webp';
 export { default as infectionsCareBannerImg } from './infections/ear-infection-care.webp';
 export { default as infectionsIllustration } from './infections/ear-infection-comparison.webp';
 
