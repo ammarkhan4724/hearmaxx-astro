@@ -13,6 +13,8 @@ import {
   exploreIteAidImg,
   exploreItcAidImg,
   exploreCicAidImg,
+  exploreCicDiagramImg,
+  exploreIicDiagramImg,
   exploreFeatureComfortImg,
   exploreFeatureClarityImg,
   exploreFeatureDurabilityImg,
@@ -373,6 +375,16 @@ import {
         <!-- Invisible-in-Canal (IIC) Card -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden glass-light p-3 flex items-center justify-center border border-white/80 bg-slate-50/50">
+              <Image
+                src={exploreIicDiagramImg}
+                alt="Invisible-in-Canal (IIC) Deep Ear Canal Placement Medical Diagram"
+                width={800}
+                height={800}
+                class="w-full h-auto max-h-72 object-contain rounded-xl"
+                loading="lazy"
+              />
+            </div>
             <span class="text-xs font-bold uppercase tracking-wider text-brand">Deep Ear Canal Placement</span>
             <h3 class="text-2xl font-bold text-primary">Invisible-in-Canal (IIC)</h3>
             <p class="text-sm text-secondary leading-relaxed">
@@ -415,8 +427,15 @@ import {
         <!-- Completely-in-Canal (CIC) Card -->
         <div class="glass-strong rounded-3xl p-6 sm:p-8 border border-white/90 shadow-2xs flex flex-col justify-between glass-card-hover">
           <div class="space-y-4">
-            <div class="rounded-2xl overflow-hidden glass-light p-4 flex items-center justify-center border border-white/80">
-              <Image src={exploreCicAidImg} alt="Completely-in-Canal (CIC) Hearing Device" width={400} height={350} class="max-h-44 w-auto object-contain" loading="lazy" />
+            <div class="rounded-2xl overflow-hidden glass-light p-3 flex items-center justify-center border border-white/80 bg-slate-50/50">
+              <Image
+                src={exploreCicDiagramImg}
+                alt="Completely-in-Canal (CIC) Near-Invisible Precision Medical Diagram"
+                width={800}
+                height={800}
+                class="w-full h-auto max-h-72 object-contain rounded-xl"
+                loading="lazy"
+              />
             </div>
             <span class="text-xs font-bold uppercase tracking-wider text-brand">Near-Invisible Precision</span>
             <h3 class="text-2xl font-bold text-primary">Completely-in-Canal (CIC)</h3>
