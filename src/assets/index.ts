@@ -20,7 +20,7 @@ export { default as homeHeroSlide4 } from './home/hero-slide-4.webp';
 export { default as homeMissingSounds } from './home/missing-sounds.jpg';
 export { default as homeHealthSteps } from './home/hearing-health-steps.webp';
 export { default as homeSupportImg } from './home/hearing-care-professional.webp';
-export { default as homeAudiologistSpecialist } from './home/audiologist-specialist.png';
+export { default as homeAudiologistSpecialist } from './home/sheeraz-specialist-framed.webp';
 export { default as homeGoogleReviewsBanner } from './home/google-reviews-banner.jpg';
 
 // About Us
