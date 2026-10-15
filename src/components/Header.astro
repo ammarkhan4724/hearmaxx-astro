@@ -67,7 +67,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
       </a>
 
       <!-- Desktop Nav Center/Right -->
-      <nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5" aria-label="Main navigation">
         {hearingHealthItem && hearingHealthItem.children && (
           <Dropdown
             label={hearingHealthItem.label}
@@ -81,7 +81,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
           return (
             <a
               href={item.href}
-              class={`text-sm font-semibold py-2 px-1 nav-link-underline transition-colors ${
+              class={`text-[13px] xl:text-sm font-semibold py-2 px-1 nav-link-underline transition-colors shrink-0 ${
                 isActive
                   ? 'text-brand font-bold is-active'
                   : 'text-primary hover:text-brand'
@@ -95,7 +95,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
 
         <a
           href="/find-our-clinics/"
-          class={`text-sm font-semibold py-2 px-1 nav-link-underline transition-colors ${
+          class={`text-[13px] xl:text-sm font-semibold py-2 px-1 nav-link-underline transition-colors shrink-0 ${
             currentPath === '/find-our-clinics/'
               ? 'text-brand font-bold is-active'
               : 'text-primary hover:text-brand'

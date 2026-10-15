@@ -155,6 +155,7 @@ export const siteConfig = {
     },
     { label: 'Hearing Solutions', href: '/explore-hearing-solutions/' },
     { label: 'Our Services', href: '/our-services/' },
+    { label: 'Get Expert Advice', href: '/get-expert-advice/' },
     { label: 'About Us', href: '/about-us/' },
     { label: 'Contact Us', href: '/contact-us/' },
   ] as NavItem[],

@@ -183,6 +183,19 @@ const { currentPath = '' } = Astro.props;
         </li>
         <li>
           <a
+            href="/get-expert-advice/"
+            class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
+              currentPath === '/get-expert-advice/'
+                ? 'bg-surface-subtle text-brand font-bold'
+                : 'text-primary hover:bg-surface hover:text-brand'
+            }`}
+            aria-current={currentPath === '/get-expert-advice/' ? 'page' : undefined}
+          >
+            Get Expert Advice
+          </a>
+        </li>
+        <li>
+          <a
             href="/find-our-clinics/"
             class={`block min-h-[44px] px-3 py-2.5 text-base font-semibold rounded-lg transition-colors flex items-center ${
               currentPath === '/find-our-clinics/'
