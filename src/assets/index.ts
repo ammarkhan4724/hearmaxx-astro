@@ -90,6 +90,7 @@ export { default as signsEvaluationIllustration } from './signs/hearing-evaluati
 export { default as tinnitusHeroImg } from './tinnitus/tinnitus-hero.webp';
 export { default as tinnitusLoudSoundsImg } from './tinnitus/loud-sounds-impact.webp';
 export { default as tinnitusReliefImg } from './tinnitus/tinnitus-relief.webp';
+export { default as tinnitusVideoCoverImg } from './tinnitus/tinnitus-video-cover.webp';
 
 // Ear Infections & Conditions
 export { default as infectionsMiddleEarImg } from './infections/ear-anatomy.webp';

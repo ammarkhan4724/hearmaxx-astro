@@ -3,7 +3,8 @@ import { Image } from 'astro:assets';
 import {
   tinnitusHeroImg,
   tinnitusLoudSoundsImg,
-  tinnitusReliefImg
+  tinnitusReliefImg,
+  tinnitusVideoCoverImg
 } from '../../assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
@@ -309,25 +310,46 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
         </p>
       </div>
 
-      <div class="video-facade-wrapper relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-lg border border-border-subtle flex items-center justify-center group" data-video-id="qyFaUA14-KQ" data-video-title="See how loud sounds Impact your hearing!">
-        <div class="video-placeholder absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-t from-black/80 via-black/40 to-black/60">
+      <div id="tinnitus-video-wrapper" class="video-facade-wrapper relative w-full aspect-video rounded-3xl overflow-hidden bg-slate-950 shadow-2xl border border-white/20 flex items-center justify-center group" data-video-id="qyFaUA14-KQ" data-video-title="See how loud sounds Impact your hearing!">
+        <!-- YouTube Player Container -->
+        <div id="tinnitus-yt-player" class="w-full h-full absolute inset-0"></div>
+
+        <!-- Cover Image with Visible Play Button Overlay -->
+        <div
+          id="tinnitus-video-cover"
+          class="video-cover-overlay absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center transition-all duration-300 cursor-pointer"
+        >
+          <!-- Optimized Cover Image -->
+          <Image
+            src={tinnitusVideoCoverImg}
+            alt="Tinnitus Causes and Treatment Video Cover"
+            width={1280}
+            height={720}
+            class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Gradient Vignette for Depth & Contrast -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-slate-950/40 z-10 pointer-events-none"></div>
+
+          <!-- Highly Visible Play Button -->
           <button
             type="button"
-            class="play-video-btn w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand hover:bg-brand-dark text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform group-hover:scale-110 cursor-pointer"
+            class="play-video-btn relative z-20 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-brand/90 hover:bg-brand text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform group-hover:scale-115 cursor-pointer border-3 border-white/90 backdrop-blur-xs ring-4 ring-brand/30"
             aria-label="Play YouTube video: See how loud sounds Impact your hearing!"
           >
-            <svg class="w-8 h-8 ml-1 fill-current" viewBox="0 0 24 24">
+            <svg class="w-9 h-9 sm:w-10 sm:h-10 ml-1.5 fill-current text-white drop-shadow" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
-          <p class="text-white text-sm sm:text-base font-semibold mt-4 drop-shadow">
+          <p class="relative z-20 text-white text-base sm:text-lg font-bold mt-4 drop-shadow-md">
             Click to Play: See how loud sounds Impact your hearing!
           </p>
           <a
             href="https://www.youtube.com/watch?v=qyFaUA14-KQ"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs text-slate-300 hover:text-white underline mt-2"
+            class="relative z-20 text-xs text-sky-200 hover:text-white underline mt-2 transition-colors drop-shadow"
           >
             Watch directly on YouTube
           </a>
@@ -429,35 +451,72 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
   </article>
 
   <script>
-    function initVideoFacades() {
-      const wrappers = document.querySelectorAll('.video-facade-wrapper');
-      wrappers.forEach((el) => {
-        const wrapper = el as HTMLElement;
-        const videoId = wrapper.dataset.videoId;
-        const videoTitle = wrapper.dataset.videoTitle || 'YouTube Video';
-        if (!videoId) return;
+    function initTinnitusVideo() {
+      const wrapper = document.getElementById('tinnitus-video-wrapper');
+      const cover = document.getElementById('tinnitus-video-cover');
+      if (!wrapper || !cover) return;
 
-        function loadVideo(autoplay = false) {
-          if (wrapper.querySelector('iframe')) return;
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}`;
-          iframe.title = videoTitle;
-          iframe.className = 'w-full h-full absolute inset-0';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-          iframe.allowFullscreen = true;
-          iframe.loading = 'lazy';
+      const videoId = wrapper.dataset.videoId || 'qyFaUA14-KQ';
+      let player: any = null;
 
-          const placeholder = wrapper.querySelector('.video-placeholder');
-          if (placeholder) placeholder.remove();
-          wrapper.appendChild(iframe);
+      function onYouTubeStateChange(event: any) {
+        // 1 = PLAYING, 3 = BUFFERING
+        if (event.data === 1 || event.data === 3) {
+          cover.classList.add('opacity-0', 'pointer-events-none');
+          cover.classList.remove('opacity-100', 'pointer-events-auto');
+        } else if (event.data === 2 || event.data === 0) {
+          // 2 = PAUSED, 0 = ENDED
+          cover.classList.remove('opacity-0', 'pointer-events-none');
+          cover.classList.add('opacity-100', 'pointer-events-auto');
         }
+      }
 
-        const btn = wrapper.querySelector('.play-video-btn');
-        btn?.addEventListener('click', () => loadVideo(true));
-      });
+      function createPlayer() {
+        if (player) return;
+        player = new (window as any).YT.Player('tinnitus-yt-player', {
+          videoId: videoId,
+          playerVars: {
+            autoplay: 1,
+            enablejsapi: 1,
+            rel: 0,
+            modestbranding: 1
+          },
+          events: {
+            onReady: (event: any) => {
+              event.target.playVideo();
+            },
+            onStateChange: onYouTubeStateChange
+          }
+        });
+      }
+
+      function handlePlayClick() {
+        if (!player) {
+          if (typeof (window as any).YT !== 'undefined' && (window as any).YT.Player) {
+            createPlayer();
+          } else {
+            if (!document.getElementById('yt-iframe-api')) {
+              const tag = document.createElement('script');
+              tag.id = 'yt-iframe-api';
+              tag.src = 'https://www.youtube.com/iframe_api';
+              const firstScript = document.getElementsByTagName('script')[0];
+              firstScript?.parentNode?.insertBefore(tag, firstScript);
+            }
+            const prev = (window as any).onYouTubeIframeAPIReady;
+            (window as any).onYouTubeIframeAPIReady = () => {
+              if (prev) prev();
+              createPlayer();
+            };
+          }
+        } else {
+          player.playVideo();
+        }
+      }
+
+      cover.addEventListener('click', handlePlayClick);
     }
 
-    initVideoFacades();
-    document.addEventListener('astro:page-load', initVideoFacades);
+    initTinnitusVideo();
+    document.addEventListener('astro:page-load', initTinnitusVideo);
   </script>
 </BaseLayout>
