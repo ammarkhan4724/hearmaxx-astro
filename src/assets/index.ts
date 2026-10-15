@@ -108,9 +108,9 @@ export { default as serviceOngoingSupportImg } from './services/service-ongoing-
 // Advice
 export { default as adviceSignsImg } from './advice/advice-signs.webp';
 export { default as advicePreventionImg } from './advice/advice-prevention.jpg';
-export { default as advicePreventionClinicImg } from './advice/advice-prevention-clinic.webp';
-export { default as adviceTreatmentTechImg } from './advice/advice-treatment-tech.webp';
-export { default as adviceHealthJourneyImg } from './advice/advice-health-journey.webp';
+export { default as advicePreventionClinicImg } from './advice/advice-prevention-clinic-landscape.webp';
+export { default as adviceTreatmentTechImg } from './advice/advice-treatment-tech-landscape.webp';
+export { default as adviceHealthJourneyImg } from './advice/advice-health-journey-landscape.webp';
 export { default as adviceShapeAccent1 } from './advice/shape-accent-1.png';
 export { default as adviceShapeAccent2 } from './advice/shape-accent-2.png';
 
