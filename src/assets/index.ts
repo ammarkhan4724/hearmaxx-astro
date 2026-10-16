@@ -57,7 +57,7 @@ export { default as exploreIteAidImg } from './solutions/ite-hearing-aid-transpa
 export { default as exploreItcAidImg } from './solutions/itc-hearing-aid-transparent.webp';
 export { default as exploreCicAidImg } from './solutions/cic-hearing-aid-transparent.webp';
 export { default as exploreMusicianBannerImg } from './solutions/musician-earplugs-banner.webp';
-export { default as exploreEarplugsProtection } from './solutions/earplugs-protection.png';
+export { default as exploreEarplugsProtection } from './solutions/custom-earplugs-comparison.webp';
 export { default as exploreEarplugsWork } from './solutions/earplugs-work.webp';
 export { default as exploreEarplugsSleep } from './solutions/earplugs-sleep.webp';
 export { default as exploreEarplugsExploded } from './solutions/earplugs-exploded.webp';
