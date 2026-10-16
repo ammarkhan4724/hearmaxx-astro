@@ -102,8 +102,8 @@ const { Content } = await render(entry);
               width={640}
               height={480}
               class="w-full h-full object-cover"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <h3 class="text-sm font-bold text-primary block">Family & Social Situations</h3>
