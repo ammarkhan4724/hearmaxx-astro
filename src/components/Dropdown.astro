@@ -23,7 +23,7 @@ const isChildActive = categories.some((c) => c.items.some((i) => i.href === curr
   <button
     type="button"
     id="desktop-dropdown-trigger"
-    class={`flex items-center gap-1.5 py-2 px-1 text-[13px] xl:text-sm font-semibold transition-colors focus:outline-none cursor-pointer nav-link-underline ${
+    class={`flex items-center gap-1.5 py-2 px-1 text-sm xl:text-[15px] font-semibold transition-colors focus:outline-none cursor-pointer nav-link-underline ${
       isChildActive ? 'text-brand font-bold is-active' : 'text-primary hover:text-brand'
     }`}
     aria-expanded="false"

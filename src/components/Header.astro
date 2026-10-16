@@ -13,7 +13,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
 
 <!-- Top Rating and Direct Phone Bar -->
 <div class="bg-primary text-slate-300 text-xs py-2 px-4 border-b border-brand-navy-dark relative z-50">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-wrap items-center justify-between gap-2">
     <!-- Rating badge -->
     <div class="flex items-center gap-2">
       <div class="flex text-amber-500" role="img" aria-label="5 star rating">
@@ -51,7 +51,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
   id="main-header"
   class="sticky top-0 z-50 glass-strong border-b border-white/80 transition-colors duration-200"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
     <div class="flex items-center justify-between h-20 gap-4">
       <!-- Logo Left (Uncropped with intrinsic aspect ratio) -->
       <a href="/" class="shrink-0 flex items-center" aria-label="HearMaxx Home">
@@ -67,7 +67,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
       </a>
 
       <!-- Desktop Nav Center/Right -->
-      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5" aria-label="Main navigation">
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8" aria-label="Main navigation">
         {hearingHealthItem && hearingHealthItem.children && (
           <Dropdown
             label={hearingHealthItem.label}
@@ -81,7 +81,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
           return (
             <a
               href={item.href}
-              class={`text-[13px] xl:text-sm font-semibold py-2 px-1 nav-link-underline transition-colors shrink-0 ${
+              class={`text-sm xl:text-[15px] font-semibold py-2 px-1.5 nav-link-underline transition-colors shrink-0 ${
                 isActive
                   ? 'text-brand font-bold is-active'
                   : 'text-primary hover:text-brand'
@@ -95,7 +95,7 @@ const directNavItems = siteConfig.navigation.filter((item) => item.label !== 'He
 
         <a
           href="/find-our-clinics/"
-          class={`text-[13px] xl:text-sm font-semibold py-2 px-1 nav-link-underline transition-colors shrink-0 ${
+          class={`text-sm xl:text-[15px] font-semibold py-2 px-1.5 nav-link-underline transition-colors shrink-0 ${
             currentPath === '/find-our-clinics/'
               ? 'text-brand font-bold is-active'
               : 'text-primary hover:text-brand'
