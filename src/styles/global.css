@@ -540,27 +540,131 @@
   }
 }
 
-/* Cross-Document View Transitions */
+/* Cross-Document & ClientRouter View Transitions */
 @view-transition {
   navigation: auto;
 }
 
-::view-transition-old(root),
+::view-transition-old(root) {
+  animation: page-fade-out 250ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
 ::view-transition-new(root) {
-  animation-duration: 180ms;
-  animation-timing-function: var(--ease-out);
+  animation: page-fade-in 320ms cubic-bezier(0, 0, 0.2, 1) both;
 }
 
-/* Scroll reveal (gated by html.js class) */
-html.js .scroll-reveal {
+@keyframes page-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.995);
+  }
+}
+
+@keyframes page-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   Comprehensive Scroll & Entrance Animation System
+   ========================================================================== */
+
+/* Base initial hidden state for all animated elements (only when js is active) */
+html.js .scroll-reveal,
+html.js .reveal-up,
+html.js .reveal-down,
+html.js .reveal-top,
+html.js .reveal-left,
+html.js .reveal-right,
+html.js .reveal-scale,
+html.js .reveal-fade {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 700ms;
 }
 
-html.js .scroll-reveal.revealed {
+/* 1. Slide Up from Bottom (default) */
+html.js .scroll-reveal,
+html.js .reveal-up {
+  transform: translateY(40px);
+}
+
+/* 2. Slide Down from Above */
+html.js .reveal-down,
+html.js .reveal-top {
+  transform: translateY(-40px);
+}
+
+/* 3. Slide In from Left */
+html.js .reveal-left {
+  transform: translateX(-50px);
+}
+
+/* 4. Slide In from Right */
+html.js .reveal-right {
+  transform: translateX(50px);
+}
+
+/* 5. Scale / Zoom In */
+html.js .reveal-scale {
+  transform: scale(0.94);
+}
+
+/* 6. Pure Soft Fade */
+html.js .reveal-fade {
+  transform: none;
+}
+
+/* Active / Revealed State */
+html.js .scroll-reveal.revealed,
+html.js .reveal-up.revealed,
+html.js .reveal-down.revealed,
+html.js .reveal-top.revealed,
+html.js .reveal-left.revealed,
+html.js .reveal-right.revealed,
+html.js .reveal-scale.revealed,
+html.js .reveal-fade.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delays for Grid Cards & Sub-elements */
+html.js .reveal-delay-100 { transition-delay: 100ms; }
+html.js .reveal-delay-150 { transition-delay: 150ms; }
+html.js .reveal-delay-200 { transition-delay: 200ms; }
+html.js .reveal-delay-250 { transition-delay: 250ms; }
+html.js .reveal-delay-300 { transition-delay: 300ms; }
+html.js .reveal-delay-350 { transition-delay: 350ms; }
+html.js .reveal-delay-400 { transition-delay: 400ms; }
+html.js .reveal-delay-500 { transition-delay: 500ms; }
+html.js .reveal-delay-600 { transition-delay: 600ms; }
+
+/* Duration Variants */
+html.js .reveal-duration-fast { transition-duration: 450ms; }
+html.js .reveal-duration-normal { transition-duration: 700ms; }
+html.js .reveal-duration-slow { transition-duration: 950ms; }
+
+/* Mobile viewport protection: prevent horizontal overflow on smaller screens */
+@media (max-width: 640px) {
+  html.js .reveal-left {
+    transform: translateX(-24px);
+  }
+  html.js .reveal-right {
+    transform: translateX(24px);
+  }
 }
 
 /* Reduced Motion Override */
@@ -578,8 +682,16 @@ html.js .scroll-reveal.revealed {
   .sheen-card::after {
     display: none !important;
   }
-  html.js .scroll-reveal {
+  html.js .scroll-reveal,
+  html.js .reveal-up,
+  html.js .reveal-down,
+  html.js .reveal-top,
+  html.js .reveal-left,
+  html.js .reveal-right,
+  html.js .reveal-scale,
+  html.js .reveal-fade {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 }

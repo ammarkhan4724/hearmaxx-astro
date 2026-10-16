@@ -32,7 +32,7 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/60 z-0"></div>
 
         <!-- Content Overlay -->
-        <div class="relative z-10 p-8 sm:p-12 lg:p-14">
+        <div class="relative z-10 p-8 sm:p-12 lg:p-14 reveal-down">
           <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <a href="/" class="hover:text-white transition-colors">Home</a>
             <Icon name="chevron-right" class="w-3 h-3 text-slate-400" />
@@ -58,14 +58,14 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       <!-- Interactive Appointment Form (Placed above on mobile, side-by-side on desktop) -->
-      <div class="lg:col-span-7 order-1 lg:order-2">
+      <div class="lg:col-span-7 order-1 lg:order-2 reveal-right">
         <AppointmentForm />
       </div>
 
       <!-- Clinic Information & General Inquiries (Below form on mobile, left column on desktop) -->
       <div class="lg:col-span-5 space-y-6 order-2 lg:order-1">
         <!-- Clinic Storefront Photo Centered with Border Radius -->
-        <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md flex items-center justify-center">
+        <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md flex items-center justify-center reveal-scale">
           <Image
             src={clinicMississaugaImg}
             alt="HearMaxx Mississauga hearing clinic welcoming storefront"
@@ -77,7 +77,7 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
           />
         </div>
 
-        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md space-y-6">
+        <div class="glass-light rounded-3xl p-8 border border-white/80 shadow-md space-y-6 reveal-left reveal-delay-100">
           <div class="space-y-2">
             <h2 class="text-2xl font-extrabold text-primary tracking-tight">
               General Inquiries
@@ -111,7 +111,7 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
         </div>
 
         <!-- Rating Callout -->
-        <div class="p-8 rounded-3xl glass-strong border border-white/90 shadow-md text-center space-y-3 glass-card-hover">
+        <div class="p-8 rounded-3xl glass-strong border border-white/90 shadow-md text-center space-y-3 glass-card-hover reveal-up reveal-delay-200">
           <div class="flex justify-center text-amber-500 gap-1" role="img" aria-label="5 star rating">
             <Icon name="star" class="w-5 h-5 fill-current" />
             <Icon name="star" class="w-5 h-5 fill-current" />
@@ -128,7 +128,7 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
 
   <!-- Bottom Question & Contact Section -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 reveal-up">
       <div class="space-y-3">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Have Questions? Not ready to book yet?
@@ -156,7 +156,7 @@ import { appointmentHeroImg, clinicMississaugaImg } from '../../assets';
 
   <!-- Bottom CTA (Glass Dark) -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="glass-dark rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl text-center space-y-6">
+    <div class="glass-dark rounded-3xl p-8 sm:p-12 border border-white/20 shadow-2xl text-center space-y-6 reveal-scale">
       <h2 class="text-3xl font-extrabold text-white tracking-tight">
         Step into a World of Clear, Vibrant Sound
       </h2>

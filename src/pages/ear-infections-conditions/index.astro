@@ -79,7 +79,7 @@ const otherConditionsFaqs = [
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/60 z-0"></div>
 
         <!-- Content Overlay -->
-        <div class="relative z-10 p-8 sm:p-12 lg:p-14">
+        <div class="relative z-10 p-8 sm:p-12 lg:p-14 reveal-down">
           <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <a href="/" class="hover:text-white transition-colors">Home</a>
             <Icon name="chevron-right" class="w-3 h-3 text-slate-400" />
@@ -121,7 +121,7 @@ const otherConditionsFaqs = [
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16 space-y-12">
     <!-- Featured Image in Glass Frame (Uncropped) -->
-    <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center">
+    <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-lg mx-auto flex items-center justify-center reveal-scale">
       <Image
         src={infectionsMiddleEarImg}
         alt="Anatomical diagram of the middle ear and Eustachian tube structure"
@@ -135,7 +135,7 @@ const otherConditionsFaqs = [
     </div>
 
     <!-- Introduction Card (68ch Measure) -->
-    <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md">
+    <div class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md reveal-up">
       <h2 class="sr-only">Ear Infections & Conditions</h2>
       <p class="text-secondary text-base sm:text-lg leading-relaxed max-w-[68ch]">
         At HearMaxx, under the expert guidance of our hearing expert Sheeraz Rahim, we are dedicated to providing comprehensive information and care for various ear-related issues. Understanding these conditions is the first step toward effective treatment and better hearing health. ​
@@ -144,7 +144,7 @@ const otherConditionsFaqs = [
 
     <!-- Group 1: Common Ear Infections (Premium FAQ) -->
     <section class="space-y-6">
-      <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center">
+      <div class="rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center reveal-down">
         <div class="w-full rounded-2xl overflow-hidden aspect-16/9 bg-white shadow-xs">
           <Image
             src={infectionsIllustration}
@@ -159,18 +159,20 @@ const otherConditionsFaqs = [
           Clinical comparison: Normal healthy eardrum structure vs. Acute Otitis Media with purulent effusion and inflammation.
         </p>
       </div>
-      <FaqAccordion
-        title="Common Ear Infections, Symptoms & Treatment"
-        subtitle="Detailed clinical profiles, symptoms, and medical treatment protocols."
-        items={infectionFaqs}
-        groupName="ear-infections-group"
-        showControls={false}
-        enableJsonLd={true}
-      />
+      <div class="reveal-up">
+        <FaqAccordion
+          title="Common Ear Infections, Symptoms & Treatment"
+          subtitle="Detailed clinical profiles, symptoms, and medical treatment protocols."
+          items={infectionFaqs}
+          groupName="ear-infections-group"
+          showControls={false}
+          enableJsonLd={true}
+        />
+      </div>
     </section>
 
     <!-- Group 2: Other Ear Conditions (Premium FAQ) -->
-    <section class="space-y-4">
+    <section class="space-y-4 reveal-up">
       <FaqAccordion
         title="Other Ear Conditions"
         subtitle="Evaluation and therapeutic pathways for complex middle and inner ear disorders."
@@ -183,7 +185,7 @@ const otherConditionsFaqs = [
 
     <!-- Hearing Loss Types -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-8" aria-labelledby="hearing-loss-types-heading">
-      <div>
+      <div class="reveal-down">
         <h2 id="hearing-loss-types-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
           Hearing Loss Types
         </h2>
@@ -194,7 +196,7 @@ const otherConditionsFaqs = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Conductive -->
-        <div class="glass-strong rounded-2xl p-6 border border-white/90 shadow-2xs space-y-4 glass-card-hover">
+        <div class="glass-strong rounded-2xl p-6 border border-white/90 shadow-2xs space-y-4 glass-card-hover reveal-left">
           <h3 class="text-xl font-bold text-primary">
             Conductive Hearing Loss
           </h3>
@@ -230,7 +232,7 @@ const otherConditionsFaqs = [
         </div>
 
         <!-- Sensorineural -->
-        <div class="glass-strong rounded-2xl p-6 border border-white/90 shadow-2xs space-y-4 glass-card-hover">
+        <div class="glass-strong rounded-2xl p-6 border border-white/90 shadow-2xs space-y-4 glass-card-hover reveal-right">
           <h3 class="text-xl font-bold text-primary">
             Sensorineural Hearing Loss
           </h3>
@@ -265,7 +267,7 @@ const otherConditionsFaqs = [
 
     <!-- Prevention Tips -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6" aria-labelledby="prevention-tips-heading">
-      <div>
+      <div class="reveal-down">
         <h2 id="prevention-tips-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
           Prevention Tips
         </h2>
@@ -275,31 +277,31 @@ const otherConditionsFaqs = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-sm text-secondary">
-        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-left reveal-delay-100">
           <span class="p-1 rounded-full bg-emerald-100 text-emerald-700 mt-0.5 shrink-0">
             <Icon name="check" class="w-3.5 h-3.5" />
           </span>
           <span>Keep ears dry and clean.</span>
         </div>
-        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-right reveal-delay-200">
           <span class="p-1 rounded-full bg-emerald-100 text-emerald-700 mt-0.5 shrink-0">
             <Icon name="check" class="w-3.5 h-3.5" />
           </span>
           <span>Avoid inserting objects into the ear canal.</span>
         </div>
-        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-left reveal-delay-300">
           <span class="p-1 rounded-full bg-emerald-100 text-emerald-700 mt-0.5 shrink-0">
             <Icon name="check" class="w-3.5 h-3.5" />
           </span>
           <span>Manage allergies and upper respiratory infections promptly.</span>
         </div>
-        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-right reveal-delay-400">
           <span class="p-1 rounded-full bg-emerald-100 text-emerald-700 mt-0.5 shrink-0">
             <Icon name="check" class="w-3.5 h-3.5" />
           </span>
           <span>Stay up-to-date with vaccinations.</span>
         </div>
-        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 sm:col-span-2">
+        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 sm:col-span-2 reveal-up reveal-delay-500">
           <span class="p-1 rounded-full bg-emerald-100 text-emerald-700 mt-0.5 shrink-0">
             <Icon name="check" class="w-3.5 h-3.5" />
           </span>
@@ -309,7 +311,7 @@ const otherConditionsFaqs = [
     </section>
 
     <!-- Ear Health Consultation Banner (Aligned with sections, border-radius preserved, no white border) -->
-    <div class="mt-12 w-full rounded-3xl overflow-hidden shadow-lg">
+    <div class="mt-12 w-full rounded-3xl overflow-hidden shadow-lg reveal-scale">
       <Image
         src={infectionsCareBannerImg}
         alt="Comprehensive ear health care and specialist consultation support"
@@ -321,7 +323,7 @@ const otherConditionsFaqs = [
     </div>
 
     <!-- Consultation CTA Card (Glass Dark with Photographic Depth) -->
-    <div class="relative mt-8 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+    <div class="relative mt-8 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden reveal-scale">
       <!-- Background Image with Gradient Overlay -->
       <div class="absolute inset-0 pointer-events-none">
         <Image

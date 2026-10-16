@@ -117,7 +117,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/60 z-0"></div>
 
         <!-- Content Overlay -->
-        <div class="relative z-10 p-8 sm:p-12 lg:p-14">
+        <div class="relative z-10 p-8 sm:p-12 lg:p-14 reveal-down">
           <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <a href="/" class="hover:text-white transition-colors">Home</a>
             <Icon name="chevron-right" class="w-3 h-3 text-slate-400" />
@@ -161,7 +161,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     <!-- Section 1: What is Tinnitus & Ear Anatomy Cutaway -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-7 space-y-4">
+        <div class="md:col-span-7 space-y-4 reveal-left">
           <span class="inline-block px-3.5 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
             Clinical Overview
           </span>
@@ -173,7 +173,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
             Tinnitus is the sensation of hearing sound—commonly described as ringing, buzzing, hissing, or clicking—when no external noise is present. It can occur in one or both ears, be constant or intermittent, and vary in pitch and volume. When tinnitus persists for three months or more, it is classified as chronic and may require intervention to manage its impact on daily life.
           </p>
         </div>
-        <div class="md:col-span-5 flex justify-center">
+        <div class="md:col-span-5 flex justify-center reveal-right">
           <div class="rounded-3xl overflow-hidden glass-strong p-3 border border-white/90 shadow-md max-w-sm">
             <Image
               src={tinnitusReliefImg}
@@ -190,7 +190,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     </section>
 
     <!-- Section 2: Causes of Tinnitus (Premium FAQ) -->
-    <section class="space-y-4" aria-labelledby="causes-tinnitus-heading">
+    <section class="space-y-4 reveal-up" aria-labelledby="causes-tinnitus-heading">
       <FaqAccordion
         title="Causes of Tinnitus"
         subtitle="Explore the underlying physiological and acoustic factors contributing to phantom auditory perception."
@@ -203,7 +203,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
     <!-- Section 3: Types and Symptoms (Glass Card Grid) -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6" aria-labelledby="types-symptoms-heading">
-      <div>
+      <div class="reveal-down">
         <h2 id="types-symptoms-heading" class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
           Types and Symptoms
         </h2>
@@ -214,7 +214,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {typesOfTinnitus.map((t, idx) => (
-          <div class="glass-strong rounded-2xl p-5 border border-white/90 shadow-2xs space-y-2 glass-card-hover">
+          <div class={`glass-strong rounded-2xl p-5 border border-white/90 shadow-2xs space-y-2 glass-card-hover reveal-up reveal-delay-${(idx + 1) * 100}`}>
             <div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center">
                 {idx + 1}
@@ -230,14 +230,14 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
         ))}
       </div>
 
-      <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 text-sm text-secondary leading-relaxed">
+      <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 text-sm text-secondary leading-relaxed reveal-fade">
         Common symptoms include difficulty concentrating, sleep disturbances, and emotional distress such as anxiety or depression when tinnitus is severe.
       </div>
     </section>
 
     <!-- Section 4: Understanding the Impact on Inner Ear Hair Cells -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6">
-      <div class="space-y-3">
+      <div class="space-y-3 reveal-left">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
           Understanding the Impact on Inner Ear Hair Cells
         </h2>
@@ -250,7 +250,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
       </div>
 
       <!-- Loud Sounds Impact Clinical Diagram (Authentic Master Image) -->
-      <div class="my-6 rounded-2xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-sm max-w-2xl mx-auto flex flex-col items-center">
+      <div class="my-6 rounded-2xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-sm max-w-2xl mx-auto flex flex-col items-center reveal-scale">
         <h3 class="text-sm font-bold text-primary mb-2.5 text-center">See How Loud Sounds Impact Your Hearing!</h3>
         <Image
           src={tinnitusLoudSoundsImg}
@@ -267,29 +267,29 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
       <!-- Tips for Safe Earbud Use -->
       <div class="pt-6 border-t border-border-subtle/80 space-y-4">
-        <h2 class="text-xl font-bold text-primary tracking-tight">
+        <h2 class="text-xl font-bold text-primary tracking-tight reveal-down">
           Tips for Safe Earbud Use
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-sm text-secondary">
-          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-left reveal-delay-100">
             <span class="p-1 rounded-full bg-brand/10 text-brand mt-0.5 shrink-0">
               <Icon name="check" class="w-3.5 h-3.5" />
             </span>
             <span><strong class="text-primary font-bold">Follow the 60/60 rule:</strong> Listen at no more than 60% of maximum volume for no more than 60 minutes at a time.</span>
           </div>
-          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-right reveal-delay-200">
             <span class="p-1 rounded-full bg-brand/10 text-brand mt-0.5 shrink-0">
               <Icon name="check" class="w-3.5 h-3.5" />
             </span>
             <span><strong class="text-primary font-bold">Use noise-cancelling earbuds :</strong> These can help reduce the need to increase volume in noisy environments.</span>
           </div>
-          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-left reveal-delay-300">
             <span class="p-1 rounded-full bg-brand/10 text-brand mt-0.5 shrink-0">
               <Icon name="check" class="w-3.5 h-3.5" />
             </span>
             <span><strong class="text-primary font-bold">Take regular breaks:</strong> Give your ears time to rest and recover.</span>
           </div>
-          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80">
+          <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/60 border border-white/80 reveal-right reveal-delay-400">
             <span class="p-1 rounded-full bg-brand/10 text-brand mt-0.5 shrink-0">
               <Icon name="check" class="w-3.5 h-3.5" />
             </span>
@@ -301,7 +301,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
     <!-- Section 5: Video Section -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6" aria-labelledby="video-hearing-impact">
-      <div class="space-y-2">
+      <div class="space-y-2 reveal-down">
         <h2 id="video-hearing-impact" class="text-2xl sm:text-3xl font-extrabold text-primary">
           See how loud sounds Impact your hearing!
         </h2>
@@ -310,7 +310,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
         </p>
       </div>
 
-      <div id="tinnitus-video-wrapper" class="video-facade-wrapper relative w-full aspect-video rounded-3xl overflow-hidden bg-slate-950 shadow-2xl border border-white/20 flex items-center justify-center group" data-video-id="qyFaUA14-KQ" data-video-title="See how loud sounds Impact your hearing!">
+      <div id="tinnitus-video-wrapper" class="video-facade-wrapper relative w-full aspect-video rounded-3xl overflow-hidden bg-slate-950 shadow-2xl border border-white/20 flex items-center justify-center group reveal-scale" data-video-id="qyFaUA14-KQ" data-video-title="See how loud sounds Impact your hearing!">
         <!-- YouTube Player Container -->
         <div id="tinnitus-yt-player" class="w-full h-full absolute inset-0"></div>
 
@@ -369,31 +369,33 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
 
     <!-- Section 6: Diagnosis and Evaluation -->
     <section class="glass-light rounded-3xl p-8 sm:p-10 border border-white/80 shadow-md space-y-6">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
-        Diagnosis and Evaluation
-      </h2>
-      <p class="text-secondary text-base">
-        A thorough evaluation by an audiologist includes :
-      </p>
+      <div class="reveal-down">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
+          Diagnosis and Evaluation
+        </h2>
+        <p class="text-secondary text-base">
+          A thorough evaluation by an audiologist includes :
+        </p>
+      </div>
 
       <div class="space-y-3">
-        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3">
+        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3 reveal-left reveal-delay-100">
           <span class="w-7 h-7 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
           <p class="text-sm sm:text-base text-secondary font-medium">Medical & Otoscopic Exam: To detect earwax, infections, or structural issues.</p>
         </div>
-        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3">
+        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3 reveal-right reveal-delay-200">
           <span class="w-7 h-7 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
           <p class="text-sm sm:text-base text-secondary font-medium">Pure-Tone & Speech Audiometry: To assess hearing thresholds and speech-understanding ability</p>
         </div>
-        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3">
+        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3 reveal-left reveal-delay-300">
           <span class="w-7 h-7 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
           <p class="text-sm sm:text-base text-secondary font-medium">Tympanometry: To evaluate middle-ear pressure and eardrum mobility</p>
         </div>
-        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3">
+        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3 reveal-right reveal-delay-400">
           <span class="w-7 h-7 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
           <p class="text-sm sm:text-base text-secondary font-medium">Otoacoustic Emissions (OAE): To measure cochlear hair-cell function</p>
         </div>
-        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3">
+        <div class="p-4 rounded-2xl bg-white/70 border border-border-subtle/80 flex items-start gap-3 reveal-left reveal-delay-500">
           <span class="w-7 h-7 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">5</span>
           <p class="text-sm sm:text-base text-secondary font-medium">Questionnaires & Tinnitus Matching: To quantify tinnitus loudness, pitch, and handicap .</p>
         </div>
@@ -401,7 +403,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     </section>
 
     <!-- Section 7: Treatment Options (Premium FAQ) -->
-    <section class="space-y-6" aria-labelledby="treatment-options-heading">
+    <section class="space-y-6 reveal-up" aria-labelledby="treatment-options-heading">
       <FaqAccordion
         title="Treatment Options"
         subtitle="Clinical sound therapy, habituation protocols, and customized medical strategies."
@@ -412,7 +414,7 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
     </section>
 
     <!-- Section 8: Consultation CTA Card (Glass Dark with Photographic Depth) -->
-    <div class="relative mt-14 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+    <div class="relative mt-14 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden reveal-scale">
       <!-- Background Image with Gradient Overlay -->
       <div class="absolute inset-0 pointer-events-none">
         <Image

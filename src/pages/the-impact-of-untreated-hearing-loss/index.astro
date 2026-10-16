@@ -79,7 +79,7 @@ const mythsFaqs = [
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/60 z-0"></div>
 
         <!-- Content Overlay -->
-        <div class="relative z-10 p-8 sm:p-12 lg:p-14">
+        <div class="relative z-10 p-8 sm:p-12 lg:p-14 reveal-down">
           <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <a href="/" class="hover:text-white transition-colors">Home</a>
             <Icon name="chevron-right" class="w-3 h-3 text-slate-400" />
@@ -121,7 +121,7 @@ const mythsFaqs = [
   <!-- Article Body -->
   <article class="max-w-4xl mx-auto px-4 sm:px-6 py-6 pb-16">
     <!-- Article Content in 68ch Reading Column -->
-    <div class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md">
+    <div class="glass-light rounded-3xl p-8 sm:p-12 border border-white/80 shadow-md reveal-up">
       <div class="reading-column prose-clinical">
         <Content />
       </div>
@@ -129,7 +129,7 @@ const mythsFaqs = [
       <!-- Visual Showcases in Glass Frames -->
       <div class="mt-10 pt-8 border-t border-border-subtle/80 space-y-8 max-w-2xl mx-auto">
         <!-- Emotional & Mental Well-Being -->
-        <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center">
+        <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center reveal-scale">
           <Image
             src={impactEmotionalImg}
             alt="Emotional and mental well-being in personal relationships and hearing health"
@@ -145,7 +145,7 @@ const mythsFaqs = [
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <!-- Cognitive Health Visualization -->
-          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
+          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center reveal-left reveal-delay-100">
             <div class="w-full rounded-xl overflow-hidden aspect-16/9 shadow-xs bg-slate-900">
               <Image
                 src={impactCognitiveImg}
@@ -162,7 +162,7 @@ const mythsFaqs = [
           </div>
 
           <!-- Social Connections Photography -->
-          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center">
+          <div class="rounded-2xl overflow-hidden glass-strong p-4 border border-white/90 shadow-sm flex flex-col items-center justify-between text-center reveal-right reveal-delay-200">
             <div class="w-full rounded-2xl overflow-hidden aspect-16/9 shadow-xs">
               <Image
                 src={impactSocialConnectionsImg}
@@ -183,7 +183,7 @@ const mythsFaqs = [
 
     <!-- Myths vs Facts Premium Section -->
     <section class="mt-12" aria-labelledby="myths-table-heading">
-      <div class="mb-8 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center">
+      <div class="mb-8 rounded-3xl overflow-hidden glass-strong p-3 sm:p-4 border border-white/90 shadow-md max-w-2xl mx-auto flex flex-col items-center reveal-down">
         <div class="w-full rounded-2xl overflow-hidden aspect-16/9 shadow-xs">
           <Image
             src={impactMythsFactsImg}
@@ -198,18 +198,20 @@ const mythsFaqs = [
           Evidence-based audiological assessments separate hearing loss facts from common misconceptions.
         </p>
       </div>
-      <FaqAccordion
-        title="Common Myths About Hearing Loss"
-        subtitle="Separating widespread hearing misconceptions from evidence-based clinical facts."
-        items={mythsFaqs}
-        groupName="myths-group"
-        showControls={true}
-        enableJsonLd={true}
-      />
+      <div class="reveal-up">
+        <FaqAccordion
+          title="Common Myths About Hearing Loss"
+          subtitle="Separating widespread hearing misconceptions from evidence-based clinical facts."
+          items={mythsFaqs}
+          groupName="myths-group"
+          showControls={true}
+          enableJsonLd={true}
+        />
+      </div>
     </section>
 
     <!-- Consultation CTA Card (Glass Dark with Photographic Depth) -->
-    <div class="relative mt-14 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+    <div class="relative mt-14 p-8 sm:p-12 rounded-3xl glass-dark border border-white/20 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden reveal-scale">
       <!-- Background Image with Gradient Overlay -->
       <div class="absolute inset-0 pointer-events-none">
         <Image
