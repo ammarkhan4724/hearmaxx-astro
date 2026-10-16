@@ -323,14 +323,14 @@ const allFaqs = [...causesFaqs, ...treatmentFaqs];
           <Image
             src={tinnitusVideoCoverImg}
             alt="Tinnitus Causes and Treatment Video Cover"
-            width={1280}
-            height={720}
-            class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-105"
+            width={1920}
+            height={1080}
+            class="absolute inset-0 w-full h-full object-cover z-0"
             loading="lazy"
             decoding="async"
           />
-          <!-- Gradient Vignette for Depth & Contrast -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-slate-950/40 z-10 pointer-events-none"></div>
+          <!-- Gradient Vignette for Depth & Contrast (clear at top so text is 100% sharp) -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent z-10 pointer-events-none"></div>
 
           <!-- Highly Visible Play Button -->
           <button
